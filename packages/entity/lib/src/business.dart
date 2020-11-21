@@ -12,6 +12,7 @@ class Business extends Equatable {
   final String description;
   final Location location;
   final String address;
+  final String displayImage;
   final List<String> images;
   final List<MenuItem> menu;
 
@@ -22,6 +23,7 @@ class Business extends Equatable {
       @required this.description,
       @required this.location,
       @required this.address,
+      @required this.displayImage,
       @required this.images,
       @required this.menu})
       : assert(id != null),
@@ -35,6 +37,16 @@ class Business extends Equatable {
 
   @override
   List<Object> get props {
-    return [id, name, type, description, location, address, images, menu];
+    return [
+      id,
+      name,
+      type,
+      description,
+      location,
+      address,
+      displayImage,
+      images,
+      menu
+    ];
   }
 }
