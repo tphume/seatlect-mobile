@@ -72,7 +72,7 @@ packages:
     source: hosted
     version: "0.2.12"
   grpc:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: grpc
       url: "https://pub.dartlang.org"
