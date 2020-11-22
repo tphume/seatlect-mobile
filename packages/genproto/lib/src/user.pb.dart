@@ -1,0 +1,359 @@
+///
+//  Generated code. Do not modify.
+//  source: user.proto
+//
+// @dart = 2.3
+// ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields
+
+import 'dart:core' as $core;
+
+import 'package:protobuf/protobuf.dart' as $pb;
+
+import 'common.pb.dart' as $1;
+
+class SignInRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'SignInRequest',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'seatlect'),
+      createEmptyInstance: create)
+    ..aOS(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'username')
+    ..aOS(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'password')
+    ..hasRequiredFields = false;
+
+  SignInRequest._() : super();
+  factory SignInRequest() => create();
+  factory SignInRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory SignInRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  SignInRequest clone() => SignInRequest()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  SignInRequest copyWith(void Function(SignInRequest) updates) =>
+      super.copyWith((message) =>
+          updates(message as SignInRequest)); // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static SignInRequest create() => SignInRequest._();
+  SignInRequest createEmptyInstance() => create();
+  static $pb.PbList<SignInRequest> createRepeated() =>
+      $pb.PbList<SignInRequest>();
+  @$core.pragma('dart2js:noInline')
+  static SignInRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<SignInRequest>(create);
+  static SignInRequest _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get username => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set username($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasUsername() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearUsername() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get password => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set password($core.String v) {
+    $_setString(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasPassword() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearPassword() => clearField(2);
+}
+
+class SignInResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'SignInResponse',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'seatlect'),
+      createEmptyInstance: create)
+    ..aOS(
+        1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'refreshToken',
+        protoName: 'refreshToken')
+    ..aOS(
+        2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'jwtToken',
+        protoName: 'jwtToken')
+    ..aOM<$1.User>(
+        3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'user',
+        subBuilder: $1.User.create)
+    ..hasRequiredFields = false;
+
+  SignInResponse._() : super();
+  factory SignInResponse() => create();
+  factory SignInResponse.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory SignInResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  SignInResponse clone() => SignInResponse()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  SignInResponse copyWith(void Function(SignInResponse) updates) =>
+      super.copyWith((message) =>
+          updates(message as SignInResponse)); // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static SignInResponse create() => SignInResponse._();
+  SignInResponse createEmptyInstance() => create();
+  static $pb.PbList<SignInResponse> createRepeated() =>
+      $pb.PbList<SignInResponse>();
+  @$core.pragma('dart2js:noInline')
+  static SignInResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<SignInResponse>(create);
+  static SignInResponse _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get refreshToken => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set refreshToken($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasRefreshToken() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearRefreshToken() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get jwtToken => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set jwtToken($core.String v) {
+    $_setString(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasJwtToken() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearJwtToken() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $1.User get user => $_getN(2);
+  @$pb.TagNumber(3)
+  set user($1.User v) {
+    setField(3, v);
+  }
+
+  @$pb.TagNumber(3)
+  $core.bool hasUser() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearUser() => clearField(3);
+  @$pb.TagNumber(3)
+  $1.User ensureUser() => $_ensure(2);
+}
+
+class SignUpRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'SignUpRequest',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'seatlect'),
+      createEmptyInstance: create)
+    ..aOS(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'username')
+    ..aOS(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'password')
+    ..aOS(
+        3,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'dob')
+    ..hasRequiredFields = false;
+
+  SignUpRequest._() : super();
+  factory SignUpRequest() => create();
+  factory SignUpRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory SignUpRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  SignUpRequest clone() => SignUpRequest()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  SignUpRequest copyWith(void Function(SignUpRequest) updates) =>
+      super.copyWith((message) =>
+          updates(message as SignUpRequest)); // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static SignUpRequest create() => SignUpRequest._();
+  SignUpRequest createEmptyInstance() => create();
+  static $pb.PbList<SignUpRequest> createRepeated() =>
+      $pb.PbList<SignUpRequest>();
+  @$core.pragma('dart2js:noInline')
+  static SignUpRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<SignUpRequest>(create);
+  static SignUpRequest _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get username => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set username($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasUsername() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearUsername() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get password => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set password($core.String v) {
+    $_setString(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasPassword() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearPassword() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get dob => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set dob($core.String v) {
+    $_setString(2, v);
+  }
+
+  @$pb.TagNumber(3)
+  $core.bool hasDob() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearDob() => clearField(3);
+}
+
+class SignUpResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'SignUpResponse',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'seatlect'),
+      createEmptyInstance: create)
+    ..aOS(
+        1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'refreshToken',
+        protoName: 'refreshToken')
+    ..aOS(
+        2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'jwtToken',
+        protoName: 'jwtToken')
+    ..aOM<$1.User>(
+        3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'user',
+        subBuilder: $1.User.create)
+    ..hasRequiredFields = false;
+
+  SignUpResponse._() : super();
+  factory SignUpResponse() => create();
+  factory SignUpResponse.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory SignUpResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  SignUpResponse clone() => SignUpResponse()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  SignUpResponse copyWith(void Function(SignUpResponse) updates) =>
+      super.copyWith((message) =>
+          updates(message as SignUpResponse)); // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static SignUpResponse create() => SignUpResponse._();
+  SignUpResponse createEmptyInstance() => create();
+  static $pb.PbList<SignUpResponse> createRepeated() =>
+      $pb.PbList<SignUpResponse>();
+  @$core.pragma('dart2js:noInline')
+  static SignUpResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<SignUpResponse>(create);
+  static SignUpResponse _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get refreshToken => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set refreshToken($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasRefreshToken() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearRefreshToken() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get jwtToken => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set jwtToken($core.String v) {
+    $_setString(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasJwtToken() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearJwtToken() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $1.User get user => $_getN(2);
+  @$pb.TagNumber(3)
+  set user($1.User v) {
+    setField(3, v);
+  }
+
+  @$pb.TagNumber(3)
+  $core.bool hasUser() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearUser() => clearField(3);
+  @$pb.TagNumber(3)
+  $1.User ensureUser() => $_ensure(2);
+}
