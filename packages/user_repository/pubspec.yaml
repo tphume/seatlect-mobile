@@ -11,3 +11,5 @@ environment:
 dependencies:
   meta: ^1.2.4
   equatable: ^1.2.5
+  entity:
+    path: ../entity
