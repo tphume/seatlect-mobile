@@ -12,3 +12,5 @@ dependencies:
   meta: ^1.2.4
   entity:
     path: ../entity
+  genproto:
+    path: ../genproto
