@@ -10,6 +10,7 @@ environment:
 
 dependencies:
   meta: ^1.2.4
+  grpc: ^2.8.0
   entity:
     path: ../entity
   genproto:
