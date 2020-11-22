@@ -11,6 +11,12 @@ class UserRepo {
     yield* _controller.stream;
   }
 
+  Future<void> login() {
+    return Future<void>(() => {});
+  }
+
+  void logout() {}
+
   void dispose() => _controller.close();
 }
 
@@ -22,6 +28,12 @@ class MockUserRepo implements UserRepo {
     yield _user;
     yield* _controller.stream;
   }
+
+  Future<void> login() {
+    return Future<void>(() => {});
+  }
+
+  void logout() {}
 
   void dispose() => _controller.close();
 }
