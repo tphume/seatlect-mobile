@@ -66,7 +66,10 @@ class UserRepo {
     return this._controller.add(this._user);
   }
 
-  void logout() {}
+  void logout() {
+    this._user = User.empty;
+    this._controller.add(this._user);
+  }
 
   void dispose() => _controller.close();
 }
@@ -101,7 +104,10 @@ class MockUserRepo implements UserRepo {
     this._controller.add(this._user);
   }
 
-  void logout() {}
+  void logout() {
+    this._user = User.empty;
+    this._controller.add(this._user);
+  }
 
   void dispose() => _controller.close();
 }
