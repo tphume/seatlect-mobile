@@ -1,4 +1,7 @@
 import 'dart:async';
+import 'dart:developer' as developer;
+
+import 'package:grpc/grpc.dart';
 import 'package:meta/meta.dart';
 
 import 'package:entity/entity.dart';
@@ -21,8 +24,43 @@ class UserRepo {
     yield* _controller.stream;
   }
 
-  Future<void> login() {
-    return Future<void>(() => {});
+  Future<void> login(String username, String password) async {
+    final request = api.SignInRequest()
+      ..username = username
+      ..password = password;
+
+    try {
+      final response = await this.client.signIn(request);
+      final user = response.user;
+
+      this._user = User(
+          username: user.username,
+          dob: DateTime.parse(user.dob),
+          avatar: user.avatar,
+          preference: user.preference,
+          favorite: user.favorite.map<Business>((e) => Business(
+              id: e.id,
+              name: e.name,
+              type: e.type,
+              description: e.description,
+              location: Location(
+                  latitude: e.location.latitude,
+                  longitude: e.location.longitude),
+              address: e.address,
+              displayImage: e.displayImage,
+              images: e.images,
+              menu: null)));
+
+      return this._controller.add(this._user);
+    } on GrpcError catch (e) {
+      developer.log('gRPC error at login',
+          time: DateTime.now(), name: 'UserRepo', error: e);
+    } catch (e) {
+      developer.log('non-gRPC error at login',
+          time: DateTime.now(), name: 'UserRepo', error: e);
+    }
+
+    return this._controller.add(this._user);
   }
 
   void logout() {}
@@ -47,8 +85,17 @@ class MockUserRepo implements UserRepo {
     yield* _controller.stream;
   }
 
-  Future<void> login() {
-    return Future<void>(() => {});
+  Future<void> login(String username, String password) async {
+    await Future.delayed(Duration(seconds: 1));
+
+    this._user = User(
+        username: 'Jiaroach',
+        dob: new DateTime.utc(1999, 2, 25),
+        avatar: 'assets/avatar01.png',
+        preference: ['BEER', 'BURGER', 'JAPANESE'],
+        favorite: []);
+
+    this._controller.add(this._user);
   }
 
   void logout() {}
