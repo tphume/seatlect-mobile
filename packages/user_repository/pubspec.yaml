@@ -9,5 +9,9 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  grpc: ^2.8.0
   meta: ^1.2.4
-  equatable: ^1.2.5
+  entity:
+    path: ../entity
+  genproto:
+    path: ../genproto
