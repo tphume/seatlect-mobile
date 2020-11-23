@@ -11,4 +11,3 @@ environment:
 dependencies:
   grpc: ^2.8.0
   meta: ^1.2.4
-  bloc: ^6.1.0
