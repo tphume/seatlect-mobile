@@ -13,10 +13,10 @@ class TokenManager {
   String _jwtToken = '';
 
   // For other components to update the jwt token if needed
-  final _controller = StreamController<Token>();
+  final controller = StreamController<Token>();
 
   TokenManager() {
-    _controller.stream.listen((event) {
+    controller.stream.listen((event) {
       if (event == null) {
         return;
       }
@@ -31,9 +31,5 @@ class TokenManager {
     });
   }
 
-  Stream<Token> get token async* {
-    yield* this._controller.stream;
-  }
-
-  void dispose() => _controller.close();
+  void dispose() => controller.close();
 }

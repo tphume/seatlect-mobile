@@ -6,6 +6,7 @@ import 'package:meta/meta.dart';
 
 import 'package:entity/entity.dart';
 import 'package:genproto/genproto.dart' as api;
+import 'package:token_manager/token_manager.dart';
 
 class UserRepo {
   // This is used to communicate with the presentation layer of the application
@@ -14,10 +15,15 @@ class UserRepo {
   // For pushing updates to the presentation layer
   final _controller = StreamController<User>();
 
+  // Token manager stream used to push tokens on login
+  StreamController<Token> tokenController;
+
   // Client for calling gRPC endpoint
   api.UserServiceClient client;
 
-  UserRepo({@required this.client}) : assert(client != null) {
+  UserRepo({@required this.client, @required this.tokenController})
+      : assert(client != null),
+        assert(tokenController != null) {
     this._user = User.empty;
   }
 
@@ -40,20 +46,20 @@ class UserRepo {
           dob: DateTime.parse(user.dob),
           avatar: user.avatar,
           preference: user.preference,
-          favorite: user.favorite.map<Business>((e) =>
-              Business(
-                  id: e.id,
-                  name: e.name,
-                  type: e.type,
-                  description: e.description,
-                  location: Location(
-                      latitude: e.location.latitude,
-                      longitude: e.location.longitude),
-                  address: e.address,
-                  displayImage: e.displayImage,
-                  images: e.images,
-                  menu: null)));
+          favorite: user.favorite.map<Business>((e) => Business(
+              id: e.id,
+              name: e.name,
+              type: e.type,
+              description: e.description,
+              location: Location(
+                  latitude: e.location.latitude,
+                  longitude: e.location.longitude),
+              address: e.address,
+              displayImage: e.displayImage,
+              images: e.images,
+              menu: null)));
 
+      this.tokenController.add(Token(response.refreshToken, response.jwtToken));
       return this._controller.add(this._user);
     } on GrpcError catch (e) {
       developer.log('gRPC error at login',
@@ -82,10 +88,12 @@ class MockUserRepo implements UserRepo {
   // For pushing updates to the presentation layer
   final _controller = StreamController<User>();
 
+  StreamController<Token> tokenController;
+
   // Client for calling gRPC endpoint - mock doesn't actually use this
   api.UserServiceClient client;
 
-  MockUserRepo({@required this.client}) {
+  MockUserRepo() {
     this._user = User.empty;
   }
 
