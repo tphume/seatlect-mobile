@@ -14,10 +14,15 @@ class UserRepo {
   // For pushing updates to the presentation layer
   final _controller = StreamController<User>();
 
+  // Token manager stream used to push tokens on login
+  StreamController<String> tokenController;
+
   // Client for calling gRPC endpoint
   api.UserServiceClient client;
 
-  UserRepo({@required this.client}) : assert(client != null) {
+  UserRepo({@required this.client, @required this.tokenController})
+      : assert(client != null),
+        assert(tokenController != null) {
     this._user = User.empty;
   }
 
@@ -53,6 +58,7 @@ class UserRepo {
               images: e.images,
               menu: null)));
 
+      this.tokenController.add(response.token);
       return this._controller.add(this._user);
     } on GrpcError catch (e) {
       developer.log('gRPC error at login',
@@ -81,10 +87,14 @@ class MockUserRepo implements UserRepo {
   // For pushing updates to the presentation layer
   final _controller = StreamController<User>();
 
+  StreamController<String> tokenController;
+
   // Client for calling gRPC endpoint - mock doesn't actually use this
   api.UserServiceClient client;
 
-  MockUserRepo({@required this.client});
+  MockUserRepo() {
+    this._user = User.empty;
+  }
 
   Stream<User> get user async* {
     yield _user;

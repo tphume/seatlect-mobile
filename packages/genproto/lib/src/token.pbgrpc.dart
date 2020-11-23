@@ -14,21 +14,22 @@ import 'token.pb.dart' as $0;
 export 'token.pb.dart';
 
 class TokenServiceClient extends $grpc.Client {
-  static final _$fetchJWT =
-      $grpc.ClientMethod<$0.FetchJWTRequest, $0.FetchJWTResponse>(
-          '/seatlect.TokenService/FetchJWT',
-          ($0.FetchJWTRequest value) => value.writeToBuffer(),
+  static final _$fetchToken =
+      $grpc.ClientMethod<$0.FetchTokenRequest, $0.FetchTokenResponse>(
+          '/seatlect.TokenService/FetchToken',
+          ($0.FetchTokenRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
-              $0.FetchJWTResponse.fromBuffer(value));
+              $0.FetchTokenResponse.fromBuffer(value));
 
   TokenServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions options,
       $core.Iterable<$grpc.ClientInterceptor> interceptors})
       : super(channel, options: options, interceptors: interceptors);
 
-  $grpc.ResponseFuture<$0.FetchJWTResponse> fetchJWT($0.FetchJWTRequest request,
+  $grpc.ResponseFuture<$0.FetchTokenResponse> fetchToken(
+      $0.FetchTokenRequest request,
       {$grpc.CallOptions options}) {
-    return $createUnaryCall(_$fetchJWT, request, options: options);
+    return $createUnaryCall(_$fetchToken, request, options: options);
   }
 }
 
@@ -36,20 +37,20 @@ abstract class TokenServiceBase extends $grpc.Service {
   $core.String get $name => 'seatlect.TokenService';
 
   TokenServiceBase() {
-    $addMethod($grpc.ServiceMethod<$0.FetchJWTRequest, $0.FetchJWTResponse>(
-        'FetchJWT',
-        fetchJWT_Pre,
+    $addMethod($grpc.ServiceMethod<$0.FetchTokenRequest, $0.FetchTokenResponse>(
+        'FetchToken',
+        fetchToken_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $0.FetchJWTRequest.fromBuffer(value),
-        ($0.FetchJWTResponse value) => value.writeToBuffer()));
+        ($core.List<$core.int> value) => $0.FetchTokenRequest.fromBuffer(value),
+        ($0.FetchTokenResponse value) => value.writeToBuffer()));
   }
 
-  $async.Future<$0.FetchJWTResponse> fetchJWT_Pre(
-      $grpc.ServiceCall call, $async.Future<$0.FetchJWTRequest> request) async {
-    return fetchJWT(call, await request);
+  $async.Future<$0.FetchTokenResponse> fetchToken_Pre($grpc.ServiceCall call,
+      $async.Future<$0.FetchTokenRequest> request) async {
+    return fetchToken(call, await request);
   }
 
-  $async.Future<$0.FetchJWTResponse> fetchJWT(
-      $grpc.ServiceCall call, $0.FetchJWTRequest request);
+  $async.Future<$0.FetchTokenResponse> fetchToken(
+      $grpc.ServiceCall call, $0.FetchTokenRequest request);
 }
