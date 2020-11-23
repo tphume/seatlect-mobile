@@ -17,7 +17,9 @@ class UserRepo {
   // Client for calling gRPC endpoint
   api.UserServiceClient client;
 
-  UserRepo({@required this.client}) : assert(client != null);
+  UserRepo({@required this.client}) : assert(client != null) {
+    this._user = User.empty;
+  }
 
   Stream<User> get user async* {
     yield _user;
@@ -60,6 +62,7 @@ class UserRepo {
           time: DateTime.now(), name: 'UserRepo', error: e);
     }
 
+    this._user = User.empty;
     return this._controller.add(this._user);
   }
 

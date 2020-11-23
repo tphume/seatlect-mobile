@@ -10,17 +10,17 @@ class User extends Equatable {
   final List<String> preference;
   final List<Business> favorite;
 
-  User(
+  const User(
       {@required this.username,
       @required this.dob,
       @required this.avatar,
       @required this.preference,
       @required this.favorite})
       : assert(username != null),
-        assert(dob != null),
-        assert(avatar != null),
-        assert(preference != null),
-        assert(favorite != null);
+        assert(avatar != null);
+
+  static const empty = User(
+      username: '', dob: null, avatar: '', preference: null, favorite: null);
 
   @override
   List<Object> get props {
