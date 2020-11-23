@@ -40,18 +40,19 @@ class UserRepo {
           dob: DateTime.parse(user.dob),
           avatar: user.avatar,
           preference: user.preference,
-          favorite: user.favorite.map<Business>((e) => Business(
-              id: e.id,
-              name: e.name,
-              type: e.type,
-              description: e.description,
-              location: Location(
-                  latitude: e.location.latitude,
-                  longitude: e.location.longitude),
-              address: e.address,
-              displayImage: e.displayImage,
-              images: e.images,
-              menu: null)));
+          favorite: user.favorite.map<Business>((e) =>
+              Business(
+                  id: e.id,
+                  name: e.name,
+                  type: e.type,
+                  description: e.description,
+                  location: Location(
+                      latitude: e.location.latitude,
+                      longitude: e.location.longitude),
+                  address: e.address,
+                  displayImage: e.displayImage,
+                  images: e.images,
+                  menu: null)));
 
       return this._controller.add(this._user);
     } on GrpcError catch (e) {
@@ -84,7 +85,9 @@ class MockUserRepo implements UserRepo {
   // Client for calling gRPC endpoint - mock doesn't actually use this
   api.UserServiceClient client;
 
-  MockUserRepo({@required this.client});
+  MockUserRepo({@required this.client}) {
+    this._user = User.empty;
+  }
 
   Stream<User> get user async* {
     yield _user;
