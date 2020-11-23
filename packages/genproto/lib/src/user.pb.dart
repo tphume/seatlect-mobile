@@ -98,13 +98,15 @@ class SignInResponse extends $pb.GeneratedMessage {
               : 'seatlect'),
       createEmptyInstance: create)
     ..aOS(
-        1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'refreshToken',
-        protoName: 'refreshToken')
-    ..aOS(
-        2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'jwtToken',
-        protoName: 'jwtToken')
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'token')
     ..aOM<$1.User>(
-        3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'user',
+        3,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'user',
         subBuilder: $1.User.create)
     ..hasRequiredFields = false;
 
@@ -138,42 +140,30 @@ class SignInResponse extends $pb.GeneratedMessage {
   static SignInResponse _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.String get refreshToken => $_getSZ(0);
+  $core.String get token => $_getSZ(0);
   @$pb.TagNumber(1)
-  set refreshToken($core.String v) {
+  set token($core.String v) {
     $_setString(0, v);
   }
 
   @$pb.TagNumber(1)
-  $core.bool hasRefreshToken() => $_has(0);
+  $core.bool hasToken() => $_has(0);
   @$pb.TagNumber(1)
-  void clearRefreshToken() => clearField(1);
-
-  @$pb.TagNumber(2)
-  $core.String get jwtToken => $_getSZ(1);
-  @$pb.TagNumber(2)
-  set jwtToken($core.String v) {
-    $_setString(1, v);
-  }
-
-  @$pb.TagNumber(2)
-  $core.bool hasJwtToken() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearJwtToken() => clearField(2);
+  void clearToken() => clearField(1);
 
   @$pb.TagNumber(3)
-  $1.User get user => $_getN(2);
+  $1.User get user => $_getN(1);
   @$pb.TagNumber(3)
   set user($1.User v) {
     setField(3, v);
   }
 
   @$pb.TagNumber(3)
-  $core.bool hasUser() => $_has(2);
+  $core.bool hasUser() => $_has(1);
   @$pb.TagNumber(3)
   void clearUser() => clearField(3);
   @$pb.TagNumber(3)
-  $1.User ensureUser() => $_ensure(2);
+  $1.User ensureUser() => $_ensure(1);
 }
 
 class SignUpRequest extends $pb.GeneratedMessage {
@@ -280,13 +270,15 @@ class SignUpResponse extends $pb.GeneratedMessage {
               : 'seatlect'),
       createEmptyInstance: create)
     ..aOS(
-        1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'refreshToken',
-        protoName: 'refreshToken')
-    ..aOS(
-        2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'jwtToken',
-        protoName: 'jwtToken')
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'token')
     ..aOM<$1.User>(
-        3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'user',
+        3,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'user',
         subBuilder: $1.User.create)
     ..hasRequiredFields = false;
 
@@ -320,40 +312,28 @@ class SignUpResponse extends $pb.GeneratedMessage {
   static SignUpResponse _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.String get refreshToken => $_getSZ(0);
+  $core.String get token => $_getSZ(0);
   @$pb.TagNumber(1)
-  set refreshToken($core.String v) {
+  set token($core.String v) {
     $_setString(0, v);
   }
 
   @$pb.TagNumber(1)
-  $core.bool hasRefreshToken() => $_has(0);
+  $core.bool hasToken() => $_has(0);
   @$pb.TagNumber(1)
-  void clearRefreshToken() => clearField(1);
-
-  @$pb.TagNumber(2)
-  $core.String get jwtToken => $_getSZ(1);
-  @$pb.TagNumber(2)
-  set jwtToken($core.String v) {
-    $_setString(1, v);
-  }
-
-  @$pb.TagNumber(2)
-  $core.bool hasJwtToken() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearJwtToken() => clearField(2);
+  void clearToken() => clearField(1);
 
   @$pb.TagNumber(3)
-  $1.User get user => $_getN(2);
+  $1.User get user => $_getN(1);
   @$pb.TagNumber(3)
   set user($1.User v) {
     setField(3, v);
   }
 
   @$pb.TagNumber(3)
-  $core.bool hasUser() => $_has(2);
+  $core.bool hasUser() => $_has(1);
   @$pb.TagNumber(3)
   void clearUser() => clearField(3);
   @$pb.TagNumber(3)
-  $1.User ensureUser() => $_ensure(2);
+  $1.User ensureUser() => $_ensure(1);
 }

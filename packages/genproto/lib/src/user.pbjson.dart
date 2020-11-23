@@ -16,8 +16,7 @@ const SignInRequest$json = const {
 const SignInResponse$json = const {
   '1': 'SignInResponse',
   '2': const [
-    const {'1': 'refreshToken', '3': 1, '4': 1, '5': 9, '10': 'refreshToken'},
-    const {'1': 'jwtToken', '3': 2, '4': 1, '5': 9, '10': 'jwtToken'},
+    const {'1': 'token', '3': 1, '4': 1, '5': 9, '10': 'token'},
     const {
       '1': 'user',
       '3': 3,
@@ -41,8 +40,7 @@ const SignUpRequest$json = const {
 const SignUpResponse$json = const {
   '1': 'SignUpResponse',
   '2': const [
-    const {'1': 'refreshToken', '3': 1, '4': 1, '5': 9, '10': 'refreshToken'},
-    const {'1': 'jwtToken', '3': 2, '4': 1, '5': 9, '10': 'jwtToken'},
+    const {'1': 'token', '3': 1, '4': 1, '5': 9, '10': 'token'},
     const {
       '1': 'user',
       '3': 3,

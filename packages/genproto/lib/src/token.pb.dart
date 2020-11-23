@@ -9,11 +9,11 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-class FetchJWTRequest extends $pb.GeneratedMessage {
+class FetchTokenRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       const $core.bool.fromEnvironment('protobuf.omit_message_names')
           ? ''
-          : 'FetchJWTRequest',
+          : 'FetchTokenRequest',
       package: const $pb.PackageName(
           const $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
@@ -21,41 +21,41 @@ class FetchJWTRequest extends $pb.GeneratedMessage {
       createEmptyInstance: create)
     ..hasRequiredFields = false;
 
-  FetchJWTRequest._() : super();
-  factory FetchJWTRequest() => create();
-  factory FetchJWTRequest.fromBuffer($core.List<$core.int> i,
+  FetchTokenRequest._() : super();
+  factory FetchTokenRequest() => create();
+  factory FetchTokenRequest.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory FetchJWTRequest.fromJson($core.String i,
+  factory FetchTokenRequest.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
-  FetchJWTRequest clone() => FetchJWTRequest()..mergeFromMessage(this);
+  FetchTokenRequest clone() => FetchTokenRequest()..mergeFromMessage(this);
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
-  FetchJWTRequest copyWith(void Function(FetchJWTRequest) updates) =>
-      super.copyWith((message) =>
-          updates(message as FetchJWTRequest)); // ignore: deprecated_member_use
+  FetchTokenRequest copyWith(void Function(FetchTokenRequest) updates) =>
+      super.copyWith((message) => updates(
+          message as FetchTokenRequest)); // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
-  static FetchJWTRequest create() => FetchJWTRequest._();
-  FetchJWTRequest createEmptyInstance() => create();
-  static $pb.PbList<FetchJWTRequest> createRepeated() =>
-      $pb.PbList<FetchJWTRequest>();
+  static FetchTokenRequest create() => FetchTokenRequest._();
+  FetchTokenRequest createEmptyInstance() => create();
+  static $pb.PbList<FetchTokenRequest> createRepeated() =>
+      $pb.PbList<FetchTokenRequest>();
   @$core.pragma('dart2js:noInline')
-  static FetchJWTRequest getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<FetchJWTRequest>(create);
-  static FetchJWTRequest _defaultInstance;
+  static FetchTokenRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<FetchTokenRequest>(create);
+  static FetchTokenRequest _defaultInstance;
 }
 
-class FetchJWTResponse extends $pb.GeneratedMessage {
+class FetchTokenResponse extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       const $core.bool.fromEnvironment('protobuf.omit_message_names')
           ? ''
-          : 'FetchJWTResponse',
+          : 'FetchTokenResponse',
       package: const $pb.PackageName(
           const $core.bool.fromEnvironment('protobuf.omit_message_names')
               ? ''
@@ -69,34 +69,34 @@ class FetchJWTResponse extends $pb.GeneratedMessage {
         protoName: 'jwtToken')
     ..hasRequiredFields = false;
 
-  FetchJWTResponse._() : super();
-  factory FetchJWTResponse() => create();
-  factory FetchJWTResponse.fromBuffer($core.List<$core.int> i,
+  FetchTokenResponse._() : super();
+  factory FetchTokenResponse() => create();
+  factory FetchTokenResponse.fromBuffer($core.List<$core.int> i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(i, r);
-  factory FetchJWTResponse.fromJson($core.String i,
+  factory FetchTokenResponse.fromJson($core.String i,
           [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(i, r);
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
       'Will be removed in next major version')
-  FetchJWTResponse clone() => FetchJWTResponse()..mergeFromMessage(this);
+  FetchTokenResponse clone() => FetchTokenResponse()..mergeFromMessage(this);
   @$core.Deprecated('Using this can add significant overhead to your binary. '
       'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
       'Will be removed in next major version')
-  FetchJWTResponse copyWith(void Function(FetchJWTResponse) updates) =>
+  FetchTokenResponse copyWith(void Function(FetchTokenResponse) updates) =>
       super.copyWith((message) => updates(
-          message as FetchJWTResponse)); // ignore: deprecated_member_use
+          message as FetchTokenResponse)); // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
-  static FetchJWTResponse create() => FetchJWTResponse._();
-  FetchJWTResponse createEmptyInstance() => create();
-  static $pb.PbList<FetchJWTResponse> createRepeated() =>
-      $pb.PbList<FetchJWTResponse>();
+  static FetchTokenResponse create() => FetchTokenResponse._();
+  FetchTokenResponse createEmptyInstance() => create();
+  static $pb.PbList<FetchTokenResponse> createRepeated() =>
+      $pb.PbList<FetchTokenResponse>();
   @$core.pragma('dart2js:noInline')
-  static FetchJWTResponse getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<FetchJWTResponse>(create);
-  static FetchJWTResponse _defaultInstance;
+  static FetchTokenResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<FetchTokenResponse>(create);
+  static FetchTokenResponse _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get jwtToken => $_getSZ(0);
