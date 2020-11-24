@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:user_repository/user_repository.dart';
 
@@ -11,7 +12,9 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppView();
+    return MultiRepositoryProvider(
+        providers: [RepositoryProvider<UserRepo>(create: (_) => this.userRepo)],
+        child: AppView());
   }
 }
 
