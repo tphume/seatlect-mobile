@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:seatlect_mobile/app.dart';
 
-// Production version of the application
+// Development version of the application - uses mock repository
 void main() {
   runApp(App());
 }

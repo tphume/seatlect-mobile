@@ -21,6 +21,10 @@ dependencies:
     path: packages/entity
   user_repository:
     path: packages/user_repository
+  genproto:
+    path: packages/genproto
+  token_manager:
+    path: packages/token_manager
 
 dev_dependencies:
   flutter_test:

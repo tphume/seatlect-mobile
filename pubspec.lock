@@ -138,7 +138,7 @@ packages:
     source: hosted
     version: "0.3.2"
   genproto:
-    dependency: transitive
+    dependency: "direct main"
     description:
       path: "packages/genproto"
       relative: true
@@ -345,6 +345,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.2.19-nullsafety.2"
+  token_manager:
+    dependency: "direct main"
+    description:
+      path: "packages/token_manager"
+      relative: true
+    source: path
+    version: "1.0.0"
   typed_data:
     dependency: transitive
     description:
