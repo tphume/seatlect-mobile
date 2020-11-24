@@ -75,6 +75,7 @@ class UserRepo {
   void logout() {
     this._user = User.empty;
     this._controller.add(this._user);
+    this.tokenController.add('');
   }
 
   void dispose() => _controller.close();
