@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
 
+import 'package:user_repository/user_repository.dart';
+
 class App extends StatelessWidget {
+  final UserRepo userRepo;
+
+  const App({Key key, @required this.userRepo})
+      : assert(userRepo != null),
+        super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return AppView();

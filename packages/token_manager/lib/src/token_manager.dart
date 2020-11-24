@@ -1,6 +1,8 @@
 import 'dart:async';
 
-class TokenManager {
+import 'package:grpc/grpc.dart';
+
+class TokenManager extends ClientInterceptor {
   Map<String, String> metadata = {};
 
   // For other components to update the jwt token if needed
@@ -12,9 +14,7 @@ class TokenManager {
         return;
       }
 
-      if (event?.isNotEmpty ?? false) {
-        this.metadata = {'jwt': event};
-      }
+      this.metadata = {'jwt': event};
     });
   }
 
