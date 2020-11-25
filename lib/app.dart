@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:seatlect_mobile/user/bloc/user_bloc.dart';
+import 'package:seatlect_mobile/home/home.dart';
+import 'package:seatlect_mobile/login/login.dart';
 
 import 'package:user_repository/user_repository.dart';
+import 'package:entity/entity.dart';
 
 class App extends StatelessWidget {
   final UserRepo userRepo;
@@ -30,14 +34,26 @@ class AppView extends StatefulWidget {
 }
 
 class _AppViewState extends State<AppView> {
+  final _navigatorKey = GlobalKey<NavigatorState>();
+
+  NavigatorState get _navigator => _navigatorKey.currentState;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text("Hello"),
-        ),
-      ),
+      navigatorKey: _navigatorKey,
+      initialRoute: '/home',
+      routes: {'/home': (_) => HomePage(), '/login': (_) => LoginPage()},
+      builder: (context, child) {
+        return BlocListener<UserBloc, UserState>(
+          listener: (context, state) {
+            if (state.user == User.empty) {
+              _navigator.pushNamedAndRemoveUntil('/login', (route) => false);
+            }
+          },
+          child: child,
+        );
+      },
     );
   }
 }
