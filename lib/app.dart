@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:seatlect_mobile/user/bloc/user_bloc.dart';
 
 import 'package:user_repository/user_repository.dart';
 
@@ -14,7 +15,12 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiRepositoryProvider(
         providers: [RepositoryProvider<UserRepo>(create: (_) => this.userRepo)],
-        child: AppView());
+        child: MultiBlocProvider(
+          providers: [
+            BlocProvider<UserBloc>(create: (_) => UserBloc(userRepo: userRepo))
+          ],
+          child: AppView(),
+        ));
   }
 }
 
