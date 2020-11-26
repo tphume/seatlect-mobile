@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'login_form.dart';
+
 class LoginPage extends StatelessWidget {
   static Route route() {
     return MaterialPageRoute(builder: (_) => LoginPage());
@@ -15,11 +17,14 @@ class LoginPage extends StatelessWidget {
           Expanded(
               flex: 6,
               child: Container(
+                width: MediaQuery.of(context).size.width,
+                padding: EdgeInsets.all(10),
                 decoration: BoxDecoration(
                     color: Theme.of(context).backgroundColor,
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(15),
                         topRight: Radius.circular(15))),
+                child: LoginForm(),
               ))
         ],
       ),
