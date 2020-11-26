@@ -18,7 +18,8 @@ class LoginPage extends StatelessWidget {
               flex: 6,
               child: Container(
                 width: MediaQuery.of(context).size.width,
-                padding: EdgeInsets.all(30),
+                padding:
+                    EdgeInsets.only(top: 30, right: 30, bottom: 0, left: 30),
                 decoration: BoxDecoration(
                     color: Theme.of(context).backgroundColor,
                     borderRadius: BorderRadius.only(

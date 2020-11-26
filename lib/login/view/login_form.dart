@@ -16,11 +16,18 @@ class _LoginFormState extends State<LoginForm> {
       key: _formKey,
       child: Column(
         children: [
-          Container(child: Text('Log in'), alignment: Alignment.centerLeft),
           Container(
-              child: Text('Login to continue'),
+              child: Text(
+                'Log in',
+                style: TextStyle(fontWeight: FontWeight.w900, fontSize: 28),
+              ),
               alignment: Alignment.centerLeft),
-          Container(child: Text('Email'), alignment: Alignment.centerLeft),
+          Container(
+              child: Text(
+                'Login to continue',
+                style: TextStyle(color: Color(0xff828282)),
+              ),
+              alignment: Alignment.centerLeft),
           TextFormField(
             validator: (value) {
               if (value.length < 3) {
@@ -32,7 +39,6 @@ class _LoginFormState extends State<LoginForm> {
               return null;
             },
           ),
-          Container(child: Text('Password'), alignment: Alignment.centerLeft),
           TextFormField(
             validator: (value) {
               if (value.length < 5) {
@@ -44,14 +50,15 @@ class _LoginFormState extends State<LoginForm> {
               return null;
             },
           ),
-          SizedBox(
+          Container(
             width: double.infinity,
+            margin: EdgeInsets.only(top: 30, right: 0, bottom: 0, left: 0),
             child: ElevatedButton(
                 style: ButtonStyle(
                     backgroundColor:
                         MaterialStateProperty.all<Color>(theme.primaryColor),
                     padding: MaterialStateProperty.all<EdgeInsets>(
-                        EdgeInsets.all(20))),
+                        EdgeInsets.all(15))),
                 onPressed: () {
                   if (_formKey.currentState.validate()) {
                     // TODO: Call user repository
@@ -62,17 +69,19 @@ class _LoginFormState extends State<LoginForm> {
           TextButton(
               onPressed: () => 'placeholder',
               child: Text(
-                'Forgot password',
+                'Forgot password?',
                 style: TextStyle(color: theme.primaryColorLight),
               )),
           SizedBox(
             width: double.infinity,
             child: OutlinedButton(
                 style: ButtonStyle(
+                    overlayColor:
+                        MaterialStateProperty.all<Color>(Color(0xffE0E0E0)),
                     foregroundColor:
-                        MaterialStateProperty.all<Color>(Colors.black54),
+                        MaterialStateProperty.all<Color>(Color(0xff828282)),
                     padding: MaterialStateProperty.all<EdgeInsets>(
-                        EdgeInsets.all(20))),
+                        EdgeInsets.all(15))),
                 onPressed: () => 'placeholder',
                 child: Text('Create Account')),
           ),
