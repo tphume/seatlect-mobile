@@ -13,9 +13,9 @@ class LoginPage extends StatelessWidget {
       backgroundColor: Theme.of(context).primaryColorLight,
       body: Column(
         children: [
-          Expanded(flex: 4, child: Text('Placeholder for logo')),
+          Expanded(flex: 3, child: Text('Placeholder for logo')),
           Expanded(
-              flex: 6,
+              flex: 7,
               child: Container(
                 width: MediaQuery.of(context).size.width,
                 padding:

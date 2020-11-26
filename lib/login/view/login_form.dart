@@ -58,7 +58,7 @@ class _LoginFormState extends State<LoginForm> {
                     backgroundColor:
                         MaterialStateProperty.all<Color>(theme.primaryColor),
                     padding: MaterialStateProperty.all<EdgeInsets>(
-                        EdgeInsets.all(15))),
+                        EdgeInsets.all(20))),
                 onPressed: () {
                   if (_formKey.currentState.validate()) {
                     // TODO: Call user repository
@@ -81,7 +81,7 @@ class _LoginFormState extends State<LoginForm> {
                     foregroundColor:
                         MaterialStateProperty.all<Color>(Color(0xff828282)),
                     padding: MaterialStateProperty.all<EdgeInsets>(
-                        EdgeInsets.all(15))),
+                        EdgeInsets.all(20))),
                 onPressed: () => 'placeholder',
                 child: Text('Create Account')),
           ),
