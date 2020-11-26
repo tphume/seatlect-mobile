@@ -28,31 +28,48 @@ class _LoginFormState extends State<LoginForm> {
                 style: TextStyle(color: Color(0xff828282)),
               ),
               alignment: Alignment.centerLeft),
-          TextFormField(
-            validator: (value) {
-              if (value.length < 3) {
-                return 'Username is too short';
-              } else if (value.length > 20) {
-                return 'Username is too long';
-              }
+          Container(
+            margin: EdgeInsets.only(top: 10, right: 0, bottom: 0, left: 0),
+            child: TextFormField(
+              decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintText: 'Username',
+                  fillColor: Color(0xffE0E0E0),
+                  filled: true),
+              validator: (value) {
+                if (value.length < 3) {
+                  return 'Username is too short';
+                } else if (value.length > 20) {
+                  return 'Username is too long';
+                }
 
-              return null;
-            },
+                return null;
+              },
+            ),
           ),
-          TextFormField(
-            validator: (value) {
-              if (value.length < 5) {
-                return 'Password is too short';
-              } else if (value.length > 20) {
-                return 'Password is too long';
-              }
+          Container(
+            margin: EdgeInsets.only(top: 10, right: 0, bottom: 0, left: 0),
+            child: TextFormField(
+              obscureText: true,
+              decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintText: 'Password',
+                  fillColor: Color(0xffE0E0E0),
+                  filled: true),
+              validator: (value) {
+                if (value.length < 5) {
+                  return 'Password is too short';
+                } else if (value.length > 20) {
+                  return 'Password is too long';
+                }
 
-              return null;
-            },
+                return null;
+              },
+            ),
           ),
           Container(
             width: double.infinity,
-            margin: EdgeInsets.only(top: 30, right: 0, bottom: 0, left: 0),
+            margin: EdgeInsets.only(top: 20, right: 0, bottom: 0, left: 0),
             child: ElevatedButton(
                 style: ButtonStyle(
                     backgroundColor:
