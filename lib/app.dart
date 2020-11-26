@@ -9,24 +9,6 @@ import 'package:seatlect_mobile/login/login.dart';
 import 'package:user_repository/user_repository.dart';
 import 'package:entity/entity.dart';
 
-final theme = ThemeData(
-    // Define colors
-    primaryColor: Color(0xff5D55B4),
-    primaryColorLight: Color(0xffADA3D4),
-    accentColor: Color(0xffF2B705),
-    canvasColor: Color(0xffF1F1F1),
-    scaffoldBackgroundColor: Color(0xffF1F1F1),
-    backgroundColor: Color(0xffF1F1F1),
-    dialogBackgroundColor: Color(0xffFFFFFF),
-    errorColor: Color(0xffF24B4B),
-
-    // Text
-    primaryTextTheme: GoogleFonts.dmSansTextTheme(),
-    accentTextTheme: GoogleFonts.yantramanavTextTheme(),
-
-    // Icon
-    primaryIconTheme: IconThemeData(color: Color(0xff5D55B4)));
-
 class App extends StatelessWidget {
   final UserRepo userRepo;
 
@@ -61,7 +43,22 @@ class _AppViewState extends State<AppView> {
   Widget build(BuildContext context) {
     return MaterialApp(
       navigatorKey: _navigatorKey,
-      theme: theme,
+      theme: ThemeData(
+          // Define colors
+          primaryColor: Color(0xff5D55B4),
+          primaryColorLight: Color(0xffADA3D4),
+          accentColor: Color(0xffF2B705),
+          canvasColor: Color(0xffF1F1F1),
+          scaffoldBackgroundColor: Color(0xffF1F1F1),
+          backgroundColor: Color(0xffF1F1F1),
+          dialogBackgroundColor: Color(0xffFFFFFF),
+          errorColor: Color(0xffF24B4B),
+
+          // Text
+          textTheme: GoogleFonts.dmSansTextTheme(Theme.of(context).textTheme),
+
+          // Icon
+          primaryIconTheme: IconThemeData(color: Color(0xff5D55B4))),
       initialRoute: '/home',
       routes: {
         '/home': (context) => HomePage(),
