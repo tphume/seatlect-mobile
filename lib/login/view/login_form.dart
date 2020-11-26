@@ -10,13 +10,17 @@ class _LoginFormState extends State<LoginForm> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Form(
       key: _formKey,
       child: Column(
         children: [
-          Text('Log in'),
-          Text('Login to continue'),
-          Text('Email'),
+          Container(child: Text('Log in'), alignment: Alignment.centerLeft),
+          Container(
+              child: Text('Login to continue'),
+              alignment: Alignment.centerLeft),
+          Container(child: Text('Email'), alignment: Alignment.centerLeft),
           TextFormField(
             validator: (value) {
               if (value.length < 3) {
@@ -28,7 +32,7 @@ class _LoginFormState extends State<LoginForm> {
               return null;
             },
           ),
-          Text('Password'),
+          Container(child: Text('Password'), alignment: Alignment.centerLeft),
           TextFormField(
             validator: (value) {
               if (value.length < 5) {
@@ -40,17 +44,38 @@ class _LoginFormState extends State<LoginForm> {
               return null;
             },
           ),
-          ElevatedButton(
-              onPressed: () {
-                if (_formKey.currentState.validate()) {
-                  // TODO: Call user repository
-                }
-              },
-              child: Text('Login')),
+          SizedBox(
+            width: double.infinity,
+            child: ElevatedButton(
+                style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(theme.primaryColor),
+                    padding: MaterialStateProperty.all<EdgeInsets>(
+                        EdgeInsets.all(20))),
+                onPressed: () {
+                  if (_formKey.currentState.validate()) {
+                    // TODO: Call user repository
+                  }
+                },
+                child: Text('Login')),
+          ),
           TextButton(
-              onPressed: () => 'placeholder', child: Text('Forgot password')),
-          OutlinedButton(
-              onPressed: () => 'placeholder', child: Text('Create Account'))
+              onPressed: () => 'placeholder',
+              child: Text(
+                'Forgot password',
+                style: TextStyle(color: theme.primaryColorLight),
+              )),
+          SizedBox(
+            width: double.infinity,
+            child: OutlinedButton(
+                style: ButtonStyle(
+                    foregroundColor:
+                        MaterialStateProperty.all<Color>(Colors.black54),
+                    padding: MaterialStateProperty.all<EdgeInsets>(
+                        EdgeInsets.all(20))),
+                onPressed: () => 'placeholder',
+                child: Text('Create Account')),
+          ),
         ],
       ),
     );
