@@ -8,8 +8,20 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text('Login'),
+      backgroundColor: Theme.of(context).primaryColorLight,
+      body: Column(
+        children: [
+          Expanded(flex: 4, child: Text('Placeholder for logo')),
+          Expanded(
+              flex: 6,
+              child: Container(
+                decoration: BoxDecoration(
+                    color: Theme.of(context).backgroundColor,
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(15),
+                        topRight: Radius.circular(15))),
+              ))
+        ],
       ),
     );
   }
