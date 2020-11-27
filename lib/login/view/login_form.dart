@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:user_repository/user_repository.dart';
 
@@ -110,15 +112,16 @@ class _LoginFormState extends State<LoginForm> {
   }
 
   void _login() async {
-    showDialog(
-        context: context,
-        builder: (context) {
-          return Dialog(
-            child: CircularProgressIndicator(),
-          );
-        });
-
     if (_formKey.currentState.validate()) {
+      showDialog(
+          context: context,
+          builder: (context) {
+            return Dialog(
+                backgroundColor: Colors.transparent,
+                child:
+                    Container(height: 200, child: CircularProgressIndicator()));
+          });
+
       try {
         await RepositoryProvider.of<UserRepo>(context)
             .login(_username.text, _password.text);
