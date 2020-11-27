@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:user_repository/user_repository.dart';
 
 class LoginForm extends StatefulWidget {
   @override
@@ -7,6 +9,15 @@ class LoginForm extends StatefulWidget {
 
 class _LoginFormState extends State<LoginForm> {
   final _formKey = GlobalKey<FormState>();
+  final _username = TextEditingController();
+  final _password = TextEditingController();
+
+  @override
+  void dispose() {
+    _username.dispose();
+    _password.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +42,7 @@ class _LoginFormState extends State<LoginForm> {
           Container(
             margin: EdgeInsets.only(top: 10, right: 0, bottom: 0, left: 0),
             child: TextFormField(
+              controller: _username,
               decoration: InputDecoration(
                   border: InputBorder.none,
                   hintText: 'Username',
@@ -50,6 +62,7 @@ class _LoginFormState extends State<LoginForm> {
           Container(
             margin: EdgeInsets.only(top: 10, right: 0, bottom: 0, left: 0),
             child: TextFormField(
+              controller: _password,
               obscureText: true,
               decoration: InputDecoration(
                   border: InputBorder.none,
@@ -76,9 +89,16 @@ class _LoginFormState extends State<LoginForm> {
                         MaterialStateProperty.all<Color>(theme.primaryColor),
                     padding: MaterialStateProperty.all<EdgeInsets>(
                         EdgeInsets.all(20))),
-                onPressed: () {
+                onPressed: () async {
                   if (_formKey.currentState.validate()) {
-                    // TODO: Call user repository
+                    try {
+                      await RepositoryProvider.of<UserRepo>(context)
+                          .login(_username.text, _password.text);
+                      Navigator.of(context)
+                          .pushNamedAndRemoveUntil('/home', (route) => false);
+                    } catch (e) {
+                      // TODO Handle error
+                    }
                   }
                 },
                 child: Text('Login')),
