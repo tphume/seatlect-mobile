@@ -61,9 +61,11 @@ class UserRepo {
       this.tokenController.add(response.token);
       return this._controller.add(this._user);
     } on GrpcError catch (e) {
+      // TODO Rethrow errors
       developer.log('gRPC error at login',
           time: DateTime.now(), name: 'UserRepo', error: e);
     } catch (e) {
+      // TODO Rethrow errors
       developer.log('non-gRPC error at login',
           time: DateTime.now(), name: 'UserRepo', error: e);
     }

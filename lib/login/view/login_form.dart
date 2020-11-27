@@ -13,13 +13,6 @@ class _LoginFormState extends State<LoginForm> {
   final _password = TextEditingController();
 
   @override
-  void dispose() {
-    _username.dispose();
-    _password.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
@@ -89,18 +82,7 @@ class _LoginFormState extends State<LoginForm> {
                         MaterialStateProperty.all<Color>(theme.primaryColor),
                     padding: MaterialStateProperty.all<EdgeInsets>(
                         EdgeInsets.all(20))),
-                onPressed: () async {
-                  if (_formKey.currentState.validate()) {
-                    try {
-                      await RepositoryProvider.of<UserRepo>(context)
-                          .login(_username.text, _password.text);
-                      Navigator.of(context)
-                          .pushNamedAndRemoveUntil('/home', (route) => false);
-                    } catch (e) {
-                      // TODO Handle error
-                    }
-                  }
-                },
+                onPressed: this._login,
                 child: Text('Login')),
           ),
           TextButton(
@@ -125,5 +107,36 @@ class _LoginFormState extends State<LoginForm> {
         ],
       ),
     );
+  }
+
+  void _login() async {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return Dialog(
+            child: CircularProgressIndicator(),
+          );
+        });
+
+    if (_formKey.currentState.validate()) {
+      try {
+        await RepositoryProvider.of<UserRepo>(context)
+            .login(_username.text, _password.text);
+
+        Navigator.pop(context, true);
+        Navigator.of(context)
+            .pushNamedAndRemoveUntil('/home', (route) => false);
+      } catch (e) {
+        Navigator.pop(context, true);
+        // TODO Handle error
+      }
+    }
+  }
+
+  @override
+  void dispose() {
+    _username.dispose();
+    _password.dispose();
+    super.dispose();
   }
 }
