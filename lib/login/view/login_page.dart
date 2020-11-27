@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'login_form.dart';
+
 class LoginPage extends StatelessWidget {
   static Route route() {
     return MaterialPageRoute(builder: (_) => LoginPage());
@@ -8,8 +10,24 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text('Login'),
+      backgroundColor: Theme.of(context).primaryColorLight,
+      body: Column(
+        children: [
+          Expanded(flex: 3, child: Text('Placeholder for logo')),
+          Expanded(
+              flex: 7,
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                padding:
+                    EdgeInsets.only(top: 30, right: 30, bottom: 0, left: 30),
+                decoration: BoxDecoration(
+                    color: Theme.of(context).backgroundColor,
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(15),
+                        topRight: Radius.circular(15))),
+                child: LoginForm(),
+              ))
+        ],
       ),
     );
   }

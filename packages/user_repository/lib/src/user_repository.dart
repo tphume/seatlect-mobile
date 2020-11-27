@@ -2,8 +2,10 @@ import 'dart:async';
 import 'dart:developer' as developer;
 
 import 'package:grpc/grpc.dart';
+import 'package:grpc/grpc_connection_interface.dart';
 import 'package:meta/meta.dart';
 
+import 'user_exception.dart';
 import 'package:entity/entity.dart';
 import 'package:genproto/genproto.dart' as api;
 
@@ -63,9 +65,17 @@ class UserRepo {
     } on GrpcError catch (e) {
       developer.log('gRPC error at login',
           time: DateTime.now(), name: 'UserRepo', error: e);
+
+      if (e.codeName == StatusCode.unauthenticated) {
+        throw AuthFail();
+      }
+
+      rethrow;
     } catch (e) {
       developer.log('non-gRPC error at login',
           time: DateTime.now(), name: 'UserRepo', error: e);
+
+      rethrow;
     }
 
     this._user = User.empty;
@@ -104,6 +114,12 @@ class MockUserRepo implements UserRepo {
 
   Future<void> login(String username, String password) async {
     await Future.delayed(Duration(seconds: 1));
+
+    // Uncomment this to test auth failure snackbar
+    // throw AuthFail();
+
+    // Uncomment this to test network error snackbar
+    // throw FormatException();
 
     this._user = User(
         username: 'Jiaroach',
