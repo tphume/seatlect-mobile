@@ -131,8 +131,18 @@ class _LoginFormState extends State<LoginForm> {
             .pushNamedAndRemoveUntil('/home', (route) => false);
       } on AuthFail catch (e) {
         Navigator.pop(context, true);
+        Scaffold.of(context).showSnackBar(SnackBar(
+          content: Text('Authentication failed'),
+          duration: Duration(seconds: 2),
+          backgroundColor: Theme.of(context).errorColor,
+        ));
       } catch (e) {
         Navigator.pop(context, true);
+        Scaffold.of(context).showSnackBar(SnackBar(
+          content: Text('Network error'),
+          duration: Duration(seconds: 2),
+          backgroundColor: Theme.of(context).errorColor,
+        ));
       }
     }
   }
