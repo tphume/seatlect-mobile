@@ -132,6 +132,7 @@ class _LoginFormState extends State<LoginForm> {
       } catch (e) {
         Navigator.pop(context, true);
         // TODO Handle error
+        // AuthFail and Network error
       }
     }
   }

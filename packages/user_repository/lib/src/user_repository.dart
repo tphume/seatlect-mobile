@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:developer' as developer;
 
 import 'package:grpc/grpc.dart';
+import 'package:grpc/grpc_connection_interface.dart';
 import 'package:meta/meta.dart';
 
 import 'package:entity/entity.dart';
@@ -61,13 +62,15 @@ class UserRepo {
       this.tokenController.add(response.token);
       return this._controller.add(this._user);
     } on GrpcError catch (e) {
-      // TODO Rethrow errors
       developer.log('gRPC error at login',
           time: DateTime.now(), name: 'UserRepo', error: e);
+
+      // TODO check errors
     } catch (e) {
-      // TODO Rethrow errors
       developer.log('non-gRPC error at login',
           time: DateTime.now(), name: 'UserRepo', error: e);
+
+      rethrow;
     }
 
     this._user = User.empty;
