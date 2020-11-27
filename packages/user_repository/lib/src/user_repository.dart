@@ -5,6 +5,7 @@ import 'package:grpc/grpc.dart';
 import 'package:grpc/grpc_connection_interface.dart';
 import 'package:meta/meta.dart';
 
+import 'user_exception.dart';
 import 'package:entity/entity.dart';
 import 'package:genproto/genproto.dart' as api;
 
@@ -65,7 +66,11 @@ class UserRepo {
       developer.log('gRPC error at login',
           time: DateTime.now(), name: 'UserRepo', error: e);
 
-      // TODO check errors
+      if (e.codeName == StatusCode.unauthenticated) {
+        throw AuthFail();
+      }
+
+      rethrow;
     } catch (e) {
       developer.log('non-gRPC error at login',
           time: DateTime.now(), name: 'UserRepo', error: e);

@@ -129,10 +129,10 @@ class _LoginFormState extends State<LoginForm> {
         Navigator.pop(context, true);
         Navigator.of(context)
             .pushNamedAndRemoveUntil('/home', (route) => false);
+      } on AuthFail catch (e) {
+        Navigator.pop(context, true);
       } catch (e) {
         Navigator.pop(context, true);
-        // TODO Handle error
-        // AuthFail and Network error
       }
     }
   }
