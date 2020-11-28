@@ -8,7 +8,7 @@ class User extends Equatable {
   final DateTime dob;
   final String avatar;
   final List<String> preference;
-  final List<Business> favorite;
+  final List<String> favorite;
 
   const User(
       {@required this.username,

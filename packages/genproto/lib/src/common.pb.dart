@@ -36,7 +36,7 @@ class User extends $pb.GeneratedMessage {
             : 'avatar')
     ..pPS(4,
         const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'preference')
-    ..pc<Business>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'favorite', $pb.PbFieldType.PM, subBuilder: Business.create)
+    ..pPS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'favorite')
     ..hasRequiredFields = false;
 
   User._() : super();
@@ -106,7 +106,7 @@ class User extends $pb.GeneratedMessage {
   $core.List<$core.String> get preference => $_getList(3);
 
   @$pb.TagNumber(5)
-  $core.List<Business> get favorite => $_getList(4);
+  $core.List<$core.String> get favorite => $_getList(4);
 }
 
 class Business extends $pb.GeneratedMessage {

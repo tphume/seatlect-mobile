@@ -47,18 +47,7 @@ class UserRepo {
           dob: DateTime.parse(user.dob),
           avatar: user.avatar,
           preference: user.preference,
-          favorite: user.favorite.map<Business>((e) => Business(
-              id: e.id,
-              name: e.name,
-              type: e.type,
-              description: e.description,
-              location: Location(
-                  latitude: e.location.latitude,
-                  longitude: e.location.longitude),
-              address: e.address,
-              displayImage: e.displayImage,
-              images: e.images,
-              menu: null)));
+          favorite: user.favorite);
 
       this.tokenController.add(response.token);
       return this._controller.add(this._user);
@@ -126,7 +115,7 @@ class MockUserRepo implements UserRepo {
         dob: new DateTime.utc(1999, 2, 25),
         avatar: 'assets/avatar01.png',
         preference: ['BEER', 'BURGER', 'JAPANESE'],
-        favorite: []);
+        favorite: ['1', '2', '3']);
 
     this._controller.add(this._user);
   }
