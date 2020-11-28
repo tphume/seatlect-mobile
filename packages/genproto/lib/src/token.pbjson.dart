@@ -12,6 +12,6 @@ const FetchTokenRequest$json = const {
 const FetchTokenResponse$json = const {
   '1': 'FetchTokenResponse',
   '2': const [
-    const {'1': 'jwtToken', '3': 1, '4': 1, '5': 9, '10': 'jwtToken'},
+    const {'1': 'token', '3': 1, '4': 1, '5': 9, '10': 'token'},
   ],
 };
