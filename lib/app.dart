@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:seatlect_mobile/nav/cubit/nav_cubit.dart';
 
 import 'package:seatlect_mobile/user/bloc/user_bloc.dart';
 import 'package:seatlect_mobile/home/home.dart';
@@ -22,7 +23,8 @@ class App extends StatelessWidget {
         providers: [RepositoryProvider<UserRepo>(create: (_) => this.userRepo)],
         child: MultiBlocProvider(
           providers: [
-            BlocProvider<UserBloc>(create: (_) => UserBloc(userRepo: userRepo))
+            BlocProvider<UserBloc>(create: (_) => UserBloc(userRepo: userRepo)),
+            BlocProvider<NavCubit>(create: (_) => NavCubit())
           ],
           child: AppView(),
         ));
