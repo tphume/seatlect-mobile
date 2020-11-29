@@ -8,7 +8,8 @@ class NavAppBar extends StatelessWidget {
     return BlocBuilder<NavCubit, NavState>(builder: (context, state) {
       return AppBar(
           backgroundColor: Colors.transparent,
-          title: Text('Placeholder for now'));
+          elevation: 0,
+          title: Text('Placeholder', style: TextStyle(color: Colors.black),));
     });
   }
 }
