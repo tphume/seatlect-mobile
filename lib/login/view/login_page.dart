@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:seatlect_mobile/user/bloc/user_bloc.dart';
 
 import 'login_form.dart';
 
@@ -13,6 +15,27 @@ class LoginPage extends StatelessWidget {
       backgroundColor: Theme.of(context).primaryColorLight,
       body: Column(
         children: [
+          BlocListener<UserBloc, UserState>(
+            listener: (context, state) {
+              if (state is UserAuthError) {
+                Scaffold.of(context).showSnackBar(SnackBar(
+                  content: Text('Authentication error'),
+                  duration: Duration(seconds: 2),
+                  backgroundColor: Theme.of(context).errorColor,
+                ));
+              } else if (state is UserAuthCalling) {
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      return Dialog(
+                          backgroundColor: Colors.transparent,
+                          child: Container(
+                              height: 200, child: CircularProgressIndicator()));
+                    });
+              }
+            },
+            child: Container(),
+          ),
           Expanded(flex: 3, child: Text('Placeholder for logo')),
           Expanded(
               flex: 7,
