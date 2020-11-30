@@ -30,12 +30,10 @@ class UserBloc extends Bloc<UserEvent, UserState> {
         yield UserAuthCalling();
 
         final user = await userRepo.login(event.username, event.password);
-        add(UserAuthSuccess(user: user));
+        yield UserAuth(user: user);
       } catch (e) {
         yield UserAuthError();
       }
-    } else if (event is UserAuthSuccess) {
-      yield UserAuth(user: event.user);
     }
   }
 }

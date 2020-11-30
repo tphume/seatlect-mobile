@@ -21,10 +21,3 @@ class UserLogin extends UserEvent {
 class UserLogout extends UserEvent {}
 
 class UserFetch extends UserEvent {}
-
-// Called within the Bloc itself
-class UserAuthSuccess extends UserEvent {
-  final User user;
-
-  UserAuthSuccess({@required this.user});
-}
