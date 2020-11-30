@@ -65,8 +65,7 @@ class FetchTokenResponse extends $pb.GeneratedMessage {
         1,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
-            : 'jwtToken',
-        protoName: 'jwtToken')
+            : 'token')
     ..hasRequiredFields = false;
 
   FetchTokenResponse._() : super();
@@ -99,14 +98,14 @@ class FetchTokenResponse extends $pb.GeneratedMessage {
   static FetchTokenResponse _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.String get jwtToken => $_getSZ(0);
+  $core.String get token => $_getSZ(0);
   @$pb.TagNumber(1)
-  set jwtToken($core.String v) {
+  set token($core.String v) {
     $_setString(0, v);
   }
 
   @$pb.TagNumber(1)
-  $core.bool hasJwtToken() => $_has(0);
+  $core.bool hasToken() => $_has(0);
   @$pb.TagNumber(1)
-  void clearJwtToken() => clearField(1);
+  void clearToken() => clearField(1);
 }

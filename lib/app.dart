@@ -7,7 +7,6 @@ import 'package:seatlect_mobile/home/home.dart';
 import 'package:seatlect_mobile/login/login.dart';
 
 import 'package:user_repository/user_repository.dart';
-import 'package:entity/entity.dart';
 
 class App extends StatelessWidget {
   final UserRepo userRepo;
@@ -22,7 +21,7 @@ class App extends StatelessWidget {
         providers: [RepositoryProvider<UserRepo>(create: (_) => this.userRepo)],
         child: MultiBlocProvider(
           providers: [
-            BlocProvider<UserBloc>(create: (_) => UserBloc(userRepo: userRepo))
+            BlocProvider<UserBloc>(create: (_) => UserBloc(userRepo: userRepo)),
           ],
           child: AppView(),
         ));
@@ -67,8 +66,10 @@ class _AppViewState extends State<AppView> {
       builder: (context, child) {
         return BlocListener<UserBloc, UserState>(
           listener: (context, state) {
-            if (state.user == User.empty) {
+            if (state is UserUnAuth) {
               _navigator.pushNamedAndRemoveUntil('/login', (route) => false);
+            } else if (state is UserAuth) {
+              _navigator.pushNamedAndRemoveUntil('/home', (route) => false);
             }
           },
           child: child,

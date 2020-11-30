@@ -12,33 +12,30 @@ part 'user_state.dart';
 
 class UserBloc extends Bloc<UserEvent, UserState> {
   final UserRepo userRepo;
-  StreamSubscription<User> userSubscription;
 
   UserBloc({@required this.userRepo})
       : assert(userRepo != null),
-        super(UserEmpty()) {
-    this.userSubscription = userRepo.user.listen((user) {
-      add(UserStateChange(user: user));
-    });
+        super(UserInitial()) {
+    add(UserAppInit());
   }
 
   @override
   Stream<UserState> mapEventToState(
     UserEvent event,
   ) async* {
-    if (event is UserStateChange) {
-      if (event.user == User.empty) {
-        yield UserEmpty();
-      } else {
-        yield UserPopulated(user: event.user);
-      }
-    }
-  }
+    if (event is UserAppInit) {
+      yield UserUnAuth();
+    } else if (event is UserLogin) {
+      try {
+        yield UserAuthCalling();
 
-  @override
-  Future<Function> close() {
-    userSubscription?.cancel();
-    this.userRepo.dispose();
-    return super.close();
+        final user = await userRepo.login(event.username, event.password);
+        add(UserAuthSuccess(user: user));
+      } catch (e) {
+        yield UserAuthError();
+      }
+    } else if (event is UserAuthSuccess) {
+      yield UserAuth(user: event.user);
+    }
   }
 }

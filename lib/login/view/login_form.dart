@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:seatlect_mobile/user/bloc/user_bloc.dart';
 import 'package:user_repository/user_repository.dart';
 
 class LoginForm extends StatefulWidget {
@@ -113,37 +114,8 @@ class _LoginFormState extends State<LoginForm> {
 
   void _login() async {
     if (_formKey.currentState.validate()) {
-      showDialog(
-          context: context,
-          builder: (context) {
-            return Dialog(
-                backgroundColor: Colors.transparent,
-                child:
-                    Container(height: 200, child: CircularProgressIndicator()));
-          });
-
-      try {
-        await RepositoryProvider.of<UserRepo>(context)
-            .login(_username.text, _password.text);
-
-        Navigator.pop(context, true);
-        Navigator.of(context)
-            .pushNamedAndRemoveUntil('/home', (route) => false);
-      } on AuthFail catch (e) {
-        Navigator.pop(context, true);
-        Scaffold.of(context).showSnackBar(SnackBar(
-          content: Text('Authentication failed'),
-          duration: Duration(seconds: 2),
-          backgroundColor: Theme.of(context).errorColor,
-        ));
-      } catch (e) {
-        Navigator.pop(context, true);
-        Scaffold.of(context).showSnackBar(SnackBar(
-          content: Text('Network error'),
-          duration: Duration(seconds: 2),
-          backgroundColor: Theme.of(context).errorColor,
-        ));
-      }
+      BlocProvider.of<UserBloc>(context)
+          .add(UserLogin(username: _username.text, password: _password.text));
     }
   }
 

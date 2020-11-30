@@ -12,14 +12,7 @@ const User$json = const {
     const {'1': 'dob', '3': 2, '4': 1, '5': 9, '10': 'dob'},
     const {'1': 'avatar', '3': 3, '4': 1, '5': 9, '10': 'avatar'},
     const {'1': 'preference', '3': 4, '4': 3, '5': 9, '10': 'preference'},
-    const {
-      '1': 'favorite',
-      '3': 5,
-      '4': 3,
-      '5': 11,
-      '6': '.seatlect.Business',
-      '10': 'favorite'
-    },
+    const {'1': 'favorite', '3': 5, '4': 3, '5': 9, '10': 'favorite'},
   ],
 };
 
