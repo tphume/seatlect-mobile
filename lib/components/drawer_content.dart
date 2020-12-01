@@ -19,31 +19,46 @@ class DrawerContent extends StatelessWidget {
             page: Page.home,
             icon: Icons.home,
             text: 'Home',
-            onTap: () => {}),
+            onTap: () => {
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, '/home', (route) => false)
+                }),
         _createItem(
             theme: theme,
             page: Page.search,
             icon: Icons.search,
             text: 'Search',
-            onTap: () => {}),
+            onTap: () => {
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, '/search', (route) => false)
+                }),
         _createItem(
             theme: theme,
             page: Page.favorites,
             icon: Icons.favorite,
             text: 'Favorites',
-            onTap: () => {}),
+            onTap: () => {
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, '/favorites', (route) => false)
+                }),
         _createItem(
             theme: theme,
             page: Page.order,
             icon: Icons.receipt,
             text: 'Order',
-            onTap: () => {}),
+            onTap: () => {
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, '/order', (route) => false)
+                }),
         _createItem(
             theme: theme,
             page: Page.settings,
             icon: Icons.settings,
             text: 'Settings',
-            onTap: () => {})
+            onTap: () => {
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, '/settings', (route) => false)
+                })
       ],
     );
   }
