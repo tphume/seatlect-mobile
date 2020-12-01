@@ -15,15 +15,12 @@ class DrawerContent extends StatelessWidget {
   }
 
   Widget _createHeader() {
-    return SizedBox(
-        height: 100,
-        child: DrawerHeader(
-          margin: EdgeInsets.only(top: 16, bottom: 16),
-          child: Container(
-            decoration: BoxDecoration(),
-            child: Text('SEATLECT',
-                style: TextStyle(fontWeight: FontWeight.w900, fontSize: 28)),
-          ),
-        ));
+    return Container(
+      margin: EdgeInsets.only(top: 32, bottom: 16, left: 16, right: 16),
+      padding: EdgeInsets.only(bottom: 8),
+      decoration: BoxDecoration(border: Border(bottom: BorderSide())),
+      child: Text('SEATLECT',
+          style: TextStyle(fontWeight: FontWeight.w900, fontSize: 28)),
+    );
   }
 }
