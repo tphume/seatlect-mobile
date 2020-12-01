@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:seatlect_mobile/favorites/favorites.dart';
+import 'package:seatlect_mobile/order/order.dart';
+import 'package:seatlect_mobile/search/search.dart';
+import 'package:seatlect_mobile/settings/settings.dart';
 
 import 'package:seatlect_mobile/user/bloc/user_bloc.dart';
 import 'package:seatlect_mobile/home/home.dart';
@@ -61,7 +65,11 @@ class _AppViewState extends State<AppView> {
       initialRoute: '/home',
       routes: {
         '/home': (context) => HomePage(),
-        '/login': (context) => LoginPage()
+        '/login': (context) => LoginPage(),
+        '/search': (context) => SearchPage(),
+        '/favorites': (context) => FavoritesPage(),
+        '/order': (context) => OrderPage(),
+        '/settings': (context) => SettingsPage()
       },
       builder: (context, child) {
         return BlocListener<UserBloc, UserState>(

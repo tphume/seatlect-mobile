@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:seatlect_mobile/components/drawer_content.dart' as comp;
 
-class HomePage extends StatelessWidget {
+class SearchPage extends StatelessWidget {
   static Route route() {
-    return MaterialPageRoute(builder: (_) => HomePage());
+    return MaterialPageRoute(builder: (_) => SearchPage());
   }
 
   @override
@@ -12,9 +12,9 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(backgroundColor: Colors.transparent, elevation: 0),
       drawer: Drawer(
-        child: comp.DrawerContent(comp.Page.home),
+        child: comp.DrawerContent(comp.Page.search),
       ),
-      body: Text('Home'),
+      body: Text('Search'),
     );
   }
 }
