@@ -18,6 +18,7 @@ dependencies:
   formz: ^0.3.2
   google_fonts: ^1.1.1
   grpc: ^2.8.0
+  geolocator: ^6.1.9
   entity:
     path: packages/entity
   user_repository:
