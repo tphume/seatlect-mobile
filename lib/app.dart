@@ -6,7 +6,8 @@ import 'package:seatlect_mobile/order/order.dart';
 import 'package:seatlect_mobile/search/search.dart';
 import 'package:seatlect_mobile/settings/settings.dart';
 
-import 'package:seatlect_mobile/user/bloc/user_bloc.dart';
+import 'package:seatlect_mobile/user/user.dart';
+import 'package:seatlect_mobile/location/location.dart';
 import 'package:seatlect_mobile/home/home.dart';
 import 'package:seatlect_mobile/login/login.dart';
 
@@ -26,6 +27,7 @@ class App extends StatelessWidget {
         child: MultiBlocProvider(
           providers: [
             BlocProvider<UserBloc>(create: (_) => UserBloc(userRepo: userRepo)),
+            BlocProvider<LocationCubit>(create: (_) => LocationCubit())
           ],
           child: AppView(),
         ));
