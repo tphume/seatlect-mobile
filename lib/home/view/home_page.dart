@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'package:seatlect_mobile/components/drawer_content.dart' as comp;
 import 'package:seatlect_mobile/location/location.dart';
+import 'package:seatlect_mobile/user/bloc/user_bloc.dart';
 
 class HomePage extends StatelessWidget {
   static Route route() {
@@ -23,7 +24,9 @@ class HomePage extends StatelessWidget {
       drawer: Drawer(
         child: comp.DrawerContent(comp.Page.home),
       ),
-      body: Text('Home'),
+      body: Column(
+        children: [_buildBanner()],
+      ),
     );
   }
 
@@ -44,8 +47,26 @@ class HomePage extends StatelessWidget {
                   color: Colors.black,
                   fontSize: 18,
                   fontWeight: FontWeight.w600),
-              overflow: TextOverflow.ellipsis,
+              overflow: TextOverflow.fade,
             ))
+      ]);
+    });
+  }
+
+  Widget _buildBanner() {
+    return BlocBuilder<UserBloc, UserState>(builder: (context, state) {
+      return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        Text(
+          'Hi ${state.user.username},',
+          style: TextStyle(
+              color: Colors.black, fontSize: 24, fontWeight: FontWeight.w500),
+          overflow: TextOverflow.fade,
+        ),
+        Text(
+          'What would you like to book today?',
+          style:
+              TextStyle(color: Color(0xFFBDBDBD), fontWeight: FontWeight.w400),
+        )
       ]);
     });
   }
