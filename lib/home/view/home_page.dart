@@ -14,20 +14,23 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        centerTitle: true,
-        title: _buildTitle(),
-      ),
-      drawer: Drawer(
-        child: comp.DrawerContent(comp.Page.home),
-      ),
-      body: Column(
-        children: [_buildBanner()],
-      ),
-    );
+        appBar: AppBar(
+          iconTheme: IconThemeData(color: Colors.black),
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          centerTitle: true,
+          title: _buildTitle(),
+        ),
+        drawer: Drawer(
+          child: comp.DrawerContent(comp.Page.home),
+        ),
+        body: Padding(
+          padding: EdgeInsets.only(left: 15, right: 15, bottom: kToolbarHeight),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [_buildBanner()],
+          ),
+        ));
   }
 
   Widget _buildTitle() {
