@@ -15,8 +15,10 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Colors.transparent,
         elevation: 0,
+        centerTitle: true,
         title: _buildTitle(),
       ),
       drawer: Drawer(
@@ -28,8 +30,13 @@ class HomePage extends StatelessWidget {
 
   Widget _buildTitle() {
     return BlocBuilder<LocationCubit, LocationState>(builder: (context, state) {
-      return Row(children: [
-        Icon(Icons.location_on_rounded),
+      final theme = Theme.of(context);
+
+      return Row(mainAxisSize: MainAxisSize.min, children: [
+        Icon(
+          Icons.location_on_rounded,
+          color: theme.primaryColor,
+        ),
         Padding(
             padding: EdgeInsets.only(left: 8),
             child: Text(
