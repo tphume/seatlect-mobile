@@ -19,6 +19,7 @@ dependencies:
   google_fonts: ^1.1.1
   grpc: ^2.8.0
   geolocator: ^6.1.9
+  geocoding: ^1.0.5
   entity:
     path: packages/entity
   user_repository:
