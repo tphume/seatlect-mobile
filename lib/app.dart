@@ -80,6 +80,7 @@ class _AppViewState extends State<AppView> {
               _navigator.pushNamedAndRemoveUntil('/login', (route) => false);
             } else if (state is UserAuth) {
               _navigator.pushNamedAndRemoveUntil('/home', (route) => false);
+              BlocProvider.of<LocationCubit>(context).getCurrentLocation();
             }
           },
           child: child,
