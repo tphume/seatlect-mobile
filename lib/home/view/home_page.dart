@@ -95,6 +95,7 @@ class HomePage extends StatelessWidget {
           return;
         }
 
+        // TODO Pass search data to next page
         Navigator.of(context)
             .pushNamedAndRemoveUntil('/search', (route) => false);
       },
@@ -128,6 +129,11 @@ class HomePage extends StatelessWidget {
                     // Placeholder svg icon for now
                     children: [
                       GestureDetector(
+                          onTap: () {
+                            // TODO Pass search data to next page
+                            Navigator.of(context).pushNamedAndRemoveUntil(
+                                '/favorites', (route) => false);
+                          },
                           child: SvgPicture.asset('assets/tags/placeholder.svg',
                               semanticsLabel: 'shortcut for searching $v tag',
                               width: 70,
