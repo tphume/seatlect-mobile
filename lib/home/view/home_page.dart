@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:seatlect_mobile/components/drawer_content.dart' as comp;
@@ -34,7 +35,11 @@ class HomePage extends StatelessWidget {
                   child: _buildBanner(), margin: EdgeInsets.only(bottom: 12)),
               Container(
                   child: _buildSearch(context),
-                  margin: EdgeInsets.only(bottom: 30))
+                  margin: EdgeInsets.only(bottom: 30)),
+              Container(
+                height: 100,
+                child: _buildTags(),
+              )
             ],
           ),
         ));
@@ -108,5 +113,35 @@ class HomePage extends StatelessWidget {
               borderSide: BorderSide(width: 0, style: BorderStyle.none),
               borderRadius: BorderRadius.circular(20))),
     );
+  }
+
+  Widget _buildTags() {
+    return BlocBuilder<UserBloc, UserState>(builder: (context, state) {
+      final tags = [...state.user.preference, 'MORE'];
+
+      return ListView(
+        scrollDirection: Axis.horizontal,
+        children: tags
+            .map<Widget>((v) => Container(
+                  width: 70,
+                  margin: EdgeInsets.only(right: (v != tags.last) ? 34 : 0),
+                  child: Column(
+                    // Placeholder svg icon for now
+                    children: [
+                      SvgPicture.asset(
+                        'assets/tags/placeholder.svg',
+                        semanticsLabel: 'shortcut for searching $v tag',
+                      ),
+                      Text(
+                        '${v[0]}${v.substring(1).toLowerCase()}',
+                        style: GoogleFonts.yantramanav(
+                            fontWeight: FontWeight.w700, fontSize: 14),
+                      )
+                    ],
+                  ),
+                ))
+            .toList(),
+      );
+    });
   }
 }

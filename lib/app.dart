@@ -64,7 +64,7 @@ class _AppViewState extends State<AppView> {
 
           // Icon
           primaryIconTheme: IconThemeData(color: Color(0xff5D55B4))),
-      initialRoute: '/home',
+      initialRoute: '/login',
       routes: {
         '/home': (context) => HomePage(),
         '/login': (context) => LoginPage(),
