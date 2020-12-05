@@ -25,10 +25,17 @@ class HomePage extends StatelessWidget {
           child: comp.DrawerContent(comp.Page.home),
         ),
         body: Padding(
-          padding: EdgeInsets.only(left: 15, right: 15, bottom: kToolbarHeight),
+          padding: EdgeInsets.only(
+              left: 15, top: 5, right: 15, bottom: kToolbarHeight),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [_buildBanner(), _buildSearch(context)],
+            children: [
+              Container(
+                  child: _buildBanner(), margin: EdgeInsets.only(bottom: 12)),
+              Container(
+                  child: _buildSearch(context),
+                  margin: EdgeInsets.only(bottom: 30))
+            ],
           ),
         ));
   }
@@ -79,6 +86,10 @@ class HomePage extends StatelessWidget {
 
     return TextFormField(
       onFieldSubmitted: (value) {
+        if (value.isEmpty) {
+          return;
+        }
+
         Navigator.of(context)
             .pushNamedAndRemoveUntil('/search', (route) => false);
       },
