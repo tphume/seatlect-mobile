@@ -27,7 +27,7 @@ class HomePage extends StatelessWidget {
         ),
         body: Padding(
           padding: EdgeInsets.only(
-              left: 15, top: 5, right: 15, bottom: kToolbarHeight),
+              left: 15, top: 10, right: 15, bottom: kToolbarHeight),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -123,15 +123,15 @@ class HomePage extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         children: tags
             .map<Widget>((v) => Container(
-                  width: 70,
                   margin: EdgeInsets.only(right: (v != tags.last) ? 34 : 0),
                   child: Column(
                     // Placeholder svg icon for now
                     children: [
-                      SvgPicture.asset(
-                        'assets/tags/placeholder.svg',
-                        semanticsLabel: 'shortcut for searching $v tag',
-                      ),
+                      GestureDetector(
+                          child: SvgPicture.asset('assets/tags/placeholder.svg',
+                              semanticsLabel: 'shortcut for searching $v tag',
+                              width: 70,
+                              height: 70)),
                       Text(
                         '${v[0]}${v.substring(1).toLowerCase()}',
                         style: GoogleFonts.yantramanav(
