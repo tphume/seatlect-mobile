@@ -28,7 +28,7 @@ class HomePage extends StatelessWidget {
           padding: EdgeInsets.only(left: 15, right: 15, bottom: kToolbarHeight),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [_buildBanner()],
+            children: [_buildBanner(), _buildSearch(context)],
           ),
         ));
   }
@@ -72,5 +72,30 @@ class HomePage extends StatelessWidget {
         )
       ]);
     });
+  }
+
+  Widget _buildSearch(context) {
+    final theme = Theme.of(context);
+
+    return TextFormField(
+      onFieldSubmitted: (value) {
+        Navigator.of(context)
+            .pushNamedAndRemoveUntil('/search', (route) => false);
+      },
+      style: TextStyle(fontSize: 16),
+      decoration: InputDecoration(
+          prefixIcon: Icon(
+            Icons.search,
+            color: theme.primaryIconTheme.color,
+          ),
+          hintText: 'Search by name',
+          hintStyle: TextStyle(fontSize: 16, color: Color(0xFFCFBEED)),
+          contentPadding: EdgeInsets.all(8),
+          fillColor: Color(0xFFE4E0EF),
+          filled: true,
+          border: OutlineInputBorder(
+              borderSide: BorderSide(width: 0, style: BorderStyle.none),
+              borderRadius: BorderRadius.circular(20))),
+    );
   }
 }
