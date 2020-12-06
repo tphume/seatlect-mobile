@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -39,6 +40,28 @@ class HomePage extends StatelessWidget {
               Container(
                 height: 100,
                 child: _buildTags(),
+                margin: EdgeInsets.only(bottom: 30),
+              ),
+              Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Recommended',
+                        style: GoogleFonts.yantramanav(
+                            fontWeight: FontWeight.w700, fontSize: 18)),
+                    GestureDetector(
+                        onTap: () {
+                          // TODO Pass search data to next page
+                          Navigator.of(context).pushNamedAndRemoveUntil(
+                              '/search', (route) => false);
+                        },
+                        child: Text(
+                          'View All',
+                          style:
+                              TextStyle(color: Color(0xFFF58F57), fontSize: 16),
+                        ))
+                  ],
+                ),
               )
             ],
           ),
