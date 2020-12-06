@@ -11,7 +11,11 @@ part 'location_state.dart';
 class LocationCubit extends Cubit<LocationState> {
   LocationCubit() : super(LocationInitial());
 
-  void getCurrentLocation() async {
+  Future<void> resetLocation() async {
+    emit(LocationInitial());
+  }
+
+  Future<void> getCurrentLocation() async {
     try {
       Position position = await Geolocator.getCurrentPosition(
           desiredAccuracy: LocationAccuracy.high);
@@ -19,7 +23,9 @@ class LocationCubit extends Cubit<LocationState> {
       List<Placemark> placemarks =
           await placemarkFromCoordinates(position.latitude, position.longitude);
 
-      emit(LocationSelected(location: placemarks[0].name));
+      emit(LocationSelected(
+          location:
+              '${placemarks[0].street}, ${placemarks[0].administrativeArea}'));
     } catch (e) {}
   }
 }

@@ -85,7 +85,8 @@ class HomePage extends StatelessWidget {
                   color: Colors.black,
                   fontSize: 18,
                   fontWeight: FontWeight.w600),
-              overflow: TextOverflow.fade,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
             ))
       ]);
     });
@@ -155,7 +156,7 @@ class HomePage extends StatelessWidget {
                           onTap: () {
                             // TODO Pass search data to next page
                             Navigator.of(context).pushNamedAndRemoveUntil(
-                                '/favorites', (route) => false);
+                                '/search', (route) => false);
                           },
                           child: SvgPicture.asset('assets/tags/placeholder.svg',
                               semanticsLabel: 'shortcut for searching $v tag',

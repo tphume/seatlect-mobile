@@ -78,6 +78,7 @@ class _AppViewState extends State<AppView> {
           listener: (context, state) {
             if (state is UserUnAuth) {
               _navigator.pushNamedAndRemoveUntil('/login', (route) => false);
+              BlocProvider.of<LocationCubit>(context).resetLocation();
             } else if (state is UserAuth) {
               _navigator.pushNamedAndRemoveUntil('/home', (route) => false);
               BlocProvider.of<LocationCubit>(context).getCurrentLocation();
