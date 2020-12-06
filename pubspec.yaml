@@ -22,6 +22,8 @@ dependencies:
     path: packages/entity
   user_repository:
     path: packages/user_repository
+  business_repository:
+    path: packages/business_repository
   genproto:
     path: packages/genproto
   token_manager:
