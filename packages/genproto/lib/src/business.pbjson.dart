@@ -32,7 +32,7 @@ const ListBusinessRequest$json = const {
       '10': 'sort'
     },
     const {'1': 'name', '3': 3, '4': 1, '5': 9, '10': 'name'},
-    const {'1': 'type', '3': 4, '4': 3, '5': 9, '10': 'type'},
+    const {'1': 'tags', '3': 4, '4': 3, '5': 9, '10': 'tags'},
     const {
       '1': 'location',
       '3': 5,
