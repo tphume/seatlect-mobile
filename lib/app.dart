@@ -26,7 +26,10 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiRepositoryProvider(
-        providers: [RepositoryProvider<UserRepo>(create: (_) => this.userRepo)],
+        providers: [
+          RepositoryProvider<UserRepo>(create: (_) => this.userRepo),
+          RepositoryProvider<BusinessRepo>(create: (_) => this.businessRepo)
+        ],
         child: MultiBlocProvider(
           providers: [
             BlocProvider<UserBloc>(create: (_) => UserBloc(userRepo: userRepo)),
