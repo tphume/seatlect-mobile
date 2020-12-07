@@ -6,7 +6,7 @@ import 'package:equatable/equatable.dart';
 import 'entity.dart';
 
 class Business extends Equatable {
-  final Uint8List id;
+  final String id;
   final String name;
   final List<String> type;
   final String description;

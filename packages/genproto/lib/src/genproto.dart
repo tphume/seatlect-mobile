@@ -6,3 +6,6 @@ export 'user.pbgrpc.dart';
 
 // Token service
 export 'token.pbgrpc.dart';
+
+// Business service
+export 'business.pbgrpc.dart';
