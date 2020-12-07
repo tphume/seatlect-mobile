@@ -1,3 +1,4 @@
+import 'package:business_repository/business_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -15,9 +16,11 @@ import 'package:user_repository/user_repository.dart';
 
 class App extends StatelessWidget {
   final UserRepo userRepo;
+  final BusinessRepo businessRepo;
 
-  const App({Key key, @required this.userRepo})
+  const App({Key key, @required this.userRepo, @required this.businessRepo})
       : assert(userRepo != null),
+        assert(businessRepo != null),
         super(key: key);
 
   @override

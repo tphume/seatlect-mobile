@@ -119,20 +119,23 @@ class Business extends $pb.GeneratedMessage {
               ? ''
               : 'seatlect'),
       createEmptyInstance: create)
-    ..a<$core.List<$core.int>>(
+    ..aOS(
         1,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
-            : 'Id',
-        $pb.PbFieldType.OY)
+            : 'Id')
     ..aOS(
         2,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'name')
     ..pPS(
-        3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'type')
-    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'description')
+        3,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'tags')
+    ..aOS(4,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'description')
     ..aOM<Latlng>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'location', subBuilder: Latlng.create)
     ..aOS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'address')
     ..aOS(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'displayImage', protoName: 'displayImage')
@@ -169,10 +172,10 @@ class Business extends $pb.GeneratedMessage {
   static Business _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.List<$core.int> get id => $_getN(0);
+  $core.String get id => $_getSZ(0);
   @$pb.TagNumber(1)
-  set id($core.List<$core.int> v) {
-    $_setBytes(0, v);
+  set id($core.String v) {
+    $_setString(0, v);
   }
 
   @$pb.TagNumber(1)
@@ -193,7 +196,7 @@ class Business extends $pb.GeneratedMessage {
   void clearName() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.List<$core.String> get type => $_getList(2);
+  $core.List<$core.String> get tags => $_getList(2);
 
   @$pb.TagNumber(4)
   $core.String get description => $_getSZ(3);
