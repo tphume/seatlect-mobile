@@ -1,8 +1,7 @@
 import 'dart:async';
-import 'dart:io';
-import 'package:business_repository/business_repository.dart';
-import 'package:meta/meta.dart';
+import 'dart:developer' as developer;
 
+import 'package:meta/meta.dart';
 import 'package:entity/entity.dart';
 import 'package:genproto/genproto.dart' as api;
 
@@ -14,12 +13,58 @@ class BusinessRepo {
 
   Future<List<Business>> ListBusiness(int limit, api.Sort sort,
       {String name,
-      List<String> type,
+      List<String> tags,
       Location location,
       int startPrice,
       int endPrice,
       DateTime startDate,
-      DateTime endDate}) async {}
+      DateTime endDate}) async {
+    // Construct request object
+    final latLng = api.Latlng()
+      ..latitude = location.latitude
+      ..longitude = location.longitude;
+
+    final request = api.ListBusinessRequest()
+      ..limit = limit
+      ..sort = sort
+      ..location = latLng
+      ..startPrice = startPrice
+      ..endPrice = endPrice
+      ..startDate = startDate.toIso8601String()
+      ..endDate = endDate.toIso8601String();
+
+    request.tags.addAll(tags);
+
+    // Call endpoint
+    try {
+      final response = await client.listBusiness(request);
+
+      final businesses = response.businesses.map<Business>((b) => Business(
+          id: b.id,
+          name: b.name,
+          tags: b.tags,
+          description: b.description,
+          location: Location(
+              latitude: b.location.latitude, longitude: b.location.longitude),
+          address: b.address,
+          displayImage: b.displayImage,
+          images: b.images,
+          menu: b.menu
+              .map<MenuItem>((i) => MenuItem(
+                  name: i.name,
+                  description: i.description,
+                  image: i.image,
+                  price: i.price))
+              .toList()));
+
+      return businesses.toList();
+    } catch (e) {
+      developer.log('non-gRPC error at login',
+          time: DateTime.now(), name: 'UserRepo', error: e);
+
+      rethrow;
+    }
+  }
 }
 
 class MockBusinessRepo implements BusinessRepo {
@@ -30,7 +75,7 @@ class MockBusinessRepo implements BusinessRepo {
 
   Future<List<Business>> ListBusiness(int limit, api.Sort sort,
       {String name,
-      List<String> type,
+      List<String> tags,
       Location location,
       int startPrice,
       int endPrice,
@@ -42,7 +87,7 @@ class MockBusinessRepo implements BusinessRepo {
       Business(
           id: '1',
           name: 'PogChampBurger',
-          type: ['BURGER', 'BEER', 'LIVE MUSIC'],
+          tags: ['BURGER', 'BEER', 'LIVE MUSIC'],
           description:
               'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           location: Location(
@@ -54,7 +99,7 @@ class MockBusinessRepo implements BusinessRepo {
       Business(
           id: '2',
           name: 'TateCafe',
-          type: ['ITALIAN', 'COCKTAIL'],
+          tags: ['ITALIAN', 'COCKTAIL'],
           description:
               'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           location: Location(
@@ -66,7 +111,7 @@ class MockBusinessRepo implements BusinessRepo {
       Business(
           id: '3',
           name: 'ManpoClub',
-          type: ['BEER', 'COCKTAIL', 'DANCE'],
+          tags: ['BEER', 'COCKTAIL', 'DANCE'],
           description:
               'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
           location: Location(

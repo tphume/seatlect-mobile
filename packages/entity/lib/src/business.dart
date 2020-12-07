@@ -8,7 +8,7 @@ import 'entity.dart';
 class Business extends Equatable {
   final String id;
   final String name;
-  final List<String> type;
+  final List<String> tags;
   final String description;
   final Location location;
   final String address;
@@ -19,7 +19,7 @@ class Business extends Equatable {
   Business(
       {@required this.id,
       @required this.name,
-      @required this.type,
+      @required this.tags,
       @required this.description,
       @required this.location,
       @required this.address,
@@ -28,7 +28,7 @@ class Business extends Equatable {
       @required this.menu})
       : assert(id != null),
         assert(name != null),
-        assert(type != null),
+        assert(tags != null),
         assert(description != null),
         assert(location != null),
         assert(address != null),
@@ -40,7 +40,7 @@ class Business extends Equatable {
     return [
       id,
       name,
-      type,
+      tags,
       description,
       location,
       address,

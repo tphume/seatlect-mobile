@@ -19,9 +19,9 @@ const User$json = const {
 const Business$json = const {
   '1': 'Business',
   '2': const [
-    const {'1': '_id', '3': 1, '4': 1, '5': 12, '10': 'Id'},
+    const {'1': '_id', '3': 1, '4': 1, '5': 9, '10': 'Id'},
     const {'1': 'name', '3': 2, '4': 1, '5': 9, '10': 'name'},
-    const {'1': 'type', '3': 3, '4': 3, '5': 9, '10': 'type'},
+    const {'1': 'tags', '3': 3, '4': 3, '5': 9, '10': 'tags'},
     const {'1': 'description', '3': 4, '4': 1, '5': 9, '10': 'description'},
     const {
       '1': 'location',

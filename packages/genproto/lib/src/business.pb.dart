@@ -41,7 +41,7 @@ class ListBusinessRequest extends $pb.GeneratedMessage {
         valueOf: Sort.valueOf,
         enumValues: Sort.values)
     ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
-    ..pPS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'type')
+    ..pPS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'tags')
     ..aOM<$1.Latlng>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'location', subBuilder: $1.Latlng.create)
     ..a<$core.int>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'startPrice', $pb.PbFieldType.O3, protoName: 'startPrice')
     ..a<$core.int>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'endPrice', $pb.PbFieldType.O3, protoName: 'endPrice')
@@ -115,7 +115,7 @@ class ListBusinessRequest extends $pb.GeneratedMessage {
   void clearName() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.List<$core.String> get type => $_getList(3);
+  $core.List<$core.String> get tags => $_getList(3);
 
   @$pb.TagNumber(5)
   $1.Latlng get location => $_getN(4);
