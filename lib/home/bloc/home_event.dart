@@ -10,13 +10,13 @@ abstract class HomeEvent extends Equatable {
 }
 
 // Event to fetch business for recommendation list
-class HomeFetchBusiness extends HomeEvent {}
+class HomeFetchBusiness extends HomeEvent {
+  final Location location;
 
-// Event if fetch was successful
-class HomeFetchOk extends HomeEvent {}
+  HomeFetchBusiness({@required this.location});
 
-// Event if fetch was unsuccessful
-class HomeFetchFailed extends HomeEvent {}
-
-// Event is location service is not enabled
-class HomeFetchDisabled extends HomeEvent {}
+  @override
+  List<Object> get props {
+    return [location];
+  }
+}

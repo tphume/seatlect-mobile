@@ -23,3 +23,6 @@ class HomePopulated extends HomeState {
     return [this.businessList];
   }
 }
+
+// State when fetching
+class HomeFetching extends HomeState {}
