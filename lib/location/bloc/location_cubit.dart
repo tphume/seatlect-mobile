@@ -10,7 +10,9 @@ import 'package:meta/meta.dart';
 part 'location_state.dart';
 
 class LocationCubit extends Cubit<LocationState> {
-  LocationCubit() : super(LocationInitial());
+  LocationCubit() : super(LocationInitial()) {
+    getCurrentLocation();
+  }
 
   Future<void> resetLocation() async {
     emit(LocationInitial());
