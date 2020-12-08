@@ -93,9 +93,9 @@ class MockBusinessRepo implements BusinessRepo {
           location: Location(
               latitude: 13.745226384751511, longitude: 100.53793107547114),
           address: 'Groove, Central World',
-          displayImage: null,
-          images: null,
-          menu: null),
+          displayImage: '',
+          images: [],
+          menu: []),
       Business(
           id: '2',
           name: 'TateCafe',
@@ -105,9 +105,9 @@ class MockBusinessRepo implements BusinessRepo {
           location: Location(
               latitude: 13.745226384751511, longitude: 100.53793107547114),
           address: 'Groove, Central World',
-          displayImage: null,
-          images: null,
-          menu: null),
+          displayImage: '',
+          images: [],
+          menu: []),
       Business(
           id: '3',
           name: 'ManpoClub',
@@ -117,9 +117,9 @@ class MockBusinessRepo implements BusinessRepo {
           location: Location(
               latitude: 13.732566862458347, longitude: 100.58566653598916),
           address: 'Somewhere in Thonglor',
-          displayImage: null,
-          images: null,
-          menu: null)
+          displayImage: '',
+          images: [],
+          menu: [])
     ];
   }
 }

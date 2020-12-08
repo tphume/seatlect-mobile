@@ -18,6 +18,7 @@ class LoginPage extends StatelessWidget {
           BlocListener<UserBloc, UserState>(
             listener: (context, state) {
               if (state is UserAuthError) {
+                Navigator.of(context).pop();
                 Scaffold.of(context).showSnackBar(SnackBar(
                   content: Text('Authentication error'),
                   duration: Duration(seconds: 2),
