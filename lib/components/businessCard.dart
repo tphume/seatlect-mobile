@@ -1,6 +1,9 @@
 import 'package:entity/entity.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:seatlect_mobile/location/bloc/location_cubit.dart';
 
 class BusinessCard extends StatelessWidget {
   final Business business;
@@ -24,16 +27,17 @@ class BusinessCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            height: 90,
-            width: 90,
+            height: 100,
+            width: 100,
             decoration: BoxDecoration(
               color: theme.primaryColorLight,
               borderRadius: BorderRadius.circular(13),
             ),
           ),
-          SizedBox(
-            height: 90,
+          Container(
+            height: 100,
             width: 200,
+            padding: EdgeInsets.only(left: 5),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -47,12 +51,47 @@ class BusinessCard extends StatelessWidget {
                       fontSize: 21,
                       color: Color(0xFF1F1F24)),
                 ),
-                Text(
-                  business.address,
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 1,
-                  style: GoogleFonts.yantramanav(
-                      fontWeight: FontWeight.w400, color: Color(0xFF4F4F4F)),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      business.address,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+                      style: GoogleFonts.yantramanav(
+                          fontWeight: FontWeight.w400,
+                          color: Color(0xFF4F4F4F)),
+                    ),
+                    BlocBuilder<LocationCubit, LocationState>(
+                        builder: (context, state) {
+                      if (state is LocationSelected) {
+                        final distance = (Geolocator.distanceBetween(
+                                    state.location.latitude,
+                                    state.location.longitude,
+                                    business.location.latitude,
+                                    business.location.longitude) /
+                                1000)
+                            .toStringAsFixed(1);
+                        return Row(
+                          children: [
+                            Icon(
+                              Icons.location_on_sharp,
+                              color: theme.primaryColor,
+                              size: 12,
+                            ),
+                            Text(
+                              '$distance km away',
+                              maxLines: 1,
+                              style: GoogleFonts.yantramanav(
+                                  fontWeight: FontWeight.w500),
+                            )
+                          ],
+                        );
+                      }
+
+                      return Text('');
+                    })
+                  ],
                 ),
                 Text(
                   business.tags
@@ -68,6 +107,10 @@ class BusinessCard extends StatelessWidget {
                 )
               ],
             ),
+          ),
+          SizedBox(
+            height: 100,
+            width: 40,
           )
         ],
       ),

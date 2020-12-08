@@ -1,3 +1,4 @@
+import 'package:entity/entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -183,6 +184,7 @@ class HomePage extends StatelessWidget {
     return BlocBuilder<HomeBloc, HomeState>(builder: (context, state) {
       if (state is HomePopulated) {
         return ListView(
+          padding: EdgeInsets.all(5),
           scrollDirection: Axis.vertical,
           children: state.businessList
               .map<Widget>((b) => BusinessCard(
