@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'package:seatlect_mobile/home/home.dart';
 import 'package:seatlect_mobile/components/drawer_content.dart' as comp;
 import 'package:seatlect_mobile/location/location.dart';
 import 'package:seatlect_mobile/user/bloc/user_bloc.dart';
@@ -27,8 +28,7 @@ class HomePage extends StatelessWidget {
           child: comp.DrawerContent(comp.Page.home),
         ),
         body: Padding(
-          padding: EdgeInsets.only(
-              left: 15, top: 10, right: 15, bottom: kToolbarHeight),
+          padding: EdgeInsets.only(left: 15, top: 10, right: 15, bottom: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -43,6 +43,7 @@ class HomePage extends StatelessWidget {
                 margin: EdgeInsets.only(bottom: 30),
               ),
               Container(
+                margin: EdgeInsets.only(bottom: 15),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -62,6 +63,9 @@ class HomePage extends StatelessWidget {
                         ))
                   ],
                 ),
+              ),
+              Expanded(
+                child: _buildRecommendation(),
               )
             ],
           ),
@@ -172,6 +176,25 @@ class HomePage extends StatelessWidget {
                 ))
             .toList(),
       );
+    });
+  }
+
+  Widget _buildRecommendation() {
+    return BlocBuilder<HomeBloc, HomeState>(builder: (context, state) {
+      if (state is HomePopulated) {
+        return ListView(
+          scrollDirection: Axis.vertical,
+          children: state.businessList
+              .map<Widget>((b) => Container(
+                    height: 100,
+                    margin: EdgeInsets.only(bottom: 15),
+                    color: Color(0xffE4E0EF),
+                  ))
+              .toList(),
+        );
+      }
+
+      return Text('Location service is disabled');
     });
   }
 }
