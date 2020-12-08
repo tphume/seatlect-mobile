@@ -12,12 +12,15 @@ class LocationInitial extends LocationState {}
 
 // Contains user selected location - or current location
 class LocationSelected extends LocationState {
-  final String location;
+  final entity.Location location;
+  final String address;
 
-  LocationSelected({@required this.location}) : assert(location != null);
+  LocationSelected({@required this.location, @required this.address})
+      : assert(location != null),
+        assert(address != null);
 
   @override
   List<Object> get props {
-    return [location];
+    return [location, address];
   }
 }

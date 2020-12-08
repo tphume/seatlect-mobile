@@ -80,7 +80,7 @@ class HomePage extends StatelessWidget {
         Padding(
             padding: EdgeInsets.only(left: 8),
             child: Text(
-              (state is LocationSelected) ? state.location : 'Location Unknown',
+              (state is LocationSelected) ? state.address : 'Location Unknown',
               style: GoogleFonts.dmSans(
                   color: Colors.black,
                   fontSize: 18,
