@@ -29,8 +29,9 @@ class LocationCubit extends Cubit<LocationState> {
       emit(LocationSelected(
           location: entity.Location(
               latitude: position.latitude, longitude: position.longitude),
-          address:
-              '${placemarks[0].street}, ${placemarks[0].administrativeArea}'));
+          address: placemarks[0].street.isNotEmpty
+              ? '${placemarks[0].street}, ${placemarks[0].administrativeArea}'
+              : placemarks[0].administrativeArea));
     } catch (e) {
       emit(LocationEmpty());
     }
