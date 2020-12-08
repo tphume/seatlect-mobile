@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -8,6 +7,7 @@ import 'package:seatlect_mobile/home/home.dart';
 import 'package:seatlect_mobile/components/drawer_content.dart' as comp;
 import 'package:seatlect_mobile/location/location.dart';
 import 'package:seatlect_mobile/user/bloc/user_bloc.dart';
+import 'package:seatlect_mobile/components/businessCard.dart';
 
 class HomePage extends StatelessWidget {
   static Route route() {
@@ -185,10 +185,8 @@ class HomePage extends StatelessWidget {
         return ListView(
           scrollDirection: Axis.vertical,
           children: state.businessList
-              .map<Widget>((b) => Container(
-                    height: 100,
-                    margin: EdgeInsets.only(bottom: 15),
-                    color: Color(0xffE4E0EF),
+              .map<Widget>((b) => BusinessCard(
+                    business: b,
                   ))
               .toList(),
         );
