@@ -1,18 +1,18 @@
-import 'package:business_repository/business_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import 'package:seatlect_mobile/favorites/favorites.dart';
 import 'package:seatlect_mobile/order/order.dart';
 import 'package:seatlect_mobile/search/search.dart';
 import 'package:seatlect_mobile/settings/settings.dart';
-
 import 'package:seatlect_mobile/user/user.dart';
 import 'package:seatlect_mobile/location/location.dart';
 import 'package:seatlect_mobile/home/home.dart';
 import 'package:seatlect_mobile/login/login.dart';
 
 import 'package:user_repository/user_repository.dart';
+import 'package:business_repository/business_repository.dart';
 
 class App extends StatelessWidget {
   final UserRepo userRepo;
@@ -33,7 +33,9 @@ class App extends StatelessWidget {
         child: MultiBlocProvider(
           providers: [
             BlocProvider<UserBloc>(create: (_) => UserBloc(userRepo: userRepo)),
-            BlocProvider<LocationCubit>(create: (_) => LocationCubit())
+            BlocProvider<LocationCubit>(create: (_) => LocationCubit()),
+            BlocProvider<HomeBloc>(
+                create: (_) => HomeBloc(businessRepo: businessRepo))
           ],
           child: AppView(),
         ));
@@ -87,6 +89,16 @@ class _AppViewState extends State<AppView> {
               BlocProvider.of<LocationCubit>(context).resetLocation();
             } else if (state is UserAuth) {
               _navigator.pushNamedAndRemoveUntil('/home', (route) => false);
+
+              final locationState =
+                  BlocProvider.of<LocationCubit>(context).state;
+              if (locationState is LocationEmpty) {
+                BlocProvider.of<HomeBloc>(context)
+                    .add(HomeFetchBusiness(location: null));
+              } else if (locationState is LocationSelected) {
+                BlocProvider.of<HomeBloc>(context)
+                    .add(HomeFetchBusiness(location: locationState.location));
+              }
             }
           },
           child: child,
