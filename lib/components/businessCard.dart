@@ -34,13 +34,15 @@ class BusinessCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                height: 100,
-                width: 100,
-                decoration: BoxDecoration(
-                  color: theme.primaryColorLight,
-                  borderRadius: BorderRadius.circular(13),
-                ),
-              ),
+                  height: 100,
+                  width: 100,
+                  decoration: BoxDecoration(
+                      color: theme.primaryColorLight,
+                      borderRadius: BorderRadius.circular(13),
+                      image: business.displayImage.isNotEmpty
+                          ? DecorationImage(
+                              image: NetworkImage(business.displayImage))
+                          : null)),
               Container(
                 height: 100,
                 width: 200,
