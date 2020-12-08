@@ -16,7 +16,7 @@ class HomeEmpty extends HomeState {}
 class HomePopulated extends HomeState {
   final List<Business> businessList;
 
-  HomePopulated(this.businessList);
+  HomePopulated({@required this.businessList}) : assert(businessList != null);
 
   @override
   List<Object> get props {

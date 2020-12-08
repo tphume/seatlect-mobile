@@ -10,6 +10,9 @@ abstract class LocationState extends Equatable {
 // Only use on init
 class LocationInitial extends LocationState {}
 
+// If location is empty
+class LocationEmpty extends LocationState {}
+
 // Contains user selected location - or current location
 class LocationSelected extends LocationState {
   final entity.Location location;

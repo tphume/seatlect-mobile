@@ -31,6 +31,8 @@ class LocationCubit extends Cubit<LocationState> {
               latitude: position.latitude, longitude: position.longitude),
           address:
               '${placemarks[0].street}, ${placemarks[0].administrativeArea}'));
-    } catch (e) {}
+    } catch (e) {
+      emit(LocationEmpty());
+    }
   }
 }

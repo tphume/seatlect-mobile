@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:business_repository/business_repository.dart';
+import 'package:genproto/genproto.dart' as proto;
 import 'package:meta/meta.dart';
 import 'package:entity/entity.dart';
 import 'package:equatable/equatable.dart';
@@ -18,5 +19,23 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   @override
   Stream<HomeState> mapEventToState(
     HomeEvent event,
-  ) async* {}
+  ) async* {
+    if (event is HomeFetchBusiness) {
+      if (event.location == null) {
+        yield HomeEmpty();
+      } else {
+        try {
+          yield HomeFetching();
+
+          final businessList = await businessRepo.ListBusiness(
+              3, proto.Sort.LOCATION_ASC,
+              location: event.location);
+
+          yield HomePopulated(businessList: businessList);
+        } catch (e) {
+          yield HomeEmpty();
+        }
+      }
+    }
+  }
 }
