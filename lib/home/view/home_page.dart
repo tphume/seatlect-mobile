@@ -146,6 +146,12 @@ class HomePage extends StatelessWidget {
 
   Widget _buildTags() {
     return BlocBuilder<UserBloc, UserState>(builder: (context, state) {
+      if (state is UserUnAuth) {
+        return Container(
+          height: 70,
+        );
+      }
+
       final tags = [...state.user.preference, 'MORE'];
 
       return ListView(
