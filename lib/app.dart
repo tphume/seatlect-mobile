@@ -85,9 +85,11 @@ class _AppViewState extends State<AppView> {
         return BlocListener<UserBloc, UserState>(
           listener: (context, state) {
             if (state is UserUnAuth) {
+              // Is called when logout occurs
               _navigator.pushNamedAndRemoveUntil('/login', (route) => false);
               BlocProvider.of<LocationCubit>(context).resetLocation();
             } else if (state is UserAuth) {
+              // Is called when login occurs
               _navigator.pushNamedAndRemoveUntil('/home', (route) => false);
 
               final locationState =
