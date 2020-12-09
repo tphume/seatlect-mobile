@@ -34,6 +34,9 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       } catch (e) {
         yield UserAuthError();
       }
+    } else if (event is UserLogout) {
+      userRepo.logout();
+      yield UserUnAuth();
     }
   }
 }

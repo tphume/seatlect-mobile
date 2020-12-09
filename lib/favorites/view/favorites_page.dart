@@ -10,7 +10,11 @@ class FavoritesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Colors.transparent, elevation: 0),
+      appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.black),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
       drawer: Drawer(
         child: comp.DrawerContent(comp.Page.favorites),
       ),

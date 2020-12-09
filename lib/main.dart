@@ -1,5 +1,6 @@
 import 'dart:developer' as dev;
 
+import 'package:business_repository/business_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:genproto/genproto.dart';
 import 'package:grpc/grpc.dart';
@@ -35,9 +36,14 @@ void main() async {
   final userRepo =
       UserRepo(client: userClient, tokenController: tokenManager.controller);
 
+  // TODO: Add interceptor or MetadataProvider
+  final businessClient = BusinessServiceClient(channel);
+  final businessRepo = BusinessRepo(client: businessClient);
+
   // Start Flutter app
   runApp(App(
     userRepo: userRepo,
+    businessRepo: businessRepo,
   ));
 
   // Cleanup
