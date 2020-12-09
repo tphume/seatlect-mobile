@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:seatlect_mobile/user/bloc/user_bloc.dart';
 
-enum Page { home, search, favorites, order, settings }
+enum Page { home, search, favorites, order, settings, logout }
 
 class DrawerContent extends StatelessWidget {
   final Page current;
@@ -58,7 +60,16 @@ class DrawerContent extends StatelessWidget {
             onTap: () => {
                   Navigator.pushNamedAndRemoveUntil(
                       context, '/settings', (route) => false)
-                })
+                }),
+        Divider(),
+        _createItem(
+            theme: theme,
+            page: Page.logout,
+            icon: Icons.logout,
+            text: 'Logout',
+            onTap: () {
+              BlocProvider.of<UserBloc>(context).add(UserLogout());
+            })
       ],
     );
   }
