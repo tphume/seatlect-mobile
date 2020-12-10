@@ -93,8 +93,8 @@ class MockBusinessRepo implements BusinessRepo {
           location: Location(
               latitude: 13.745226384751511, longitude: 100.53793107547114),
           address: 'Groove, Central World',
-          displayImage: '',
-          images: [],
+          displayImage: 'https://placeimg.com/640/480/any',
+          images: ['https://placeimg.com/640/480/any', 'https://placeimg.com/640/480/any'],
           menu: []),
       Business(
           id: '2',
@@ -105,8 +105,8 @@ class MockBusinessRepo implements BusinessRepo {
           location: Location(
               latitude: 13.745226384751511, longitude: 100.53793107547114),
           address: 'Groove, Central World',
-          displayImage: '',
-          images: [],
+          displayImage: 'https://placeimg.com/640/480/any',
+          images: ['https://placeimg.com/640/480/any', 'https://placeimg.com/640/480/any'],
           menu: []),
       Business(
           id: '3',
@@ -117,8 +117,8 @@ class MockBusinessRepo implements BusinessRepo {
           location: Location(
               latitude: 13.732566862458347, longitude: 100.58566653598916),
           address: 'Somewhere in Thonglor',
-          displayImage: '',
-          images: [],
+          displayImage: 'https://placeimg.com/640/480/any',
+          images: ['https://placeimg.com/640/480/any', 'https://placeimg.com/640/480/any'],
           menu: [])
     ];
   }

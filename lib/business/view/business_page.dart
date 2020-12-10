@@ -1,5 +1,6 @@
 import 'package:entity/entity.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_swiper/flutter_swiper.dart';
 
 class BusinessPage extends StatelessWidget {
   final Business business;
@@ -15,9 +16,29 @@ class BusinessPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Scaffold(
-      appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.white),
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            iconTheme: IconThemeData(color: Colors.white),
+            backgroundColor: theme.primaryColorLight,
+            expandedHeight: 230,
+            floating: false,
+            pinned: false,
+            snap: false,
+            flexibleSpace: FlexibleSpaceBar(
+                background: Swiper(
+              itemCount: business.images.length,
+              itemBuilder: (BuildContext context, int index) => Image.network(
+                business.images[index],
+                fit: BoxFit.cover,
+              ),
+              autoplay: true,
+            )),
+          )
+        ],
       ),
     );
   }

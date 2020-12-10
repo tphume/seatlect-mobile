@@ -41,7 +41,8 @@ class BusinessCard extends StatelessWidget {
                       borderRadius: BorderRadius.circular(13),
                       image: business.displayImage.isNotEmpty
                           ? DecorationImage(
-                              image: NetworkImage(business.displayImage))
+                              image: NetworkImage(business.displayImage),
+                              fit: BoxFit.cover)
                           : null)),
               Container(
                 height: 100,
