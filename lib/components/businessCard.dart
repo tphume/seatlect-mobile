@@ -18,7 +18,7 @@ class BusinessCard extends StatelessWidget {
     return GestureDetector(
         onTap: () {
           // TODO Pass search data to next page
-          Navigator.of(context).push(BusinessPage.route());
+          Navigator.of(context).push(BusinessPage.route(business: business));
         },
         child: Container(
           padding: EdgeInsets.only(left: 10, top: 12, right: 10, bottom: 10),
