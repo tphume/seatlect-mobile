@@ -1,6 +1,7 @@
 import 'package:entity/entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:seatlect_mobile/components/menuItemCard.dart';
 
 class BusinessPage extends StatelessWidget {
   final Business business;
@@ -37,7 +38,12 @@ class BusinessPage extends StatelessWidget {
               ),
               autoplay: true,
             )),
-          )
+          ),
+          SliverList(
+              delegate: SliverChildListDelegate.fixed(
+                  business.menu.map<Widget>((m) => MenuItemCard(
+                        menuItem: m,
+                      )))),
         ],
       ),
     );
