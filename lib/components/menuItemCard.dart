@@ -13,7 +13,8 @@ class MenuItemCard extends StatelessWidget {
 
     return Container(
       height: 100,
-      padding: EdgeInsets.only(top: 7, bottom: 7),
+      margin: EdgeInsets.only(top: 10),
+      padding: EdgeInsets.only(bottom: 7),
       decoration: BoxDecoration(
           border:
               Border(bottom: BorderSide(color: Color(0xFF828282), width: 0.5))),
@@ -48,6 +49,7 @@ class MenuItemCard extends StatelessWidget {
                 ),
                 Text(
                   menuItem.description,
+                  maxLines: 3,
                   overflow: TextOverflow.ellipsis,
                   style: GoogleFonts.yantramanav(),
                 )

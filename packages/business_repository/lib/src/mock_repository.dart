@@ -38,22 +38,26 @@ class MockBusinessRepo implements BusinessRepo {
           menu: [
             MenuItem(
                 name: 'MeatBurger',
-                description: 'Very tasty burger',
+                description:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
                 image: 'https://placeimg.com/640/480/any',
                 price: '10'),
             MenuItem(
                 name: 'MeatBurger',
-                description: 'Very tasty burger',
+                description:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
                 image: 'https://placeimg.com/640/480/any',
                 price: '10'),
             MenuItem(
                 name: 'MeatBurger',
-                description: 'Very tasty burger',
+                description:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
                 image: 'https://placeimg.com/640/480/any',
                 price: '10'),
             MenuItem(
                 name: 'MeatBurger',
-                description: 'Very tasty burger',
+                description:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
                 image: 'https://placeimg.com/640/480/any',
                 price: '10')
           ]),
@@ -74,22 +78,26 @@ class MockBusinessRepo implements BusinessRepo {
           menu: [
             MenuItem(
                 name: 'MeatBurger',
-                description: 'Very tasty burger',
+                description:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
                 image: 'https://placeimg.com/640/480/any',
                 price: '10'),
             MenuItem(
                 name: 'MeatBurger',
-                description: 'Very tasty burger',
+                description:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
                 image: 'https://placeimg.com/640/480/any',
                 price: '10'),
             MenuItem(
                 name: 'MeatBurger',
-                description: 'Very tasty burger',
+                description:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
                 image: 'https://placeimg.com/640/480/any',
                 price: '10'),
             MenuItem(
                 name: 'MeatBurger',
-                description: 'Very tasty burger',
+                description:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
                 image: 'https://placeimg.com/640/480/any',
                 price: '10')
           ]),
@@ -110,20 +118,29 @@ class MockBusinessRepo implements BusinessRepo {
           menu: [
             MenuItem(
                 name: 'MeatBurger',
-                description: 'Very tasty burger',
+                description:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
                 image: 'https://placeimg.com/640/480/any',
                 price: '10'),
             MenuItem(
                 name: 'MeatBurger',
-                description: 'Very tasty burger',
+                description:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
                 image: 'https://placeimg.com/640/480/any',
                 price: '10'),
             MenuItem(
                 name: 'MeatBurger',
-                description: 'Very tasty burger',
+                description:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
+                image: 'https://placeimg.com/640/480/any',
+                price: '10'),
+            MenuItem(
+                name: 'MeatBurger',
+                description:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
                 image: 'https://placeimg.com/640/480/any',
                 price: '10')
-          ])
+          ]),
     ];
   }
 }
