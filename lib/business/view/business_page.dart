@@ -39,11 +39,15 @@ class BusinessPage extends StatelessWidget {
               autoplay: true,
             )),
           ),
-          SliverList(
-              delegate: SliverChildListDelegate.fixed(
-                  business.menu.map<Widget>((m) => MenuItemCard(
-                        menuItem: m,
-                      )))),
+          SliverPadding(
+            padding: EdgeInsets.only(left: 15, top: 10, right: 15, bottom: 10),
+            sliver: SliverList(
+                delegate: SliverChildListDelegate.fixed(business.menu
+                    .map<Widget>((m) => MenuItemCard(
+                          menuItem: m,
+                        ))
+                    .toList(growable: false))),
+          )
         ],
       ),
     );
