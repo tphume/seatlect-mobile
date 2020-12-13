@@ -21,7 +21,11 @@ class BusinessPage extends StatelessWidget {
 
     return Scaffold(
       body: CustomScrollView(
-        slivers: [_buildSlider(context), _buildBanner(), _buildMenuList()],
+        slivers: [
+          _buildSlider(context),
+          _buildBanner(context),
+          _buildMenuList()
+        ],
       ),
     );
   }
@@ -48,12 +52,51 @@ class BusinessPage extends StatelessWidget {
     );
   }
 
-  Widget _buildBanner() {
+  Widget _buildBanner(BuildContext context) {
+    final theme = Theme.of(context);
+
     return SliverToBoxAdapter(
       child: Container(
-        padding: EdgeInsets.only(left: 15, top: 10, right: 15, bottom: 10),
+        padding: EdgeInsets.only(left: 15, top: 15, right: 15, bottom: 10),
         child: Column(
-          children: [],
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  business.name,
+                  style: TextStyle(
+                      color: theme.primaryColor,
+                      fontWeight: FontWeight.w700,
+                      fontSize: 24),
+                  maxLines: 1,
+                ),
+                Icon(Icons.favorite_border)
+              ],
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 10, bottom: 5),
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.location_on_sharp,
+                    color: theme.primaryColor,
+                    size: 14,
+                  ),
+                  Text(
+                    business.address,
+                    style: TextStyle(fontSize: 16),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  )
+                ],
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 5, bottom: 30),
+              child: Text(business.description),
+            )
+          ],
         ),
       ),
     );
