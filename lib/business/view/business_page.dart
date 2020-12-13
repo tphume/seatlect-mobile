@@ -21,35 +21,53 @@ class BusinessPage extends StatelessWidget {
 
     return Scaffold(
       body: CustomScrollView(
-        slivers: [
-          SliverAppBar(
-            iconTheme: IconThemeData(color: Colors.white),
-            backgroundColor: theme.primaryColorLight,
-            expandedHeight: 230,
-            floating: false,
-            pinned: false,
-            snap: false,
-            flexibleSpace: FlexibleSpaceBar(
-                background: Swiper(
-              itemCount: business.images.length,
-              itemBuilder: (BuildContext context, int index) => Image.network(
-                business.images[index],
-                fit: BoxFit.cover,
-              ),
-              autoplay: true,
-            )),
-          ),
-          SliverPadding(
-            padding: EdgeInsets.only(left: 15, top: 10, right: 15, bottom: 10),
-            sliver: SliverList(
-                delegate: SliverChildListDelegate.fixed(business.menu
-                    .map<Widget>((m) => MenuItemCard(
-                          menuItem: m,
-                        ))
-                    .toList(growable: false))),
-          )
-        ],
+        slivers: [_buildSlider(context), _buildBanner(), _buildMenuList()],
       ),
+    );
+  }
+
+  Widget _buildSlider(BuildContext context) {
+    final theme = Theme.of(context);
+
+    return SliverAppBar(
+      iconTheme: IconThemeData(color: Colors.white),
+      backgroundColor: theme.primaryColorLight,
+      expandedHeight: 230,
+      floating: false,
+      pinned: false,
+      snap: false,
+      flexibleSpace: FlexibleSpaceBar(
+          background: Swiper(
+        itemCount: business.images.length,
+        itemBuilder: (BuildContext context, int index) => Image.network(
+          business.images[index],
+          fit: BoxFit.cover,
+        ),
+        autoplay: true,
+      )),
+    );
+  }
+
+  Widget _buildBanner() {
+    return SliverToBoxAdapter(
+      child: Container(
+        padding: EdgeInsets.only(left: 15, top: 10, right: 15, bottom: 10),
+        child: Column(
+          children: [],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildMenuList() {
+    return SliverPadding(
+      padding: EdgeInsets.only(left: 15, top: 10, right: 15, bottom: 10),
+      sliver: SliverList(
+          delegate: SliverChildListDelegate.fixed(business.menu
+              .map<Widget>((m) => MenuItemCard(
+                    menuItem: m,
+                  ))
+              .toList(growable: false))),
     );
   }
 }
