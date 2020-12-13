@@ -23,16 +23,31 @@ class BusinessPage extends StatelessWidget {
     final theme = Theme.of(context);
 
     return Scaffold(
-        body: Padding(
-      padding: EdgeInsets.only(bottom: 70),
-      child: CustomScrollView(
-        slivers: [
-          _buildSlider(context),
-          _buildBanner(context),
-          _buildMenuList()
-        ],
+      body: Padding(
+        padding: EdgeInsets.only(bottom: 80),
+        child: CustomScrollView(
+          slivers: [
+            _buildSlider(context),
+            _buildBanner(context),
+            _buildMenuList()
+          ],
+        ),
       ),
-    ));
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: null,
+        label: Container(
+          width: 300,
+          child: Text(
+            'Reserve',
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 21),
+          ),
+        ),
+        backgroundColor: theme.accentColor,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+    );
   }
 
   Widget _buildSlider(BuildContext context) {
@@ -113,7 +128,7 @@ class BusinessPage extends StatelessWidget {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(top: 5, bottom: 25),
+              margin: EdgeInsets.only(top: 5, bottom: 20),
               child: Text(business.description),
             ),
             Text(
@@ -128,7 +143,7 @@ class BusinessPage extends StatelessWidget {
 
   Widget _buildMenuList() {
     return SliverPadding(
-      padding: EdgeInsets.only(left: 15, top: 5, right: 15, bottom: 10),
+      padding: EdgeInsets.only(left: 15, right: 15, bottom: 10),
       sliver: SliverList(
           delegate: SliverChildListDelegate.fixed(business.menu
               .map<Widget>((m) => MenuItemCard(
