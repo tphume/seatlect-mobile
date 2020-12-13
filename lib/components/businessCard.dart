@@ -18,7 +18,7 @@ class BusinessCard extends StatelessWidget {
     return GestureDetector(
         onTap: () {
           // TODO Pass search data to next page
-          Navigator.of(context).push(BusinessPage.route());
+          Navigator.of(context).push(BusinessPage.route(business: business));
         },
         child: Container(
           padding: EdgeInsets.only(left: 10, top: 12, right: 10, bottom: 10),
@@ -41,7 +41,8 @@ class BusinessCard extends StatelessWidget {
                       borderRadius: BorderRadius.circular(13),
                       image: business.displayImage.isNotEmpty
                           ? DecorationImage(
-                              image: NetworkImage(business.displayImage))
+                              image: NetworkImage(business.displayImage),
+                              fit: BoxFit.cover)
                           : null)),
               Container(
                 height: 100,

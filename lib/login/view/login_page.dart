@@ -37,7 +37,7 @@ class LoginPage extends StatelessWidget {
             },
             child: Container(),
           ),
-          Expanded(flex: 3, child: Text('Placeholder for logo')),
+          Expanded(flex: 3, child: Text('')),
           Expanded(
               flex: 7,
               child: Container(
