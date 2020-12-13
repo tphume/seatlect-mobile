@@ -1,7 +1,10 @@
 import 'package:entity/entity.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+
 import 'package:seatlect_mobile/components/menuItemCard.dart';
+import 'package:seatlect_mobile/user/user.dart';
 
 class BusinessPage extends StatelessWidget {
   final Business business;
@@ -20,14 +23,16 @@ class BusinessPage extends StatelessWidget {
     final theme = Theme.of(context);
 
     return Scaffold(
-      body: CustomScrollView(
+        body: Padding(
+      padding: EdgeInsets.only(bottom: 70),
+      child: CustomScrollView(
         slivers: [
           _buildSlider(context),
           _buildBanner(context),
           _buildMenuList()
         ],
       ),
-    );
+    ));
   }
 
   Widget _buildSlider(BuildContext context) {
@@ -57,8 +62,10 @@ class BusinessPage extends StatelessWidget {
 
     return SliverToBoxAdapter(
       child: Container(
-        padding: EdgeInsets.only(left: 15, top: 15, right: 15, bottom: 10),
+        padding: EdgeInsets.only(left: 15, right: 15),
+        margin: EdgeInsets.only(top: 15, bottom: 5),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -71,7 +78,20 @@ class BusinessPage extends StatelessWidget {
                       fontSize: 24),
                   maxLines: 1,
                 ),
-                Icon(Icons.favorite_border)
+                BlocBuilder<UserBloc, UserState>(builder: (context, state) {
+                  if (state.user == null) {
+                    return Container();
+                  }
+
+                  return Icon(
+                    (state.user.favorite.contains(business.id))
+                        ? Icons.favorite
+                        : Icons.favorite_border,
+                    color: (state.user.favorite.contains(business.id))
+                        ? theme.errorColor
+                        : Colors.black,
+                  );
+                }),
               ],
             ),
             Container(
@@ -93,8 +113,12 @@ class BusinessPage extends StatelessWidget {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(top: 5, bottom: 30),
+              margin: EdgeInsets.only(top: 5, bottom: 25),
               child: Text(business.description),
+            ),
+            Text(
+              'Menu',
+              style: TextStyle(fontWeight: FontWeight.w700, fontSize: 24),
             )
           ],
         ),
@@ -104,7 +128,7 @@ class BusinessPage extends StatelessWidget {
 
   Widget _buildMenuList() {
     return SliverPadding(
-      padding: EdgeInsets.only(left: 15, top: 10, right: 15, bottom: 10),
+      padding: EdgeInsets.only(left: 15, top: 5, right: 15, bottom: 10),
       sliver: SliverList(
           delegate: SliverChildListDelegate.fixed(business.menu
               .map<Widget>((m) => MenuItemCard(
