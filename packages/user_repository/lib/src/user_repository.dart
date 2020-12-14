@@ -68,7 +68,23 @@ class UserRepo {
       final response = await client.addFavorite(request);
       return;
     } catch (e) {
-      developer.log('non-gRPC error at login',
+      developer.log('non-gRPC error at add favorite',
+          time: DateTime.now(), name: 'UserRepo', error: e);
+
+      rethrow;
+    }
+  }
+
+  Future<void> RemoveFavorite(String id) async {
+    // Construct request
+    final request = api.RemoveFavoriteRequest()..businessId = id;
+
+    // Call api
+    try {
+      final response = await client.removeFavorite(request);
+      return;
+    } catch (e) {
+      developer.log('non-gRPC error at remove favorite',
           time: DateTime.now(), name: 'UserRepo', error: e);
 
       rethrow;
