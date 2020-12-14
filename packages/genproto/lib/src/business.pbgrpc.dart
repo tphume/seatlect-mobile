@@ -20,6 +20,12 @@ class BusinessServiceClient extends $grpc.Client {
           ($0.ListBusinessRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
               $0.ListBusinessResponse.fromBuffer(value));
+  static final _$listBusinessById = $grpc.ClientMethod<
+          $0.ListBusinessByIdRequest, $0.ListBusinessByIdResponse>(
+      '/seatlect.BusinessService/ListBusinessById',
+      ($0.ListBusinessByIdRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $0.ListBusinessByIdResponse.fromBuffer(value));
 
   BusinessServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions options,
@@ -30,6 +36,12 @@ class BusinessServiceClient extends $grpc.Client {
       $0.ListBusinessRequest request,
       {$grpc.CallOptions options}) {
     return $createUnaryCall(_$listBusiness, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.ListBusinessByIdResponse> listBusinessById(
+      $0.ListBusinessByIdRequest request,
+      {$grpc.CallOptions options}) {
+    return $createUnaryCall(_$listBusinessById, request, options: options);
   }
 }
 
@@ -46,6 +58,15 @@ abstract class BusinessServiceBase extends $grpc.Service {
             ($core.List<$core.int> value) =>
                 $0.ListBusinessRequest.fromBuffer(value),
             ($0.ListBusinessResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.ListBusinessByIdRequest,
+            $0.ListBusinessByIdResponse>(
+        'ListBusinessById',
+        listBusinessById_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.ListBusinessByIdRequest.fromBuffer(value),
+        ($0.ListBusinessByIdResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.ListBusinessResponse> listBusiness_Pre(
@@ -54,6 +75,14 @@ abstract class BusinessServiceBase extends $grpc.Service {
     return listBusiness(call, await request);
   }
 
+  $async.Future<$0.ListBusinessByIdResponse> listBusinessById_Pre(
+      $grpc.ServiceCall call,
+      $async.Future<$0.ListBusinessByIdRequest> request) async {
+    return listBusinessById(call, await request);
+  }
+
   $async.Future<$0.ListBusinessResponse> listBusiness(
       $grpc.ServiceCall call, $0.ListBusinessRequest request);
+  $async.Future<$0.ListBusinessByIdResponse> listBusinessById(
+      $grpc.ServiceCall call, $0.ListBusinessByIdRequest request);
 }
