@@ -337,3 +337,211 @@ class SignUpResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $1.User ensureUser() => $_ensure(1);
 }
+
+class AddFavoriteRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'AddFavoriteRequest',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'seatlect'),
+      createEmptyInstance: create)
+    ..aOS(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'businessId',
+        protoName: 'businessId')
+    ..hasRequiredFields = false;
+
+  AddFavoriteRequest._() : super();
+  factory AddFavoriteRequest() => create();
+  factory AddFavoriteRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory AddFavoriteRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  AddFavoriteRequest clone() => AddFavoriteRequest()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  AddFavoriteRequest copyWith(void Function(AddFavoriteRequest) updates) =>
+      super.copyWith((message) => updates(
+          message as AddFavoriteRequest)); // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static AddFavoriteRequest create() => AddFavoriteRequest._();
+  AddFavoriteRequest createEmptyInstance() => create();
+  static $pb.PbList<AddFavoriteRequest> createRepeated() =>
+      $pb.PbList<AddFavoriteRequest>();
+  @$core.pragma('dart2js:noInline')
+  static AddFavoriteRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<AddFavoriteRequest>(create);
+  static AddFavoriteRequest _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get businessId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set businessId($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasBusinessId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearBusinessId() => clearField(1);
+}
+
+class AddFavoriteResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'AddFavoriteResponse',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'seatlect'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
+  AddFavoriteResponse._() : super();
+  factory AddFavoriteResponse() => create();
+  factory AddFavoriteResponse.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory AddFavoriteResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  AddFavoriteResponse clone() => AddFavoriteResponse()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  AddFavoriteResponse copyWith(void Function(AddFavoriteResponse) updates) =>
+      super.copyWith((message) => updates(
+          message as AddFavoriteResponse)); // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static AddFavoriteResponse create() => AddFavoriteResponse._();
+  AddFavoriteResponse createEmptyInstance() => create();
+  static $pb.PbList<AddFavoriteResponse> createRepeated() =>
+      $pb.PbList<AddFavoriteResponse>();
+  @$core.pragma('dart2js:noInline')
+  static AddFavoriteResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<AddFavoriteResponse>(create);
+  static AddFavoriteResponse _defaultInstance;
+}
+
+class RemoveFavoriteRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'RemoveFavoriteRequest',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'seatlect'),
+      createEmptyInstance: create)
+    ..aOS(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'businessId',
+        protoName: 'businessId')
+    ..hasRequiredFields = false;
+
+  RemoveFavoriteRequest._() : super();
+  factory RemoveFavoriteRequest() => create();
+  factory RemoveFavoriteRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory RemoveFavoriteRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  RemoveFavoriteRequest clone() =>
+      RemoveFavoriteRequest()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  RemoveFavoriteRequest copyWith(
+          void Function(RemoveFavoriteRequest) updates) =>
+      super.copyWith((message) => updates(
+          message as RemoveFavoriteRequest)); // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static RemoveFavoriteRequest create() => RemoveFavoriteRequest._();
+  RemoveFavoriteRequest createEmptyInstance() => create();
+  static $pb.PbList<RemoveFavoriteRequest> createRepeated() =>
+      $pb.PbList<RemoveFavoriteRequest>();
+  @$core.pragma('dart2js:noInline')
+  static RemoveFavoriteRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<RemoveFavoriteRequest>(create);
+  static RemoveFavoriteRequest _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get businessId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set businessId($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasBusinessId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearBusinessId() => clearField(1);
+}
+
+class RemoveFavoriteResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'RemoveFavoriteResponse',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'seatlect'),
+      createEmptyInstance: create)
+    ..hasRequiredFields = false;
+
+  RemoveFavoriteResponse._() : super();
+  factory RemoveFavoriteResponse() => create();
+  factory RemoveFavoriteResponse.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory RemoveFavoriteResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  RemoveFavoriteResponse clone() =>
+      RemoveFavoriteResponse()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  RemoveFavoriteResponse copyWith(
+          void Function(RemoveFavoriteResponse) updates) =>
+      super.copyWith((message) => updates(
+          message as RemoveFavoriteResponse)); // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static RemoveFavoriteResponse create() => RemoveFavoriteResponse._();
+  RemoveFavoriteResponse createEmptyInstance() => create();
+  static $pb.PbList<RemoveFavoriteResponse> createRepeated() =>
+      $pb.PbList<RemoveFavoriteResponse>();
+  @$core.pragma('dart2js:noInline')
+  static RemoveFavoriteResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<RemoveFavoriteResponse>(create);
+  static RemoveFavoriteResponse _defaultInstance;
+}

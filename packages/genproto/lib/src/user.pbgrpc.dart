@@ -24,6 +24,18 @@ class UserServiceClient extends $grpc.Client {
           '/seatlect.UserService/SignUp',
           ($0.SignUpRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.SignUpResponse.fromBuffer(value));
+  static final _$addFavorite =
+      $grpc.ClientMethod<$0.AddFavoriteRequest, $0.AddFavoriteResponse>(
+          '/seatlect.UserService/AddFavorite',
+          ($0.AddFavoriteRequest value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) =>
+              $0.AddFavoriteResponse.fromBuffer(value));
+  static final _$removeFavorite =
+      $grpc.ClientMethod<$0.RemoveFavoriteRequest, $0.RemoveFavoriteResponse>(
+          '/seatlect.UserService/RemoveFavorite',
+          ($0.RemoveFavoriteRequest value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) =>
+              $0.RemoveFavoriteResponse.fromBuffer(value));
 
   UserServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions options,
@@ -38,6 +50,18 @@ class UserServiceClient extends $grpc.Client {
   $grpc.ResponseFuture<$0.SignUpResponse> signUp($0.SignUpRequest request,
       {$grpc.CallOptions options}) {
     return $createUnaryCall(_$signUp, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.AddFavoriteResponse> addFavorite(
+      $0.AddFavoriteRequest request,
+      {$grpc.CallOptions options}) {
+    return $createUnaryCall(_$addFavorite, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.RemoveFavoriteResponse> removeFavorite(
+      $0.RemoveFavoriteRequest request,
+      {$grpc.CallOptions options}) {
+    return $createUnaryCall(_$removeFavorite, request, options: options);
   }
 }
 
@@ -59,6 +83,24 @@ abstract class UserServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.SignUpRequest.fromBuffer(value),
         ($0.SignUpResponse value) => value.writeToBuffer()));
+    $addMethod(
+        $grpc.ServiceMethod<$0.AddFavoriteRequest, $0.AddFavoriteResponse>(
+            'AddFavorite',
+            addFavorite_Pre,
+            false,
+            false,
+            ($core.List<$core.int> value) =>
+                $0.AddFavoriteRequest.fromBuffer(value),
+            ($0.AddFavoriteResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.RemoveFavoriteRequest,
+            $0.RemoveFavoriteResponse>(
+        'RemoveFavorite',
+        removeFavorite_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.RemoveFavoriteRequest.fromBuffer(value),
+        ($0.RemoveFavoriteResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.SignInResponse> signIn_Pre(
@@ -71,8 +113,23 @@ abstract class UserServiceBase extends $grpc.Service {
     return signUp(call, await request);
   }
 
+  $async.Future<$0.AddFavoriteResponse> addFavorite_Pre($grpc.ServiceCall call,
+      $async.Future<$0.AddFavoriteRequest> request) async {
+    return addFavorite(call, await request);
+  }
+
+  $async.Future<$0.RemoveFavoriteResponse> removeFavorite_Pre(
+      $grpc.ServiceCall call,
+      $async.Future<$0.RemoveFavoriteRequest> request) async {
+    return removeFavorite(call, await request);
+  }
+
   $async.Future<$0.SignInResponse> signIn(
       $grpc.ServiceCall call, $0.SignInRequest request);
   $async.Future<$0.SignUpResponse> signUp(
       $grpc.ServiceCall call, $0.SignUpRequest request);
+  $async.Future<$0.AddFavoriteResponse> addFavorite(
+      $grpc.ServiceCall call, $0.AddFavoriteRequest request);
+  $async.Future<$0.RemoveFavoriteResponse> removeFavorite(
+      $grpc.ServiceCall call, $0.RemoveFavoriteRequest request);
 }
