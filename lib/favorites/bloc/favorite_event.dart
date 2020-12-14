@@ -4,6 +4,13 @@ abstract class FavoriteEvent extends Equatable {
   const FavoriteEvent();
 }
 
+class FavoriteReset extends FavoriteEvent {
+  @override
+  List<Object> get props {
+    return [];
+  }
+}
+
 class FetchFavorite extends FavoriteEvent {
   final List<String> ids;
 

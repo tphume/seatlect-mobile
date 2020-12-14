@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:seatlect_mobile/favorites/bloc/favorite_bloc.dart';
 
 import 'package:seatlect_mobile/favorites/favorites.dart';
 import 'package:seatlect_mobile/order/order.dart';
@@ -35,7 +36,10 @@ class App extends StatelessWidget {
             BlocProvider<UserBloc>(create: (_) => UserBloc(userRepo: userRepo)),
             BlocProvider<LocationCubit>(create: (_) => LocationCubit()),
             BlocProvider<HomeBloc>(
-                create: (_) => HomeBloc(businessRepo: businessRepo))
+                create: (_) => HomeBloc(businessRepo: businessRepo)),
+            BlocProvider<FavoriteBloc>(
+                create: (_) => FavoriteBloc(
+                    userRepo: userRepo, businessRepo: businessRepo))
           ],
           child: AppView(),
         ));
@@ -88,6 +92,7 @@ class _AppViewState extends State<AppView> {
               // Is called when logout occurs
               _navigator.pushNamedAndRemoveUntil('/login', (route) => false);
               BlocProvider.of<LocationCubit>(context).resetLocation();
+              BlocProvider.of<FavoriteBloc>(context).add(FavoriteReset());
             } else if (state is UserAuth) {
               // Is called when login occurs
               _navigator.pushNamedAndRemoveUntil('/home', (route) => false);
@@ -101,6 +106,9 @@ class _AppViewState extends State<AppView> {
                 BlocProvider.of<HomeBloc>(context)
                     .add(HomeFetchBusiness(location: locationState.location));
               }
+
+              BlocProvider.of<FavoriteBloc>(context)
+                  .add(FetchFavorite(ids: state.user.favorite));
             }
           },
           child: child,

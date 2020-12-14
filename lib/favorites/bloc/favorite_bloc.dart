@@ -25,7 +25,9 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
   Stream<FavoriteState> mapEventToState(
     FavoriteEvent event,
   ) async* {
-    if (event is FetchFavorite) {
+    if (event is FavoriteReset) {
+      yield FavoriteInitial();
+    } else if (event is FetchFavorite) {
       try {
         final businesses = await businessRepo.ListBusinessById(event.ids);
         yield FavoriteCurrent(businesses: businesses);
