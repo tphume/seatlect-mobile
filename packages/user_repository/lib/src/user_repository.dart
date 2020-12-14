@@ -58,4 +58,20 @@ class UserRepo {
   void logout() {
     this.tokenController.add('');
   }
+
+  Future<void> AddFavorite(String id) async {
+    // Construct request
+    final request = api.AddFavoriteRequest()..businessId = id;
+
+    // Call api
+    try {
+      final response = await client.addFavorite(request);
+      return;
+    } catch (e) {
+      developer.log('non-gRPC error at login',
+          time: DateTime.now(), name: 'UserRepo', error: e);
+
+      rethrow;
+    }
+  }
 }

@@ -31,4 +31,9 @@ class MockUserRepo implements UserRepo {
   }
 
   void logout() {}
+
+  Future<void> AddFavorite(String id) async {
+    await Future.delayed(Duration(seconds: 1));
+    return;
+  }
 }
