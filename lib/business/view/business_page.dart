@@ -95,18 +95,24 @@ class BusinessPage extends StatelessWidget {
                 ),
                 BlocBuilder<FavoriteBloc, FavoriteState>(
                     builder: (context, state) {
-                  return Icon(
-                    (state.businesses.indexWhere((b) => b.id == business.id) !=
-                            -1)
-                        ? Icons.favorite
-                        : Icons.favorite_border,
-                    color: (state.businesses
-                                .indexWhere((b) => b.id == business.id) !=
-                            -1)
-                        ? theme.errorColor
-                        : Colors.black,
+                  final isFavorite =
+                      state.businesses.indexWhere((b) => b.id == business.id) !=
+                          -1;
+
+                  return GestureDetector(
+                    onTap: () {
+                      isFavorite
+                          ? BlocProvider.of<FavoriteBloc>(context)
+                              .add(RemoveFavorite(business: business))
+                          : BlocProvider.of<FavoriteBloc>(context)
+                              .add(AddFavorite(business: business));
+                    },
+                    child: Icon(
+                      isFavorite ? Icons.favorite : Icons.favorite_border,
+                      color: isFavorite ? theme.errorColor : Colors.black,
+                    ),
                   );
-                }),
+                })
               ],
             ),
             Container(

@@ -1,9 +1,9 @@
 part of 'favorite_bloc.dart';
 
 abstract class FavoriteState extends Equatable {
-  final List<Business> businesses = [];
+  final List<Business> businesses;
 
-  FavoriteState();
+  FavoriteState({@required this.businesses});
 
   @override
   List<Object> get props {
@@ -12,11 +12,13 @@ abstract class FavoriteState extends Equatable {
 }
 
 class FavoriteInitial extends FavoriteState {
-  final List<Business> businesses = [];
+  FavoriteInitial() : super(businesses: []);
 }
 
 class FavoriteCurrent extends FavoriteState {
   final List<Business> businesses;
 
-  FavoriteCurrent({@required this.businesses}) : assert(businesses != null);
+  FavoriteCurrent({@required this.businesses})
+      : assert(businesses != null),
+        super(businesses: businesses);
 }

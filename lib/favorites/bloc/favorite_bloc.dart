@@ -34,19 +34,23 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
       } catch (e) {}
     } else if (event is AddFavorite) {
       try {
-        await userRepo.AddFavorite(event.business.id);
-
         final businesses = [...state.businesses, event.business];
         yield FavoriteCurrent(businesses: businesses);
+
+        await userRepo.AddFavorite(event.business.id);
       } catch (e) {}
     } else if (event is RemoveFavorite) {
       try {
-        await userRepo.RemoveFavorite(event.business.id);
-
-        final businesses = state.businesses;
+        final businesses = [...state.businesses];
         businesses.removeWhere((b) => b.id == event.business.id);
+
         yield FavoriteCurrent(businesses: businesses);
-      } catch (e) {}
+
+        await userRepo.RemoveFavorite(event.business.id);
+      } catch (e) {
+        yield FavoriteCurrent(
+            businesses: [...state.businesses, event.business]);
+      }
     }
   }
 }
