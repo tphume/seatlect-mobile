@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 
 import 'package:seatlect_mobile/components/menuItemCard.dart';
-import 'package:seatlect_mobile/user/user.dart';
+import 'package:seatlect_mobile/favorites/bloc/favorite_bloc.dart';
 
 class BusinessPage extends StatelessWidget {
   final Business business;
@@ -93,16 +93,16 @@ class BusinessPage extends StatelessWidget {
                       fontSize: 24),
                   maxLines: 1,
                 ),
-                BlocBuilder<UserBloc, UserState>(builder: (context, state) {
-                  if (state.user == null) {
-                    return Container();
-                  }
-
+                BlocBuilder<FavoriteBloc, FavoriteState>(
+                    builder: (context, state) {
                   return Icon(
-                    (state.user.favorite.contains(business.id))
+                    (state.businesses.indexWhere((b) => b.id == business.id) !=
+                            -1)
                         ? Icons.favorite
                         : Icons.favorite_border,
-                    color: (state.user.favorite.contains(business.id))
+                    color: (state.businesses
+                                .indexWhere((b) => b.id == business.id) !=
+                            -1)
                         ? theme.errorColor
                         : Colors.black,
                   );
