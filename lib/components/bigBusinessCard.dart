@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:seatlect_mobile/business/business.dart';
 import 'package:seatlect_mobile/components/businessCard.dart';
 import 'package:seatlect_mobile/location/bloc/location_cubit.dart';
 
@@ -14,42 +15,46 @@ class BigBusinessCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(bottom: 20),
-      width: 315,
-      decoration: BoxDecoration(
-          color: Colors.white, borderRadius: BorderRadius.circular(5)),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            height: 150,
-            margin: EdgeInsets.only(bottom: 10),
-            child: _buildImages(),
+    return GestureDetector(
+        onTap: () {
+          Navigator.of(context).push(BusinessPage.route(business: business));
+        },
+        child: Container(
+          margin: EdgeInsets.only(bottom: 20),
+          width: 315,
+          decoration: BoxDecoration(
+              color: Colors.white, borderRadius: BorderRadius.circular(5)),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                height: 150,
+                margin: EdgeInsets.only(bottom: 10),
+                child: _buildImages(),
+              ),
+              Container(
+                padding: EdgeInsets.only(left: 10),
+                margin: EdgeInsets.only(bottom: 10),
+                child: Text(
+                  business.name,
+                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.only(left: 10),
+                margin: EdgeInsets.only(bottom: 10),
+                child: BusinessCardLocation(business: business),
+              ),
+              Container(
+                padding: EdgeInsets.only(left: 10),
+                margin: EdgeInsets.only(bottom: 10),
+                child: BusinessCardTags(
+                  tags: business.tags,
+                ),
+              )
+            ],
           ),
-          Container(
-            padding: EdgeInsets.only(left: 10),
-            margin: EdgeInsets.only(bottom: 10),
-            child: Text(
-              business.name,
-              style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.only(left: 10),
-            margin: EdgeInsets.only(bottom: 10),
-            child: BusinessCardLocation(business: business),
-          ),
-          Container(
-            padding: EdgeInsets.only(left: 10),
-            margin: EdgeInsets.only(bottom: 10),
-            child: BusinessCardTags(
-              tags: business.tags,
-            ),
-          )
-        ],
-      ),
-    );
+        ));
   }
 
   Widget _buildImages() {
