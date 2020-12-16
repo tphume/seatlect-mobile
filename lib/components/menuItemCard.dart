@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:entity/entity.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -29,7 +30,7 @@ class MenuItemCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(13),
                   image: menuItem.image.isNotEmpty
                       ? DecorationImage(
-                          image: NetworkImage(menuItem.image),
+                          image: CachedNetworkImageProvider(menuItem.image),
                           fit: BoxFit.cover)
                       : null)),
           Container(

@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:entity/entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -63,8 +64,8 @@ class BusinessPage extends StatelessWidget {
       flexibleSpace: FlexibleSpaceBar(
           background: Swiper(
         itemCount: business.images.length,
-        itemBuilder: (BuildContext context, int index) => Image.network(
-          business.images[index],
+        itemBuilder: (BuildContext context, int index) => CachedNetworkImage(
+          imageUrl: business.images[index],
           fit: BoxFit.cover,
         ),
         autoplay: true,

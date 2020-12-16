@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:entity/entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -41,7 +42,8 @@ class BusinessCard extends StatelessWidget {
                       borderRadius: BorderRadius.circular(13),
                       image: business.displayImage.isNotEmpty
                           ? DecorationImage(
-                              image: NetworkImage(business.displayImage),
+                              image: CachedNetworkImageProvider(
+                                  business.displayImage),
                               fit: BoxFit.cover)
                           : null)),
               Container(
