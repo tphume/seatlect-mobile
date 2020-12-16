@@ -30,10 +30,10 @@ class MockBusinessRepo implements BusinessRepo {
           location: Location(
               latitude: 13.745226384751511, longitude: 100.53793107547114),
           address: 'Groove, Central World',
-          displayImage: 'https://placeimg.com/640/480/any',
+          displayImage: 'https://placekitten.com/505/505',
           images: [
-            'https://placeimg.com/640/480/any',
-            'https://placeimg.com/640/480/any'
+            'https://placekitten.com/500/500',
+            'https://placekitten.com/600/600'
           ],
           menu: [
             MenuItem(
@@ -70,10 +70,10 @@ class MockBusinessRepo implements BusinessRepo {
           location: Location(
               latitude: 13.745226384751511, longitude: 100.53793107547114),
           address: 'Groove, Central World',
-          displayImage: 'https://placeimg.com/640/480/any',
+          displayImage: 'https://placekitten.com/525/525',
           images: [
-            'https://placeimg.com/640/480/any',
-            'https://placeimg.com/640/480/any'
+            'https://placekitten.com/510/510',
+            'https://placekitten.com/610/610'
           ],
           menu: [
             MenuItem(
@@ -110,10 +110,10 @@ class MockBusinessRepo implements BusinessRepo {
           location: Location(
               latitude: 13.732566862458347, longitude: 100.58566653598916),
           address: 'Somewhere in Thonglor',
-          displayImage: 'https://placeimg.com/640/480/any',
+          displayImage: 'https://placekitten.com/530/530',
           images: [
-            'https://placeimg.com/640/480/any',
-            'https://placeimg.com/640/480/any'
+            'https://placekitten.com/520/520',
+            'https://placekitten.com/620/620'
           ],
           menu: [
             MenuItem(
@@ -157,10 +157,10 @@ class MockBusinessRepo implements BusinessRepo {
           location: Location(
               latitude: 13.745226384751511, longitude: 100.53793107547114),
           address: 'Groove, Central World',
-          displayImage: 'https://placeimg.com/640/480/any',
+          displayImage: 'https://placekitten.com/505/505',
           images: [
-            'https://placeimg.com/640/480/any',
-            'https://placeimg.com/640/480/any'
+            'https://placekitten.com/500/500',
+            'https://placekitten.com/600/600'
           ],
           menu: [
             MenuItem(
@@ -197,10 +197,10 @@ class MockBusinessRepo implements BusinessRepo {
           location: Location(
               latitude: 13.745226384751511, longitude: 100.53793107547114),
           address: 'Groove, Central World',
-          displayImage: 'https://placeimg.com/640/480/any',
+          displayImage: 'https://placekitten.com/525/525',
           images: [
-            'https://placeimg.com/640/480/any',
-            'https://placeimg.com/640/480/any'
+            'https://placekitten.com/510/510',
+            'https://placekitten.com/610/610'
           ],
           menu: [
             MenuItem(
