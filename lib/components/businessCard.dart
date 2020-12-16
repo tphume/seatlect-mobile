@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:entity/entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -41,7 +42,8 @@ class BusinessCard extends StatelessWidget {
                       borderRadius: BorderRadius.circular(13),
                       image: business.displayImage.isNotEmpty
                           ? DecorationImage(
-                              image: NetworkImage(business.displayImage),
+                              image: CachedNetworkImageProvider(
+                                  business.displayImage),
                               fit: BoxFit.cover)
                           : null)),
               Container(
@@ -61,61 +63,8 @@ class BusinessCard extends StatelessWidget {
                           fontSize: 21,
                           color: Color(0xFF1F1F24)),
                     ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          business.address,
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 1,
-                          style: GoogleFonts.yantramanav(
-                              fontWeight: FontWeight.w400,
-                              color: Color(0xFF4F4F4F)),
-                        ),
-                        BlocBuilder<LocationCubit, LocationState>(
-                            builder: (context, state) {
-                          if (state is LocationSelected) {
-                            final distance = (Geolocator.distanceBetween(
-                                        state.location.latitude,
-                                        state.location.longitude,
-                                        business.location.latitude,
-                                        business.location.longitude) /
-                                    1000)
-                                .toStringAsFixed(1);
-                            return Row(
-                              children: [
-                                Icon(
-                                  Icons.location_on_sharp,
-                                  color: theme.primaryColor,
-                                  size: 12,
-                                ),
-                                Text(
-                                  '$distance km away',
-                                  maxLines: 1,
-                                  style: GoogleFonts.yantramanav(
-                                      fontWeight: FontWeight.w500),
-                                )
-                              ],
-                            );
-                          }
-
-                          return Text('');
-                        })
-                      ],
-                    ),
-                    Text(
-                      business.tags
-                          .map<String>(
-                              (e) => '${e[0]}${e.substring(1).toLowerCase()}')
-                          .toString()
-                          .replaceAll('(', '')
-                          .replaceAll(')', ''),
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 1,
-                      style: GoogleFonts.yantramanav(
-                          fontWeight: FontWeight.w400,
-                          color: Color(0xFF4F4F4F)),
-                    )
+                    BusinessCardLocation(business: business),
+                    BusinessCardTags(tags: business.tags)
                   ],
                 ),
               ),
@@ -126,5 +75,77 @@ class BusinessCard extends StatelessWidget {
             ],
           ),
         ));
+  }
+}
+
+class BusinessCardLocation extends StatelessWidget {
+  final Business business;
+
+  BusinessCardLocation({@required this.business});
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          business.address,
+          overflow: TextOverflow.ellipsis,
+          maxLines: 1,
+          style: GoogleFonts.yantramanav(
+              fontWeight: FontWeight.w400, color: Color(0xFF4F4F4F)),
+        ),
+        BlocBuilder<LocationCubit, LocationState>(builder: (context, state) {
+          if (state is LocationSelected) {
+            final distance = (Geolocator.distanceBetween(
+                        state.location.latitude,
+                        state.location.longitude,
+                        business.location.latitude,
+                        business.location.longitude) /
+                    1000)
+                .toStringAsFixed(1);
+            return Row(
+              children: [
+                Icon(
+                  Icons.location_on_sharp,
+                  color: theme.primaryColor,
+                  size: 12,
+                ),
+                Text(
+                  '$distance km away',
+                  maxLines: 1,
+                  style: GoogleFonts.yantramanav(fontWeight: FontWeight.w500),
+                )
+              ],
+            );
+          }
+
+          return Text('');
+        })
+      ],
+    );
+  }
+}
+
+class BusinessCardTags extends StatelessWidget {
+  final List<String> tags;
+
+  BusinessCardTags({@required this.tags});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      tags
+          .map<String>((e) => '${e[0]}${e.substring(1).toLowerCase()}')
+          .toString()
+          .replaceAll('(', '')
+          .replaceAll(')', ''),
+      overflow: TextOverflow.ellipsis,
+      maxLines: 1,
+      style: GoogleFonts.yantramanav(
+          fontWeight: FontWeight.w400, color: Color(0xFF4F4F4F)),
+    );
   }
 }

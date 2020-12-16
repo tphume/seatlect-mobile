@@ -38,31 +38,50 @@ class BusinessRepo {
     // Call endpoint
     try {
       final response = await client.listBusiness(request);
-
-      final businesses = response.businesses.map<Business>((b) => Business(
-          id: b.id,
-          name: b.name,
-          tags: b.tags,
-          description: b.description,
-          location: Location(
-              latitude: b.location.latitude, longitude: b.location.longitude),
-          address: b.address,
-          displayImage: b.displayImage,
-          images: b.images,
-          menu: b.menu
-              .map<MenuItem>((i) => MenuItem(
-                  name: i.name,
-                  description: i.description,
-                  image: i.image,
-                  price: i.price))
-              .toList()));
-
-      return businesses.toList();
+      return _convertApiList(response.businesses);
     } catch (e) {
       developer.log('non-gRPC error at login',
           time: DateTime.now(), name: 'UserRepo', error: e);
 
       rethrow;
     }
+  }
+
+  Future<List<Business>> ListBusinessById(List<String> id) async {
+    // Construct request object
+    final request = api.ListBusinessByIdRequest()..setField(1, id);
+
+    // Call endpoint
+    try {
+      final response = await client.listBusinessById(request);
+      return _convertApiList(response.businesses);
+    } catch (e) {
+      developer.log('non-gRPC error at login',
+          time: DateTime.now(), name: 'UserRepo', error: e);
+
+      rethrow;
+    }
+  }
+
+  List<Business> _convertApiList(List<api.Business> raw) {
+    final businesses = raw.map<Business>((b) => Business(
+        id: b.id,
+        name: b.name,
+        tags: b.tags,
+        description: b.description,
+        location: Location(
+            latitude: b.location.latitude, longitude: b.location.longitude),
+        address: b.address,
+        displayImage: b.displayImage,
+        images: b.images,
+        menu: b.menu
+            .map<MenuItem>((i) => MenuItem(
+                name: i.name,
+                description: i.description,
+                image: i.image,
+                price: i.price))
+            .toList()));
+
+    return businesses.toList();
   }
 }

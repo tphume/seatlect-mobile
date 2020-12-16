@@ -1,10 +1,11 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:entity/entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 
 import 'package:seatlect_mobile/components/menuItemCard.dart';
-import 'package:seatlect_mobile/user/user.dart';
+import 'package:seatlect_mobile/favorites/bloc/favorite_bloc.dart';
 
 class BusinessPage extends StatelessWidget {
   final Business business;
@@ -63,8 +64,8 @@ class BusinessPage extends StatelessWidget {
       flexibleSpace: FlexibleSpaceBar(
           background: Swiper(
         itemCount: business.images.length,
-        itemBuilder: (BuildContext context, int index) => Image.network(
-          business.images[index],
+        itemBuilder: (BuildContext context, int index) => CachedNetworkImage(
+          imageUrl: business.images[index],
           fit: BoxFit.cover,
         ),
         autoplay: true,
@@ -93,20 +94,26 @@ class BusinessPage extends StatelessWidget {
                       fontSize: 24),
                   maxLines: 1,
                 ),
-                BlocBuilder<UserBloc, UserState>(builder: (context, state) {
-                  if (state.user == null) {
-                    return Container();
-                  }
+                BlocBuilder<FavoriteBloc, FavoriteState>(
+                    builder: (context, state) {
+                  final isFavorite =
+                      state.businesses.indexWhere((b) => b.id == business.id) !=
+                          -1;
 
-                  return Icon(
-                    (state.user.favorite.contains(business.id))
-                        ? Icons.favorite
-                        : Icons.favorite_border,
-                    color: (state.user.favorite.contains(business.id))
-                        ? theme.errorColor
-                        : Colors.black,
+                  return GestureDetector(
+                    onTap: () {
+                      isFavorite
+                          ? BlocProvider.of<FavoriteBloc>(context)
+                              .add(RemoveFavorite(business: business))
+                          : BlocProvider.of<FavoriteBloc>(context)
+                              .add(AddFavorite(business: business));
+                    },
+                    child: Icon(
+                      isFavorite ? Icons.favorite : Icons.favorite_border,
+                      color: isFavorite ? theme.errorColor : Colors.black,
+                    ),
                   );
-                }),
+                })
               ],
             ),
             Container(
