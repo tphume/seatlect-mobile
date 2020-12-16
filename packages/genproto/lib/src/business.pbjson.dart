@@ -61,3 +61,24 @@ const ListBusinessResponse$json = const {
     },
   ],
 };
+
+const ListBusinessByIdRequest$json = const {
+  '1': 'ListBusinessByIdRequest',
+  '2': const [
+    const {'1': 'ids', '3': 1, '4': 3, '5': 9, '10': 'ids'},
+  ],
+};
+
+const ListBusinessByIdResponse$json = const {
+  '1': 'ListBusinessByIdResponse',
+  '2': const [
+    const {
+      '1': 'businesses',
+      '3': 1,
+      '4': 3,
+      '5': 11,
+      '6': '.seatlect.Business',
+      '10': 'businesses'
+    },
+  ],
+};

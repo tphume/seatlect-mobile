@@ -16,11 +16,12 @@ dependencies:
   flutter_bloc: ^6.1.0
   flutter_svg: 0.18.0
   equatable: ^1.2.5
-  formz: ^0.3.2
   google_fonts: ^1.1.1
   grpc: ^2.8.0
   geolocator: ^6.1.9
   geocoding: ^1.0.5
+  flutter_swiper: ^1.1.6
+  cached_network_image: ^2.4.1
   entity:
     path: packages/entity
   user_repository:

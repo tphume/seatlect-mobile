@@ -51,3 +51,25 @@ const SignUpResponse$json = const {
     },
   ],
 };
+
+const AddFavoriteRequest$json = const {
+  '1': 'AddFavoriteRequest',
+  '2': const [
+    const {'1': 'businessId', '3': 1, '4': 1, '5': 9, '10': 'businessId'},
+  ],
+};
+
+const AddFavoriteResponse$json = const {
+  '1': 'AddFavoriteResponse',
+};
+
+const RemoveFavoriteRequest$json = const {
+  '1': 'RemoveFavoriteRequest',
+  '2': const [
+    const {'1': 'businessId', '3': 1, '4': 1, '5': 9, '10': 'businessId'},
+  ],
+};
+
+const RemoveFavoriteResponse$json = const {
+  '1': 'RemoveFavoriteResponse',
+};

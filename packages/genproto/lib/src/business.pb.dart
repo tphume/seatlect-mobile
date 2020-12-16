@@ -232,3 +232,109 @@ class ListBusinessResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.List<$1.Business> get businesses => $_getList(0);
 }
+
+class ListBusinessByIdRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'ListBusinessByIdRequest',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'seatlect'),
+      createEmptyInstance: create)
+    ..pPS(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'ids')
+    ..hasRequiredFields = false;
+
+  ListBusinessByIdRequest._() : super();
+  factory ListBusinessByIdRequest() => create();
+  factory ListBusinessByIdRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory ListBusinessByIdRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  ListBusinessByIdRequest clone() =>
+      ListBusinessByIdRequest()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  ListBusinessByIdRequest copyWith(
+          void Function(ListBusinessByIdRequest) updates) =>
+      super.copyWith((message) => updates(
+          message as ListBusinessByIdRequest)); // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static ListBusinessByIdRequest create() => ListBusinessByIdRequest._();
+  ListBusinessByIdRequest createEmptyInstance() => create();
+  static $pb.PbList<ListBusinessByIdRequest> createRepeated() =>
+      $pb.PbList<ListBusinessByIdRequest>();
+  @$core.pragma('dart2js:noInline')
+  static ListBusinessByIdRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ListBusinessByIdRequest>(create);
+  static ListBusinessByIdRequest _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.List<$core.String> get ids => $_getList(0);
+}
+
+class ListBusinessByIdResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'ListBusinessByIdResponse',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'seatlect'),
+      createEmptyInstance: create)
+    ..pc<$1.Business>(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'businesses',
+        $pb.PbFieldType.PM,
+        subBuilder: $1.Business.create)
+    ..hasRequiredFields = false;
+
+  ListBusinessByIdResponse._() : super();
+  factory ListBusinessByIdResponse() => create();
+  factory ListBusinessByIdResponse.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory ListBusinessByIdResponse.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  ListBusinessByIdResponse clone() =>
+      ListBusinessByIdResponse()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  ListBusinessByIdResponse copyWith(
+          void Function(ListBusinessByIdResponse) updates) =>
+      super.copyWith((message) => updates(message
+          as ListBusinessByIdResponse)); // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static ListBusinessByIdResponse create() => ListBusinessByIdResponse._();
+  ListBusinessByIdResponse createEmptyInstance() => create();
+  static $pb.PbList<ListBusinessByIdResponse> createRepeated() =>
+      $pb.PbList<ListBusinessByIdResponse>();
+  @$core.pragma('dart2js:noInline')
+  static ListBusinessByIdResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ListBusinessByIdResponse>(create);
+  static ListBusinessByIdResponse _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.List<$1.Business> get businesses => $_getList(0);
+}

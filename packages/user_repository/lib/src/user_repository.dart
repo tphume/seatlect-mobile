@@ -58,32 +58,36 @@ class UserRepo {
   void logout() {
     this.tokenController.add('');
   }
-}
 
-class MockUserRepo implements UserRepo {
-  StreamController<String> tokenController;
+  Future<void> AddFavorite(String id) async {
+    // Construct request
+    final request = api.AddFavoriteRequest()..businessId = id;
 
-  // Client for calling gRPC endpoint - mock doesn't actually use this
-  api.UserServiceClient client;
+    // Call api
+    try {
+      final response = await client.addFavorite(request);
+      return;
+    } catch (e) {
+      developer.log('non-gRPC error at add favorite',
+          time: DateTime.now(), name: 'UserRepo', error: e);
 
-  MockUserRepo() {}
-
-  Future<User> login(String username, String password) async {
-    await Future.delayed(Duration(seconds: 1));
-
-    // Uncomment this to test auth failure snackbar
-    // throw AuthFail();
-
-    // Uncomment this to test network error snackbar
-    // throw FormatException();
-
-    return User(
-        username: 'Jiaroach',
-        dob: new DateTime.utc(1999, 2, 25),
-        avatar: 'assets/avatar01.png',
-        preference: ['BEER', 'BURGER', 'JAPANESE'],
-        favorite: ['1', '2', '3']);
+      rethrow;
+    }
   }
 
-  void logout() {}
+  Future<void> RemoveFavorite(String id) async {
+    // Construct request
+    final request = api.RemoveFavoriteRequest()..businessId = id;
+
+    // Call api
+    try {
+      final response = await client.removeFavorite(request);
+      return;
+    } catch (e) {
+      developer.log('non-gRPC error at remove favorite',
+          time: DateTime.now(), name: 'UserRepo', error: e);
+
+      rethrow;
+    }
+  }
 }
