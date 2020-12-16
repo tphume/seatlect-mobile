@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:seatlect_mobile/components/drawer_content.dart' as comp;
+import 'package:seatlect_mobile/components/bigBusinessCard.dart';
 import 'package:seatlect_mobile/favorites/bloc/favorite_bloc.dart';
 
 class FavoritesPage extends StatelessWidget {
@@ -42,7 +43,11 @@ class FavoritesPage extends StatelessWidget {
   Widget _buildFavorites() {
     return BlocBuilder<FavoriteBloc, FavoriteState>(builder: (context, state) {
       return ListView(
-        children: state.businesses.map<Widget>((b) => Text(b.name)).toList(),
+        children: state.businesses
+            .map<Widget>((b) => BigBusinessCard(
+                  business: b,
+                ))
+            .toList(),
       );
     });
   }
