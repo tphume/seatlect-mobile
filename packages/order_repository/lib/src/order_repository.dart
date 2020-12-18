@@ -5,11 +5,11 @@ import 'package:meta/meta.dart';
 import 'package:entity/entity.dart';
 import 'package:genproto/genproto.dart' as api;
 
-class OrderRepo {
+class OrderRepository {
   // Client for calling gRPC endpoint
   api.OrderServiceClient client;
 
-  OrderRepo({@required this.client}) : assert(client != null);
+  OrderRepository({@required this.client}) : assert(client != null);
 
   Future<List<Order>> ListOrder(int limit, int page) async {
     // Construct request object
@@ -33,11 +33,29 @@ class OrderRepo {
   }
 }
 
+// this parsing logic fucking sucks - hate this shit
 Order OrderProtoToEntity(api.Order o) {
   return Order(
       id: o.id,
       reservationId: o.reservationId,
-      businessId: o.businessId,
+      business: Business(
+          id: o.business.id,
+          name: o.business.name,
+          tags: o.business.tags,
+          description: o.business.description,
+          location: Location(
+              latitude: o.business.location.latitude,
+              longitude: o.business.location.longitude),
+          address: o.business.address,
+          displayImage: o.business.displayImage,
+          images: o.business.images,
+          menu: o.business.menu
+              .map<MenuItem>((i) => MenuItem(
+                  name: i.name,
+                  description: i.description,
+                  image: i.image,
+                  price: i.price))
+              .toList()),
       start: DateTime.parse(o.start),
       end: DateTime.parse(o.end),
       seats: o.seats
@@ -57,6 +75,5 @@ Order OrderProtoToEntity(api.Order o) {
           quantity: p.quantity)),
       totalPrice: o.totalPrice,
       status: o.status,
-      image: o.image,
       extraSpace: o.extraSpace);
 }

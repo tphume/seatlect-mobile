@@ -16,7 +16,6 @@ class Order extends Equatable {
   final String
       totalPrice; // String for now - until appropriate decimal package is found
   final String status;
-  final String image;
   final int extraSpace;
 
   Order(
@@ -29,7 +28,6 @@ class Order extends Equatable {
       @required this.preorder,
       @required this.totalPrice,
       @required this.status,
-      @required this.image,
       @required this.extraSpace})
       : assert(id != null),
         assert(reservationId != null),
@@ -40,7 +38,6 @@ class Order extends Equatable {
         assert(preorder != null),
         assert(totalPrice != null),
         assert(start != null),
-        assert(image != null),
         assert(extraSpace != null);
 
   @override
@@ -55,7 +52,6 @@ class Order extends Equatable {
       preorder,
       totalPrice,
       status,
-      image,
       extraSpace
     ];
   }
