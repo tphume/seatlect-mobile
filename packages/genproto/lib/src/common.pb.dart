@@ -758,7 +758,7 @@ class OrderSeat extends $pb.GeneratedMessage {
         1,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
-            : 'id')
+            : 'name')
     ..a<$core.int>(
         4,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
@@ -801,16 +801,16 @@ class OrderSeat extends $pb.GeneratedMessage {
   static OrderSeat _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.String get id => $_getSZ(0);
+  $core.String get name => $_getSZ(0);
   @$pb.TagNumber(1)
-  set id($core.String v) {
+  set name($core.String v) {
     $_setString(0, v);
   }
 
   @$pb.TagNumber(1)
-  $core.bool hasId() => $_has(0);
+  $core.bool hasName() => $_has(0);
   @$pb.TagNumber(1)
-  void clearId() => clearField(1);
+  void clearName() => clearField(1);
 
   @$pb.TagNumber(4)
   $core.int get space => $_getIZ(1);

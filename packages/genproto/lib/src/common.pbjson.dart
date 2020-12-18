@@ -109,7 +109,7 @@ const Preorder$json = const {
 const OrderSeat$json = const {
   '1': 'OrderSeat',
   '2': const [
-    const {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
+    const {'1': 'name', '3': 1, '4': 1, '5': 9, '10': 'name'},
     const {'1': 'space', '3': 4, '4': 1, '5': 5, '10': 'space'},
     const {'1': 'price', '3': 5, '4': 1, '5': 9, '10': 'price'},
   ],

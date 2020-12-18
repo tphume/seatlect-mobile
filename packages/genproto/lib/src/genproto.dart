@@ -9,3 +9,6 @@ export 'token.pbgrpc.dart';
 
 // Business service
 export 'business.pbgrpc.dart';
+
+// Order service
+export 'order.pbgrpc.dart';
