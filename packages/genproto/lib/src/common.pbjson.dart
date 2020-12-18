@@ -50,7 +50,14 @@ const Order$json = const {
   '2': const [
     const {'1': '_id', '3': 1, '4': 1, '5': 9, '10': 'Id'},
     const {'1': 'reservationId', '3': 2, '4': 1, '5': 9, '10': 'reservationId'},
-    const {'1': 'businessId', '3': 3, '4': 1, '5': 9, '10': 'businessId'},
+    const {
+      '1': 'business',
+      '3': 3,
+      '4': 1,
+      '5': 11,
+      '6': '.seatlect.Business',
+      '10': 'business'
+    },
     const {'1': 'start', '3': 4, '4': 1, '5': 9, '10': 'start'},
     const {'1': 'end', '3': 5, '4': 1, '5': 9, '10': 'end'},
     const {
@@ -72,8 +79,7 @@ const Order$json = const {
     const {'1': 'price', '3': 8, '4': 1, '5': 9, '10': 'price'},
     const {'1': 'totalPrice', '3': 9, '4': 1, '5': 9, '10': 'totalPrice'},
     const {'1': 'status', '3': 10, '4': 1, '5': 9, '10': 'status'},
-    const {'1': 'image', '3': 11, '4': 1, '5': 9, '10': 'image'},
-    const {'1': 'extraSpace', '3': 12, '4': 1, '5': 5, '10': 'extraSpace'},
+    const {'1': 'extraSpace', '3': 11, '4': 1, '5': 5, '10': 'extraSpace'},
   ],
 };
 

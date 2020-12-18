@@ -1,13 +1,14 @@
 import 'package:meta/meta.dart';
 import 'package:equatable/equatable.dart';
 
+import 'package:entity/entity.dart';
 import 'seat.dart';
 import 'preorder.dart';
 
 class Order extends Equatable {
   final String id;
   final String reservationId;
-  final String businessId;
+  final Business business;
   final DateTime start;
   final DateTime end;
   final List<Seat> seats;
@@ -21,7 +22,7 @@ class Order extends Equatable {
   Order(
       {@required this.id,
       @required this.reservationId,
-      @required this.businessId,
+      @required this.business,
       @required this.start,
       @required this.end,
       @required this.seats,
@@ -32,7 +33,7 @@ class Order extends Equatable {
       @required this.extraSpace})
       : assert(id != null),
         assert(reservationId != null),
-        assert(businessId != null),
+        assert(business != null),
         assert(start != null),
         assert(end != null),
         assert(seats != null),
@@ -47,7 +48,7 @@ class Order extends Equatable {
     return [
       id,
       reservationId,
-      businessId,
+      business,
       start,
       end,
       seats,

@@ -271,13 +271,11 @@ class Order extends $pb.GeneratedMessage {
             ? ''
             : 'Id')
     ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'reservationId',
+        2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'reservationId',
         protoName: 'reservationId')
-    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'businessId',
-        protoName: 'businessId')
+    ..aOM<Business>(3,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'business',
+        subBuilder: Business.create)
     ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'start')
     ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'end')
     ..pc<OrderSeat>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'seats', $pb.PbFieldType.PM, subBuilder: OrderSeat.create)
@@ -285,8 +283,7 @@ class Order extends $pb.GeneratedMessage {
     ..aOS(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'price')
     ..aOS(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'totalPrice', protoName: 'totalPrice')
     ..aOS(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'status')
-    ..aOS(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'image')
-    ..a<$core.int>(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'extraSpace', $pb.PbFieldType.O3, protoName: 'extraSpace')
+    ..a<$core.int>(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'extraSpace', $pb.PbFieldType.O3, protoName: 'extraSpace')
     ..hasRequiredFields = false;
 
   Order._() : super();
@@ -341,16 +338,18 @@ class Order extends $pb.GeneratedMessage {
   void clearReservationId() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.String get businessId => $_getSZ(2);
+  Business get business => $_getN(2);
   @$pb.TagNumber(3)
-  set businessId($core.String v) {
-    $_setString(2, v);
+  set business(Business v) {
+    setField(3, v);
   }
 
   @$pb.TagNumber(3)
-  $core.bool hasBusinessId() => $_has(2);
+  $core.bool hasBusiness() => $_has(2);
   @$pb.TagNumber(3)
-  void clearBusinessId() => clearField(3);
+  void clearBusiness() => clearField(3);
+  @$pb.TagNumber(3)
+  Business ensureBusiness() => $_ensure(2);
 
   @$pb.TagNumber(4)
   $core.String get start => $_getSZ(3);
@@ -419,28 +418,16 @@ class Order extends $pb.GeneratedMessage {
   void clearStatus() => clearField(10);
 
   @$pb.TagNumber(11)
-  $core.String get image => $_getSZ(10);
+  $core.int get extraSpace => $_getIZ(10);
   @$pb.TagNumber(11)
-  set image($core.String v) {
-    $_setString(10, v);
-  }
-
-  @$pb.TagNumber(11)
-  $core.bool hasImage() => $_has(10);
-  @$pb.TagNumber(11)
-  void clearImage() => clearField(11);
-
-  @$pb.TagNumber(12)
-  $core.int get extraSpace => $_getIZ(11);
-  @$pb.TagNumber(12)
   set extraSpace($core.int v) {
-    $_setSignedInt32(11, v);
+    $_setSignedInt32(10, v);
   }
 
-  @$pb.TagNumber(12)
-  $core.bool hasExtraSpace() => $_has(11);
-  @$pb.TagNumber(12)
-  void clearExtraSpace() => clearField(12);
+  @$pb.TagNumber(11)
+  $core.bool hasExtraSpace() => $_has(10);
+  @$pb.TagNumber(11)
+  void clearExtraSpace() => clearField(11);
 }
 
 class Latlng extends $pb.GeneratedMessage {
