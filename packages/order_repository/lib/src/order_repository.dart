@@ -5,11 +5,11 @@ import 'package:meta/meta.dart';
 import 'package:entity/entity.dart';
 import 'package:genproto/genproto.dart' as api;
 
-class OrderRepository {
+class OrderRepo {
   // Client for calling gRPC endpoint
   api.OrderServiceClient client;
 
-  OrderRepository({@required this.client}) : assert(client != null);
+  OrderRepo({@required this.client}) : assert(client != null);
 
   Future<List<Order>> ListOrder(int limit, int page) async {
     // Construct request object

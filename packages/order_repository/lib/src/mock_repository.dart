@@ -4,7 +4,7 @@ import 'order_repository.dart';
 import 'package:entity/entity.dart';
 import 'package:genproto/genproto.dart' as api;
 
-class MockOrderRepository implements OrderRepository {
+class MockOrderRepo implements OrderRepo {
   // Client for calling gRPC endpoint - mock doesn't actually use this
   api.OrderServiceClient client;
 
