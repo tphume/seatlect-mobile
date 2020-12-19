@@ -21,6 +21,7 @@ class OrderCard extends StatelessWidget {
                 LinearGradient(colors: [theme.accentColor, Color(0xFFFED37F)])),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
               width: 100,
@@ -66,7 +67,13 @@ class OrderCard extends StatelessWidget {
                   )
                 ],
               ),
-            )
+            ),
+            Padding(
+                padding: EdgeInsets.only(top: 4),
+                child: Icon(
+                  Icons.chevron_right,
+                  size: 25,
+                ))
           ],
         ));
   }
