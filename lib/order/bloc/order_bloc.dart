@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
+import 'package:entity/entity.dart';
+
 part 'order_event.dart';
 part 'order_state.dart';
 
