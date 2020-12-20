@@ -17,6 +17,26 @@ class OrderDetail extends StatelessWidget {
     final theme = Theme.of(context);
     final media = MediaQuery.of(context);
 
+    Color statusColor;
+
+    switch (order.status) {
+      case 'AVAILABLE':
+        {
+          statusColor = Colors.green;
+          break;
+        }
+      case 'USED':
+        {
+          statusColor = theme.accentColor;
+          break;
+        }
+      case 'EXPIRED':
+        {
+          statusColor = theme.errorColor;
+          break;
+        }
+    }
+
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -43,10 +63,26 @@ class OrderDetail extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.all(20),
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
-                          width: 320,
+                        width: 120.0,
+                        height: 25.0,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30.0),
+                          border: Border.all(width: 2.0, color: statusColor),
+                        ),
+                        child: Center(
+                          child: Text(
+                            order.status,
+                            style: TextStyle(
+                                color: statusColor,
+                                fontWeight: FontWeight.w600),
+                          ),
+                        ),
+                      ),
+                      Container(
+                          margin: EdgeInsets.only(top: 20),
                           child: Text(
                             order.business.name,
                             style: TextStyle(
@@ -71,7 +107,9 @@ class OrderDetail extends StatelessWidget {
                           ? _buildPreorder(context)
                           : Container(),
                       Container(
+                        width: 320,
                         margin: EdgeInsets.only(top: 20),
+                        alignment: Alignment.center,
                         child: QrImage(
                           data: 'placeholder',
                           size: 150,
