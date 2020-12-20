@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:entity/entity.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
 class OrderDetail extends StatelessWidget {
   final Order order;
@@ -42,16 +43,17 @@ class OrderDetail extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.all(20),
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Container(
+                          width: 320,
                           child: Text(
-                        order.business.name,
-                        style: TextStyle(
-                            color: theme.primaryColor,
-                            fontWeight: FontWeight.w700,
-                            fontSize: 19),
-                      )),
+                            order.business.name,
+                            style: TextStyle(
+                                color: theme.primaryColor,
+                                fontWeight: FontWeight.w700,
+                                fontSize: 19),
+                          )),
                       _buildRow(context,
                           firstTitle: 'Date',
                           firstContent:
@@ -67,7 +69,14 @@ class OrderDetail extends StatelessWidget {
                           secondContent: '฿${order.totalPrice}'),
                       (order.preorder.length != 0)
                           ? _buildPreorder(context)
-                          : Container()
+                          : Container(),
+                      Container(
+                        margin: EdgeInsets.only(top: 20),
+                        child: QrImage(
+                          data: 'placeholder',
+                          size: 150,
+                        ),
+                      )
                     ],
                   ),
                 ))
