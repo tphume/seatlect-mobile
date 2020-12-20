@@ -22,12 +22,15 @@ dependencies:
   geocoding: ^1.0.5
   flutter_swiper: ^1.1.6
   cached_network_image: ^2.4.1
+  qr_flutter: ^3.1.0
   entity:
     path: packages/entity
   user_repository:
     path: packages/user_repository
   business_repository:
     path: packages/business_repository
+  order_repository:
+    path: packages/order_repository
   genproto:
     path: packages/genproto
   token_manager:

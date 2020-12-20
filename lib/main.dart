@@ -4,6 +4,7 @@ import 'package:business_repository/business_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:genproto/genproto.dart';
 import 'package:grpc/grpc.dart';
+import 'package:order_repository/order_repository.dart';
 
 import 'package:seatlect_mobile/app.dart';
 import 'package:token_manager/token_manager.dart';
@@ -40,10 +41,15 @@ void main() async {
   final businessClient = BusinessServiceClient(channel);
   final businessRepo = BusinessRepo(client: businessClient);
 
+  // TODO: Add interceptor or MetadataProvider
+  final orderClient = OrderServiceClient(channel);
+  final orderRepo = OrderRepo(client: orderClient);
+
   // Start Flutter app
   runApp(App(
     userRepo: userRepo,
     businessRepo: businessRepo,
+    orderRepo: orderRepo,
   ));
 
   // Cleanup

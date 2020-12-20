@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:order_repository/order_repository.dart';
 import 'package:seatlect_mobile/favorites/bloc/favorite_bloc.dart';
 
 import 'package:seatlect_mobile/favorites/favorites.dart';
@@ -18,10 +19,16 @@ import 'package:business_repository/business_repository.dart';
 class App extends StatelessWidget {
   final UserRepo userRepo;
   final BusinessRepo businessRepo;
+  final OrderRepo orderRepo;
 
-  const App({Key key, @required this.userRepo, @required this.businessRepo})
+  const App(
+      {Key key,
+      @required this.userRepo,
+      @required this.businessRepo,
+      @required this.orderRepo})
       : assert(userRepo != null),
         assert(businessRepo != null),
+        assert(orderRepo != null),
         super(key: key);
 
   @override
@@ -39,7 +46,9 @@ class App extends StatelessWidget {
                 create: (_) => HomeBloc(businessRepo: businessRepo)),
             BlocProvider<FavoriteBloc>(
                 create: (_) => FavoriteBloc(
-                    userRepo: userRepo, businessRepo: businessRepo))
+                    userRepo: userRepo, businessRepo: businessRepo)),
+            BlocProvider<OrderBloc>(
+                create: (_) => OrderBloc(orderRepo: orderRepo))
           ],
           child: AppView(),
         ));
@@ -59,6 +68,7 @@ class _AppViewState extends State<AppView> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       navigatorKey: _navigatorKey,
       theme: ThemeData(
           // Define colors
@@ -93,6 +103,7 @@ class _AppViewState extends State<AppView> {
               _navigator.pushNamedAndRemoveUntil('/login', (route) => false);
               BlocProvider.of<LocationCubit>(context).resetLocation();
               BlocProvider.of<FavoriteBloc>(context).add(FavoriteReset());
+              BlocProvider.of<OrderBloc>(context).add(OrderReset());
             } else if (state is UserAuth) {
               // Is called when login occurs
               _navigator.pushNamedAndRemoveUntil('/home', (route) => false);
@@ -109,6 +120,8 @@ class _AppViewState extends State<AppView> {
 
               BlocProvider.of<FavoriteBloc>(context)
                   .add(FetchFavorite(ids: state.user.favorite));
+
+              BlocProvider.of<OrderBloc>(context).add(OrderFetch());
             }
           },
           child: child,

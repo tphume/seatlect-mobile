@@ -1,0 +1,17 @@
+name: order_repository
+description: Dart package which manages order domain
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  grpc: ^2.8.0
+  meta: ^1.2.4
+  entity:
+    path: ../entity
+  genproto:
+    path: ../genproto
