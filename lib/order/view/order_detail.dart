@@ -65,31 +65,45 @@ class OrderDetail extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
-                        width: 120.0,
-                        height: 25.0,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30.0),
-                          border: Border.all(width: 2.0, color: statusColor),
-                        ),
-                        child: Center(
-                          child: Text(
-                            order.status,
-                            style: TextStyle(
-                                color: statusColor,
-                                fontWeight: FontWeight.w600),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Container(
+                              margin: EdgeInsets.only(top: 20),
+                              padding: EdgeInsets.only(
+                                  left: 7, top: 3, right: 7, bottom: 3),
+                              decoration: BoxDecoration(
+                                  color: Color(0xFFCFBEED),
+                                  borderRadius: BorderRadius.circular(5)),
+                              child: Text(
+                                order.business.name,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 18),
+                              )),
+                          Container(
+                            width: 120.0,
+                            height: 25.0,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30.0),
+                              border:
+                                  Border.all(width: 2.0, color: statusColor),
+                            ),
+                            child: Center(
+                              child: Text(
+                                order.status,
+                                style: TextStyle(
+                                    color: statusColor,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                            ),
                           ),
-                        ),
+                        ],
                       ),
-                      Container(
-                          margin: EdgeInsets.only(top: 20),
-                          child: Text(
-                            order.business.name,
-                            style: TextStyle(
-                                color: theme.primaryColor,
-                                fontWeight: FontWeight.w700,
-                                fontSize: 19),
-                          )),
                       _buildRow(context,
                           firstTitle: 'Date',
                           firstContent:
@@ -132,10 +146,10 @@ class OrderDetail extends StatelessWidget {
     final theme = Theme.of(context);
 
     final contentStyle = TextStyle(
-        fontWeight: FontWeight.w700, fontSize: 19, color: theme.primaryColor);
+        fontWeight: FontWeight.w700, fontSize: 18, color: theme.primaryColor);
 
     final titleStyle = TextStyle(
-        fontWeight: FontWeight.w600, fontSize: 15, color: Color(0xFF828282));
+        fontWeight: FontWeight.w600, fontSize: 14, color: Color(0xFF828282));
 
     return Container(
       margin: EdgeInsets.only(top: 20),
