@@ -38,8 +38,11 @@ class OrderPage extends StatelessWidget {
     return BlocBuilder<OrderBloc, OrderState>(
         builder: (context, state) => ListView(
               children: state.orders
-                  .map<Widget>((o) => OrderCard(
-                        order: o,
+                  .map<Widget>((o) => Container(
+                        margin: EdgeInsets.only(bottom: 15),
+                        child: OrderCard(
+                          order: o,
+                        ),
                       ))
                   .toList(),
             ));
