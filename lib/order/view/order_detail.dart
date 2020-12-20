@@ -59,8 +59,12 @@ class OrderDetail extends StatelessWidget {
                           secondTitle: 'Seat',
                           secondContent:
                               order.seats.map((s) => s.name).join(',')),
-                      Row(),
-                      Row()
+                      _buildRow(context,
+                          firstTitle: 'Duration',
+                          firstContent:
+                              '${(order.end.difference(order.start).inHours != 0) ? '${order.end.difference(order.start).inHours} hrs' : ''} ${((order.end.difference(order.start).inMinutes % 60) != 0) ? '${order.end.difference(order.start).inMinutes} mins' : ''}',
+                          secondTitle: 'Price',
+                          secondContent: '฿${order.totalPrice}')
                     ],
                   ),
                 ))
@@ -86,27 +90,27 @@ class OrderDetail extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Container(
-              width: 150,
+              width: 160,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(firstTitle,
                       style: TextStyle(
                           fontWeight: FontWeight.w600,
-                          fontSize: 16,
+                          fontSize: 15,
                           color: Color(0xFF828282))),
                   Text(firstContent, style: contentStyle)
                 ],
               )),
           Container(
-              width: 150,
+              width: 160,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(secondTitle,
                       style: TextStyle(
                           fontWeight: FontWeight.w600,
-                          fontSize: 16,
+                          fontSize: 15,
                           color: Color(0xFF828282))),
                   Text(
                     secondContent,
