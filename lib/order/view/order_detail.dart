@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:entity/entity.dart';
 import 'package:qr_flutter/qr_flutter.dart';
+import 'package:seatlect_mobile/business/business.dart';
 
 class OrderDetail extends StatelessWidget {
   final Order order;
@@ -76,14 +77,20 @@ class OrderDetail extends StatelessWidget {
                               decoration: BoxDecoration(
                                   color: Color(0xFFCFBEED),
                                   borderRadius: BorderRadius.circular(5)),
-                              child: Text(
-                                order.business.name,
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 18),
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(BusinessPage.route(
+                                      business: order.business));
+                                },
+                                child: Text(
+                                  order.business.name,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 18),
+                                ),
                               )),
                           Container(
                             width: 120.0,
