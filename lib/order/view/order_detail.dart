@@ -62,7 +62,8 @@ class OrderDetail extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                     color: Colors.white),
                 child: Padding(
-                  padding: EdgeInsets.all(20),
+                  padding:
+                      EdgeInsets.only(left: 20, top: 10, right: 20, bottom: 10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
