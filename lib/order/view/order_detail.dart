@@ -64,7 +64,10 @@ class OrderDetail extends StatelessWidget {
                           firstContent:
                               '${(order.end.difference(order.start).inHours != 0) ? '${order.end.difference(order.start).inHours} hrs' : ''} ${((order.end.difference(order.start).inMinutes % 60) != 0) ? '${order.end.difference(order.start).inMinutes} mins' : ''}',
                           secondTitle: 'Price',
-                          secondContent: '฿${order.totalPrice}')
+                          secondContent: '฿${order.totalPrice}'),
+                      (order.preorder.length != 0)
+                          ? _buildPreorder(context)
+                          : Container()
                     ],
                   ),
                 ))
@@ -84,6 +87,9 @@ class OrderDetail extends StatelessWidget {
     final contentStyle = TextStyle(
         fontWeight: FontWeight.w700, fontSize: 19, color: theme.primaryColor);
 
+    final titleStyle = TextStyle(
+        fontWeight: FontWeight.w600, fontSize: 15, color: Color(0xFF828282));
+
     return Container(
       margin: EdgeInsets.only(top: 20),
       child: Row(
@@ -94,11 +100,7 @@ class OrderDetail extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(firstTitle,
-                      style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 15,
-                          color: Color(0xFF828282))),
+                  Text(firstTitle, style: titleStyle),
                   Text(firstContent, style: contentStyle)
                 ],
               )),
@@ -107,11 +109,7 @@ class OrderDetail extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(secondTitle,
-                      style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 15,
-                          color: Color(0xFF828282))),
+                  Text(secondTitle, style: titleStyle),
                   Text(
                     secondContent,
                     style: contentStyle,
@@ -121,5 +119,30 @@ class OrderDetail extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Widget _buildPreorder(context) {
+    final theme = Theme.of(context);
+
+    final contentStyle = TextStyle(
+        fontWeight: FontWeight.w700, fontSize: 15, color: theme.primaryColor);
+
+    final titleStyle = TextStyle(
+        fontWeight: FontWeight.w600, fontSize: 15, color: Color(0xFF828282));
+
+    return Container(
+        margin: EdgeInsets.only(top: 20),
+        width: 320,
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Text('Preorder', style: titleStyle),
+          ...order.preorder.map<Widget>((p) => Padding(
+              padding: EdgeInsets.only(left: 3),
+              child: Text(
+                'x${p.quantity} ${p.name}',
+                style: contentStyle,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              )))
+        ]));
   }
 }
