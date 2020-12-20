@@ -33,7 +33,20 @@ class OrderDetail extends StatelessWidget {
                 colors: [Color(0xFFFED37F), Color(0xFFCFBEED)])),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [Container()],
+          children: [
+            Container(
+                width: 365,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.white),
+                child: Padding(
+                  padding: EdgeInsets.all(20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [Text('hello')],
+                  ),
+                ))
+          ],
         ),
       ),
     );
