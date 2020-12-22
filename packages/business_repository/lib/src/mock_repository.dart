@@ -30,35 +30,35 @@ class MockBusinessRepo implements BusinessRepo {
           location: Location(
               latitude: 13.745226384751511, longitude: 100.53793107547114),
           address: 'Groove, Central World',
-          displayImage: 'https://placekitten.com/505/505',
+          displayImage: 'https://i.imgur.com/g17EY2i.jpg',
           images: [
-            'https://placekitten.com/500/500',
-            'https://placekitten.com/600/600'
+            'https://i.imgur.com/g17EY2i.jpg',
+            'https://i.imgur.com/RjFgQSZ.jpeg'
           ],
           menu: [
             MenuItem(
-                name: 'MeatBurger',
+                name: 'Fries',
                 description:
                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
-                image: 'https://placeimg.com/640/480/any',
+                image: 'https://i.imgur.com/rXjqn0y.jpeg',
                 price: '10'),
             MenuItem(
-                name: 'MeatBurger',
+                name: 'Fries',
                 description:
                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
-                image: 'https://placeimg.com/640/480/any',
+                image: 'https://i.imgur.com/rXjqn0y.jpeg',
                 price: '10'),
             MenuItem(
-                name: 'MeatBurger',
+                name: 'Fries',
                 description:
                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
-                image: 'https://placeimg.com/640/480/any',
+                image: 'https://i.imgur.com/rXjqn0y.jpeg',
                 price: '10'),
             MenuItem(
-                name: 'MeatBurger',
+                name: 'Fries',
                 description:
                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
-                image: 'https://placeimg.com/640/480/any',
+                image: 'https://i.imgur.com/rXjqn0y.jpeg',
                 price: '10')
           ]),
       Business(
@@ -70,35 +70,35 @@ class MockBusinessRepo implements BusinessRepo {
           location: Location(
               latitude: 13.745226384751511, longitude: 100.53793107547114),
           address: 'Groove, Central World',
-          displayImage: 'https://placekitten.com/525/525',
+          displayImage: 'https://i.imgur.com/g17EY2i.jpg',
           images: [
-            'https://placekitten.com/510/510',
-            'https://placekitten.com/610/610'
+            'https://i.imgur.com/g17EY2i.jpg',
+            'https://i.imgur.com/RjFgQSZ.jpeg'
           ],
           menu: [
             MenuItem(
-                name: 'MeatBurger',
+                name: 'Fries',
                 description:
                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
-                image: 'https://placeimg.com/640/480/any',
+                image: 'https://i.imgur.com/rXjqn0y.jpeg',
                 price: '10'),
             MenuItem(
-                name: 'MeatBurger',
+                name: 'Fries',
                 description:
                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
-                image: 'https://placeimg.com/640/480/any',
+                image: 'https://i.imgur.com/rXjqn0y.jpeg',
                 price: '10'),
             MenuItem(
-                name: 'MeatBurger',
+                name: 'Fries',
                 description:
                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
-                image: 'https://placeimg.com/640/480/any',
+                image: 'https://i.imgur.com/rXjqn0y.jpeg',
                 price: '10'),
             MenuItem(
-                name: 'MeatBurger',
+                name: 'Fries',
                 description:
                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
-                image: 'https://placeimg.com/640/480/any',
+                image: 'https://i.imgur.com/rXjqn0y.jpeg',
                 price: '10')
           ]),
       Business(
@@ -110,35 +110,35 @@ class MockBusinessRepo implements BusinessRepo {
           location: Location(
               latitude: 13.732566862458347, longitude: 100.58566653598916),
           address: 'Somewhere in Thonglor',
-          displayImage: 'https://placekitten.com/530/530',
+          displayImage: 'https://i.imgur.com/g17EY2i.jpg',
           images: [
-            'https://placekitten.com/520/520',
-            'https://placekitten.com/620/620'
+            'https://i.imgur.com/g17EY2i.jpg',
+            'https://i.imgur.com/RjFgQSZ.jpeg'
           ],
           menu: [
             MenuItem(
-                name: 'MeatBurger',
+                name: 'Fries',
+                description:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
+                image: 'https://i.imgur.com/rXjqn0y.jpeg',
+                price: '10'),
+            MenuItem(
+                name: 'Fries',
                 description:
                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
                 image: 'https://placeimg.com/640/480/any',
                 price: '10'),
             MenuItem(
-                name: 'MeatBurger',
+                name: 'Fries',
                 description:
                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
-                image: 'https://placeimg.com/640/480/any',
+                image: 'https://i.imgur.com/rXjqn0y.jpeg',
                 price: '10'),
             MenuItem(
-                name: 'MeatBurger',
+                name: 'Fries',
                 description:
                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
-                image: 'https://placeimg.com/640/480/any',
-                price: '10'),
-            MenuItem(
-                name: 'MeatBurger',
-                description:
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
-                image: 'https://placeimg.com/640/480/any',
+                image: 'https://i.imgur.com/rXjqn0y.jpeg',
                 price: '10')
           ]),
     ];
@@ -157,35 +157,35 @@ class MockBusinessRepo implements BusinessRepo {
           location: Location(
               latitude: 13.745226384751511, longitude: 100.53793107547114),
           address: 'Groove, Central World',
-          displayImage: 'https://placekitten.com/505/505',
+          displayImage: 'https://i.imgur.com/g17EY2i.jpg',
           images: [
-            'https://placekitten.com/500/500',
-            'https://placekitten.com/600/600'
+            'https://i.imgur.com/g17EY2i.jpg',
+            'https://i.imgur.com/RjFgQSZ.jpeg'
           ],
           menu: [
             MenuItem(
-                name: 'MeatBurger',
+                name: 'Fries',
                 description:
                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
-                image: 'https://placeimg.com/640/480/any',
+                image: 'https://i.imgur.com/rXjqn0y.jpeg',
                 price: '10'),
             MenuItem(
-                name: 'MeatBurger',
+                name: 'Fries',
                 description:
                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
-                image: 'https://placeimg.com/640/480/any',
+                image: 'https://i.imgur.com/rXjqn0y.jpeg',
                 price: '10'),
             MenuItem(
-                name: 'MeatBurger',
+                name: 'Fries',
                 description:
                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
-                image: 'https://placeimg.com/640/480/any',
+                image: 'https://i.imgur.com/rXjqn0y.jpeg',
                 price: '10'),
             MenuItem(
-                name: 'MeatBurger',
+                name: 'Fries',
                 description:
                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
-                image: 'https://placeimg.com/640/480/any',
+                image: 'https://i.imgur.com/rXjqn0y.jpeg',
                 price: '10')
           ]),
       Business(
@@ -197,35 +197,35 @@ class MockBusinessRepo implements BusinessRepo {
           location: Location(
               latitude: 13.745226384751511, longitude: 100.53793107547114),
           address: 'Groove, Central World',
-          displayImage: 'https://placekitten.com/525/525',
+          displayImage: 'https://i.imgur.com/g17EY2i.jpg',
           images: [
-            'https://placekitten.com/510/510',
-            'https://placekitten.com/610/610'
+            'https://i.imgur.com/g17EY2i.jpg',
+            'https://i.imgur.com/RjFgQSZ.jpeg'
           ],
           menu: [
             MenuItem(
-                name: 'MeatBurger',
+                name: 'Fries',
                 description:
                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
-                image: 'https://placeimg.com/640/480/any',
+                image: 'https://i.imgur.com/rXjqn0y.jpeg',
                 price: '10'),
             MenuItem(
-                name: 'MeatBurger',
+                name: 'Fries',
                 description:
                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
-                image: 'https://placeimg.com/640/480/any',
+                image: 'https://i.imgur.com/rXjqn0y.jpeg',
                 price: '10'),
             MenuItem(
-                name: 'MeatBurger',
+                name: 'Fries',
                 description:
                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
-                image: 'https://placeimg.com/640/480/any',
+                image: 'https://i.imgur.com/rXjqn0y.jpeg',
                 price: '10'),
             MenuItem(
-                name: 'MeatBurger',
+                name: 'Fries',
                 description:
                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
-                image: 'https://placeimg.com/640/480/any',
+                image: 'https://i.imgur.com/rXjqn0y.jpeg',
                 price: '10')
           ]),
     ];

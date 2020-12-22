@@ -26,35 +26,35 @@ class MockOrderRepo implements OrderRepo {
               location: Location(
                   latitude: 13.745226384751511, longitude: 100.53793107547114),
               address: 'Groove, Central World',
-              displayImage: 'https://placekitten.com/505/505',
+              displayImage: 'https://i.imgur.com/g17EY2i.jpg',
               images: [
-                'https://placekitten.com/500/500',
-                'https://placekitten.com/600/600'
+                'https://i.imgur.com/g17EY2i.jpg',
+                'https://i.imgur.com/RjFgQSZ.jpeg'
               ],
               menu: [
                 MenuItem(
-                    name: 'MeatBurger',
+                    name: 'Fries',
                     description:
                         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
-                    image: 'https://placeimg.com/640/480/any',
+                    image: 'https://i.imgur.com/rXjqn0y.jpeg',
                     price: '10'),
                 MenuItem(
-                    name: 'MeatBurger',
+                    name: 'Fries',
                     description:
                         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
-                    image: 'https://placeimg.com/640/480/any',
+                    image: 'https://i.imgur.com/rXjqn0y.jpeg',
                     price: '10'),
                 MenuItem(
-                    name: 'MeatBurger',
+                    name: 'Fries',
                     description:
                         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
-                    image: 'https://placeimg.com/640/480/any',
+                    image: 'https://i.imgur.com/rXjqn0y.jpeg',
                     price: '10'),
                 MenuItem(
-                    name: 'MeatBurger',
+                    name: 'Fries',
                     description:
                         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
-                    image: 'https://placeimg.com/640/480/any',
+                    image: 'https://i.imgur.com/rXjqn0y.jpeg',
                     price: '10')
               ]),
           start: DateTime.parse('2020-12-27T20:00:00+0700'),
@@ -65,7 +65,7 @@ class MockOrderRepo implements OrderRepo {
           ],
           preorder: [
             Preorder(
-                name: 'MeatBurger',
+                name: 'Fries',
                 description: '',
                 image: '',
                 price: '400',
@@ -86,35 +86,35 @@ class MockOrderRepo implements OrderRepo {
               location: Location(
                   latitude: 13.745226384751511, longitude: 100.53793107547114),
               address: 'Groove, Central World',
-              displayImage: 'https://placekitten.com/505/505',
+              displayImage: 'https://i.imgur.com/g17EY2i.jpg',
               images: [
-                'https://placekitten.com/500/500',
-                'https://placekitten.com/600/600'
+                'https://i.imgur.com/g17EY2i.jpg',
+                'https://i.imgur.com/RjFgQSZ.jpeg'
               ],
               menu: [
                 MenuItem(
-                    name: 'MeatBurger',
+                    name: 'Fries',
                     description:
                         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
-                    image: 'https://placeimg.com/640/480/any',
+                    image: 'https://i.imgur.com/rXjqn0y.jpeg',
                     price: '10'),
                 MenuItem(
-                    name: 'MeatBurger',
+                    name: 'Fries',
                     description:
                         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
-                    image: 'https://placeimg.com/640/480/any',
+                    image: 'https://i.imgur.com/rXjqn0y.jpeg',
                     price: '10'),
                 MenuItem(
-                    name: 'MeatBurger',
+                    name: 'Fries',
                     description:
                         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
-                    image: 'https://placeimg.com/640/480/any',
+                    image: 'https://i.imgur.com/rXjqn0y.jpeg',
                     price: '10'),
                 MenuItem(
-                    name: 'MeatBurger',
+                    name: 'Fries',
                     description:
                         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
-                    image: 'https://placeimg.com/640/480/any',
+                    image: 'https://i.imgur.com/rXjqn0y.jpeg',
                     price: '10')
               ]),
           start: DateTime.parse('2020-12-18T20:00:00+0700'),
@@ -124,7 +124,7 @@ class MockOrderRepo implements OrderRepo {
           ],
           preorder: [
             Preorder(
-                name: 'MeatBurger',
+                name: 'Fries',
                 description: '',
                 image: '',
                 price: '130',
