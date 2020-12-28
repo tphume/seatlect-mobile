@@ -26,7 +26,6 @@ class MockUserRepo implements UserRepo {
         username: 'Jiaroach',
         dob: new DateTime.utc(1999, 2, 25),
         avatar: 'assets/avatar01.png',
-        preference: ['BEER', 'BURGER', 'JAPANESE'],
         favorite: ['1', '2']);
   }
 

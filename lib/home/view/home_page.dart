@@ -38,11 +38,6 @@ class HomePage extends StatelessWidget {
                   child: _buildSearch(context),
                   margin: EdgeInsets.only(bottom: 30)),
               Container(
-                height: 100,
-                child: _buildTags(),
-                margin: EdgeInsets.only(bottom: 30),
-              ),
-              Container(
                 margin: EdgeInsets.only(bottom: 15),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -142,47 +137,6 @@ class HomePage extends StatelessWidget {
               borderSide: BorderSide(width: 0, style: BorderStyle.none),
               borderRadius: BorderRadius.circular(20))),
     );
-  }
-
-  Widget _buildTags() {
-    return BlocBuilder<UserBloc, UserState>(builder: (context, state) {
-      if (state is UserUnAuth) {
-        return Container(
-          height: 70,
-        );
-      }
-
-      final tags = [...state.user.preference, 'MORE'];
-
-      return ListView(
-        scrollDirection: Axis.horizontal,
-        children: tags
-            .map<Widget>((v) => Container(
-                  margin: EdgeInsets.only(right: (v != tags.last) ? 34 : 0),
-                  child: Column(
-                    // Placeholder svg icon for now
-                    children: [
-                      GestureDetector(
-                          onTap: () {
-                            // TODO Pass search data to next page
-                            Navigator.of(context).pushNamedAndRemoveUntil(
-                                '/search', (route) => false);
-                          },
-                          child: SvgPicture.asset('assets/tags/placeholder.svg',
-                              semanticsLabel: 'shortcut for searching $v tag',
-                              width: 70,
-                              height: 70)),
-                      Text(
-                        '${v[0]}${v.substring(1).toLowerCase()}',
-                        style: GoogleFonts.yantramanav(
-                            fontWeight: FontWeight.w700, fontSize: 14),
-                      )
-                    ],
-                  ),
-                ))
-            .toList(),
-      );
-    });
   }
 
   Widget _buildRecommendation() {

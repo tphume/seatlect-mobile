@@ -33,7 +33,6 @@ class UserRepo {
           username: user.username,
           dob: DateTime.parse(user.dob),
           avatar: user.avatar,
-          preference: user.preference,
           favorite: user.favorite);
 
       this.tokenController.add(response.token);

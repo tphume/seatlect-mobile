@@ -41,6 +41,7 @@ Order OrderProtoToEntity(api.Order o) {
       business: Business(
           id: o.business.id,
           name: o.business.name,
+          type: o.business.type,
           tags: o.business.tags,
           description: o.business.description,
           location: Location(

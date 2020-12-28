@@ -35,8 +35,7 @@ class User extends $pb.GeneratedMessage {
             ? ''
             : 'avatar')
     ..pPS(4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'preference')
-    ..pPS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'favorite')
+        const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'favorite')
     ..hasRequiredFields = false;
 
   User._() : super();
@@ -103,10 +102,7 @@ class User extends $pb.GeneratedMessage {
   void clearAvatar() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.List<$core.String> get preference => $_getList(3);
-
-  @$pb.TagNumber(5)
-  $core.List<$core.String> get favorite => $_getList(4);
+  $core.List<$core.String> get favorite => $_getList(3);
 }
 
 class Business extends $pb.GeneratedMessage {
@@ -129,18 +125,19 @@ class Business extends $pb.GeneratedMessage {
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'name')
-    ..pPS(
+    ..aOS(
         3,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
-            : 'tags')
-    ..aOS(4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'description')
-    ..aOM<Latlng>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'location', subBuilder: Latlng.create)
-    ..aOS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'address')
-    ..aOS(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'displayImage', protoName: 'displayImage')
-    ..pPS(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'images')
-    ..pc<MenuItem>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'menu', $pb.PbFieldType.PM, subBuilder: MenuItem.create)
+            : 'type')
+    ..pPS(
+        4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'tags')
+    ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'description')
+    ..aOM<Latlng>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'location', subBuilder: Latlng.create)
+    ..aOS(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'address')
+    ..aOS(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'displayImage', protoName: 'displayImage')
+    ..pPS(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'images')
+    ..pc<MenuItem>(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'menu', $pb.PbFieldType.PM, subBuilder: MenuItem.create)
     ..hasRequiredFields = false;
 
   Business._() : super();
@@ -196,63 +193,75 @@ class Business extends $pb.GeneratedMessage {
   void clearName() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.List<$core.String> get tags => $_getList(2);
+  $core.String get type => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set type($core.String v) {
+    $_setString(2, v);
+  }
+
+  @$pb.TagNumber(3)
+  $core.bool hasType() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearType() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.String get description => $_getSZ(3);
-  @$pb.TagNumber(4)
+  $core.List<$core.String> get tags => $_getList(3);
+
+  @$pb.TagNumber(5)
+  $core.String get description => $_getSZ(4);
+  @$pb.TagNumber(5)
   set description($core.String v) {
-    $_setString(3, v);
+    $_setString(4, v);
   }
 
-  @$pb.TagNumber(4)
-  $core.bool hasDescription() => $_has(3);
-  @$pb.TagNumber(4)
-  void clearDescription() => clearField(4);
+  @$pb.TagNumber(5)
+  $core.bool hasDescription() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearDescription() => clearField(5);
 
-  @$pb.TagNumber(5)
-  Latlng get location => $_getN(4);
-  @$pb.TagNumber(5)
+  @$pb.TagNumber(6)
+  Latlng get location => $_getN(5);
+  @$pb.TagNumber(6)
   set location(Latlng v) {
-    setField(5, v);
+    setField(6, v);
   }
 
-  @$pb.TagNumber(5)
-  $core.bool hasLocation() => $_has(4);
-  @$pb.TagNumber(5)
-  void clearLocation() => clearField(5);
-  @$pb.TagNumber(5)
-  Latlng ensureLocation() => $_ensure(4);
+  @$pb.TagNumber(6)
+  $core.bool hasLocation() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearLocation() => clearField(6);
+  @$pb.TagNumber(6)
+  Latlng ensureLocation() => $_ensure(5);
 
-  @$pb.TagNumber(6)
-  $core.String get address => $_getSZ(5);
-  @$pb.TagNumber(6)
+  @$pb.TagNumber(7)
+  $core.String get address => $_getSZ(6);
+  @$pb.TagNumber(7)
   set address($core.String v) {
-    $_setString(5, v);
-  }
-
-  @$pb.TagNumber(6)
-  $core.bool hasAddress() => $_has(5);
-  @$pb.TagNumber(6)
-  void clearAddress() => clearField(6);
-
-  @$pb.TagNumber(7)
-  $core.String get displayImage => $_getSZ(6);
-  @$pb.TagNumber(7)
-  set displayImage($core.String v) {
     $_setString(6, v);
   }
 
   @$pb.TagNumber(7)
-  $core.bool hasDisplayImage() => $_has(6);
+  $core.bool hasAddress() => $_has(6);
   @$pb.TagNumber(7)
-  void clearDisplayImage() => clearField(7);
+  void clearAddress() => clearField(7);
 
   @$pb.TagNumber(8)
-  $core.List<$core.String> get images => $_getList(7);
+  $core.String get displayImage => $_getSZ(7);
+  @$pb.TagNumber(8)
+  set displayImage($core.String v) {
+    $_setString(7, v);
+  }
+
+  @$pb.TagNumber(8)
+  $core.bool hasDisplayImage() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearDisplayImage() => clearField(8);
 
   @$pb.TagNumber(9)
-  $core.List<MenuItem> get menu => $_getList(8);
+  $core.List<$core.String> get images => $_getList(8);
+
+  @$pb.TagNumber(10)
+  $core.List<MenuItem> get menu => $_getList(9);
 }
 
 class Order extends $pb.GeneratedMessage {

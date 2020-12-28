@@ -12,6 +12,7 @@ class MockBusinessRepo implements BusinessRepo {
 
   Future<List<Business>> ListBusiness(int limit, api.Sort sort,
       {String name,
+      String type,
       List<String> tags,
       Location location,
       int startPrice,
@@ -24,6 +25,7 @@ class MockBusinessRepo implements BusinessRepo {
       Business(
           id: '1',
           name: 'PogChampBurger',
+          type: 'Restaurant',
           tags: ['BURGER', 'BEER', 'LIVE MUSIC'],
           description:
               'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
@@ -64,6 +66,7 @@ class MockBusinessRepo implements BusinessRepo {
       Business(
           id: '2',
           name: 'TateCafe',
+          type: 'Restaurant',
           tags: ['ITALIAN', 'COCKTAIL'],
           description:
               'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
@@ -104,6 +107,7 @@ class MockBusinessRepo implements BusinessRepo {
       Business(
           id: '3',
           name: 'ManpoClub',
+          type: 'Bar',
           tags: ['BEER', 'COCKTAIL', 'DANCE'],
           description:
               'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
@@ -151,6 +155,7 @@ class MockBusinessRepo implements BusinessRepo {
       Business(
           id: '1',
           name: 'PogChampBurger',
+          type: 'Restaurant',
           tags: ['BURGER', 'BEER', 'LIVE MUSIC'],
           description:
               'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
@@ -191,6 +196,7 @@ class MockBusinessRepo implements BusinessRepo {
       Business(
           id: '2',
           name: 'TateCafe',
+          type: 'Restaurant',
           tags: ['ITALIAN', 'COCKTAIL'],
           description:
               'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',

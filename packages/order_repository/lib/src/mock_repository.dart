@@ -20,6 +20,7 @@ class MockOrderRepo implements OrderRepo {
           business: Business(
               id: '1',
               name: 'PogChampBurger',
+              type: 'Restaurant',
               tags: ['BURGER', 'BEER', 'LIVE MUSIC'],
               description:
                   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
@@ -80,6 +81,7 @@ class MockOrderRepo implements OrderRepo {
           business: Business(
               id: '1',
               name: 'PogChampBurger',
+              type: 'Restaurant',
               tags: ['BURGER', 'BEER', 'LIVE MUSIC'],
               description:
                   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',

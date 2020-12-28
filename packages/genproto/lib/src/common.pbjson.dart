@@ -11,8 +11,7 @@ const User$json = const {
     const {'1': 'username', '3': 1, '4': 1, '5': 9, '10': 'username'},
     const {'1': 'dob', '3': 2, '4': 1, '5': 9, '10': 'dob'},
     const {'1': 'avatar', '3': 3, '4': 1, '5': 9, '10': 'avatar'},
-    const {'1': 'preference', '3': 4, '4': 3, '5': 9, '10': 'preference'},
-    const {'1': 'favorite', '3': 5, '4': 3, '5': 9, '10': 'favorite'},
+    const {'1': 'favorite', '3': 4, '4': 3, '5': 9, '10': 'favorite'},
   ],
 };
 
@@ -21,22 +20,23 @@ const Business$json = const {
   '2': const [
     const {'1': '_id', '3': 1, '4': 1, '5': 9, '10': 'Id'},
     const {'1': 'name', '3': 2, '4': 1, '5': 9, '10': 'name'},
-    const {'1': 'tags', '3': 3, '4': 3, '5': 9, '10': 'tags'},
-    const {'1': 'description', '3': 4, '4': 1, '5': 9, '10': 'description'},
+    const {'1': 'type', '3': 3, '4': 1, '5': 9, '10': 'type'},
+    const {'1': 'tags', '3': 4, '4': 3, '5': 9, '10': 'tags'},
+    const {'1': 'description', '3': 5, '4': 1, '5': 9, '10': 'description'},
     const {
       '1': 'location',
-      '3': 5,
+      '3': 6,
       '4': 1,
       '5': 11,
       '6': '.seatlect.Latlng',
       '10': 'location'
     },
-    const {'1': 'address', '3': 6, '4': 1, '5': 9, '10': 'address'},
-    const {'1': 'displayImage', '3': 7, '4': 1, '5': 9, '10': 'displayImage'},
-    const {'1': 'images', '3': 8, '4': 3, '5': 9, '10': 'images'},
+    const {'1': 'address', '3': 7, '4': 1, '5': 9, '10': 'address'},
+    const {'1': 'displayImage', '3': 8, '4': 1, '5': 9, '10': 'displayImage'},
+    const {'1': 'images', '3': 9, '4': 3, '5': 9, '10': 'images'},
     const {
       '1': 'menu',
-      '3': 9,
+      '3': 10,
       '4': 3,
       '5': 11,
       '6': '.seatlect.MenuItem',
