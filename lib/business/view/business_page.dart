@@ -39,7 +39,7 @@ class BusinessPage extends StatelessWidget {
         label: Container(
           width: 300,
           child: Text(
-            'Reserve',
+            'View Schedule',
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 21),
           ),
