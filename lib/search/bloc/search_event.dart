@@ -55,11 +55,3 @@ class SearchUpdateArgs extends SearchEvent {
     ];
   }
 }
-
-// Fetching business
-class SearchBusiness extends SearchEvent {
-  @override
-  List<Object> get props {
-    return [];
-  }
-}
