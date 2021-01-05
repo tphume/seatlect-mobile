@@ -24,18 +24,35 @@ class SearchUpdateArgs extends SearchEvent {
   final DateTime endDate;
 
   SearchUpdateArgs(
-      {this.name,
-      this.type,
-      this.tags,
-      this.location,
-      this.startPrice,
-      this.endPrice,
-      this.startDate,
-      this.endDate});
+      {@required this.name,
+      @required this.type,
+      @required this.tags,
+      @required this.location,
+      @required this.startPrice,
+      @required this.endPrice,
+      @required this.startDate,
+      @required this.endDate})
+      : assert(name != null),
+        assert(type != null),
+        assert(tags != null),
+        assert(location != null),
+        assert(startPrice != null),
+        assert(endPrice != null),
+        assert(startDate != null),
+        assert(endDate != null);
 
   @override
   List<Object> get props {
-    return [];
+    return [
+      name,
+      type,
+      tags,
+      location,
+      startPrice,
+      endPrice,
+      startDate,
+      endDate
+    ];
   }
 }
 
