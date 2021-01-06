@@ -27,7 +27,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
     } else if (event is SearchUpdateArgs) {
       yield SearchCurrent(
           name: event.name,
-          type: event.type,
+          type: event.type == "Type" ? "" : event.type,
           tags: event.tags,
           location: event.location,
           startPrice: event.startPrice,

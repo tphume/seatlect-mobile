@@ -47,7 +47,7 @@ class SearchInitial extends SearchState {
   SearchInitial()
       : super(
             name: "",
-            type: "",
+            type: "Type",
             tags: [],
             location: Location(latitude: 13.7563, longitude: 100.5018),
             startPrice: 0,
