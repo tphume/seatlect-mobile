@@ -79,25 +79,52 @@ class SearchPage extends StatelessWidget {
             filled: true,
             border: OutlineInputBorder(
                 borderSide: BorderSide(width: 0, style: BorderStyle.none),
-                borderRadius: BorderRadius.circular(20))),
+                borderRadius: BorderRadius.circular(10))),
       );
     });
   }
 
   Widget _buildLocation(BuildContext context) {
+    final theme = Theme.of(context);
+
     return BlocBuilder<SearchBloc, SearchState>(builder: (context, state) {
-      return RaisedButton(
+      return ElevatedButton(
         onPressed: () {},
-        child: Text(
-            state.location == Location(latitude: 0, longitude: 0)
-                ? 'Location'
-                : 'Selected',
-            style: TextStyle(fontSize: 16)),
+        style: ButtonStyle(
+            elevation: MaterialStateProperty.all<double>(0),
+            textStyle: MaterialStateProperty.all<TextStyle>(GoogleFonts.dmSans(
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+                color: Colors.black)),
+            backgroundColor:
+                MaterialStateProperty.all<Color>(Color(0xFFE4E0EF))),
+        child: Align(
+            alignment: Alignment.centerLeft,
+            child: Row(
+              children: [
+                Icon(
+                  Icons.location_on_sharp,
+                  color: theme.primaryColor,
+                  size: 14,
+                ),
+                Container(
+                  margin: EdgeInsets.only(left: 3),
+                  child: Text(
+                      state.location ==
+                              Location(latitude: 13.7563, longitude: 100.5018)
+                          ? 'Location'
+                          : 'Selected',
+                      style: TextStyle(color: Colors.black)),
+                )
+              ],
+            )),
       );
     });
   }
 
   Widget _buildType(BuildContext context) {
+    final theme = Theme.of(context);
+
     return BlocBuilder<SearchBloc, SearchState>(builder: (context, state) {
       return DropdownButton<String>(
         isExpanded: true,
@@ -110,6 +137,11 @@ class SearchPage extends StatelessWidget {
             child: Text(value),
           );
         }).toList(),
+        icon: Icon(Icons.category),
+        style: GoogleFonts.dmSans(
+            fontSize: 16,
+            fontWeight: FontWeight.w400,
+            color: theme.primaryColor),
       );
     });
   }
