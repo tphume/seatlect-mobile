@@ -1,5 +1,6 @@
 import 'package:entity/entity.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -69,7 +70,7 @@ class SearchPage extends StatelessWidget {
     final theme = Theme.of(context);
 
     return BlocBuilder<SearchBloc, SearchState>(builder: (context, state) {
-      return TextFormField(
+      return TextField(
         style: TextStyle(fontSize: 16),
         decoration: InputDecoration(
             prefixIcon: Icon(
@@ -144,7 +145,7 @@ class SearchPage extends StatelessWidget {
             child: Text(value),
           );
         }).toList(),
-        icon: Icon(Icons.category, color: theme.primaryColor, size: 14),
+        icon: Icon(Icons.category, color: theme.primaryColor, size: 16),
         style: GoogleFonts.dmSans(
             fontSize: 16,
             fontWeight: FontWeight.w400,
@@ -154,9 +155,67 @@ class SearchPage extends StatelessWidget {
   }
 
   Widget _buildPriceRange(BuildContext context) {
+    final theme = Theme.of(context);
+
     return BlocBuilder<SearchBloc, SearchState>(builder: (context, state) {
-      return Row(
-        children: [],
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+              margin: EdgeInsets.only(bottom: 5),
+              child: Text('Price range (baht)',
+                  style: GoogleFonts.dmSans(
+                      color: Colors.black,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400))),
+          Row(
+            children: [
+              Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.only(right: 5),
+                    child: TextField(
+                      textAlign: TextAlign.center,
+                      keyboardType: TextInputType.number,
+                      inputFormatters: <TextInputFormatter>[
+                        FilteringTextInputFormatter.digitsOnly
+                      ],
+                      style: TextStyle(fontSize: 16),
+                      decoration: InputDecoration(
+                          contentPadding: EdgeInsets.all(0),
+                          fillColor: Color(0xFFE4E0EF),
+                          filled: true,
+                          border: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(width: 0, style: BorderStyle.none),
+                              borderRadius: BorderRadius.circular(10))),
+                    ),
+                  ),
+                  flex: 10),
+              Expanded(child: Text('to'), flex: 1),
+              Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.only(right: 5),
+                    child: TextField(
+                      textAlign: TextAlign.center,
+                      keyboardType: TextInputType.number,
+                      inputFormatters: <TextInputFormatter>[
+                        FilteringTextInputFormatter.digitsOnly
+                      ],
+                      style: TextStyle(fontSize: 16),
+                      decoration: InputDecoration(
+                          contentPadding: EdgeInsets.all(0),
+                          fillColor: Color(0xFFE4E0EF),
+                          filled: true,
+                          border: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(width: 0, style: BorderStyle.none),
+                              borderRadius: BorderRadius.circular(10))),
+                    ),
+                  ),
+                  flex: 10)
+            ],
+          ),
+        ],
       );
     });
   }
