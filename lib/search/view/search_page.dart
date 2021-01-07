@@ -55,6 +55,10 @@ class SearchPage extends StatelessWidget {
                     )
                   ],
                 ),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 20),
+                child: _buildPriceRange(context),
               )
             ],
           ),
@@ -97,7 +101,10 @@ class SearchPage extends StatelessWidget {
                 fontWeight: FontWeight.w400,
                 color: Colors.black)),
             backgroundColor:
-                MaterialStateProperty.all<Color>(Color(0xFFE4E0EF))),
+                MaterialStateProperty.all<Color>(Color(0xFFE4E0EF)),
+            shape: MaterialStateProperty.all<OutlinedBorder>(
+                RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)))),
         child: Align(
             alignment: Alignment.centerLeft,
             child: Row(
@@ -115,7 +122,7 @@ class SearchPage extends StatelessWidget {
                           ? 'Location'
                           : 'Selected',
                       style: TextStyle(color: Colors.black)),
-                )
+                ),
               ],
             )),
       );
@@ -142,6 +149,14 @@ class SearchPage extends StatelessWidget {
             fontSize: 16,
             fontWeight: FontWeight.w400,
             color: theme.primaryColor),
+      );
+    });
+  }
+
+  Widget _buildPriceRange(BuildContext context) {
+    return BlocBuilder<SearchBloc, SearchState>(builder: (context, state) {
+      return Row(
+        children: [],
       );
     });
   }
