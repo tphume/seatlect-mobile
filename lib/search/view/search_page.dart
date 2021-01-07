@@ -144,7 +144,7 @@ class SearchPage extends StatelessWidget {
             child: Text(value),
           );
         }).toList(),
-        icon: Icon(Icons.category),
+        icon: Icon(Icons.category, color: theme.primaryColor, size: 14),
         style: GoogleFonts.dmSans(
             fontSize: 16,
             fontWeight: FontWeight.w400,
