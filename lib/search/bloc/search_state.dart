@@ -5,6 +5,7 @@ abstract class SearchState extends Equatable {
   final String type;
   final List<String> tags;
   final Location location;
+  final String address;
   final int startPrice;
   final int endPrice;
   final DateTime startDate;
@@ -15,6 +16,7 @@ abstract class SearchState extends Equatable {
       @required this.type,
       @required this.tags,
       @required this.location,
+      @required this.address,
       @required this.startPrice,
       @required this.endPrice,
       @required this.startDate,
@@ -23,6 +25,7 @@ abstract class SearchState extends Equatable {
         assert(type != null),
         assert(tags != null),
         assert(location != null),
+        assert(address != null),
         assert(startPrice != null),
         assert(endPrice != null),
         assert(startDate != null),
@@ -35,6 +38,7 @@ abstract class SearchState extends Equatable {
       type,
       tags,
       location,
+      address,
       startPrice,
       endPrice,
       startDate,
@@ -50,6 +54,7 @@ class SearchInitial extends SearchState {
             type: "Type",
             tags: [],
             location: Location(latitude: 13.7563, longitude: 100.5018),
+            address: 'Bangkok',
             startPrice: 0,
             endPrice: 1000,
             startDate: DateTime.now(),
@@ -62,6 +67,7 @@ class SearchCurrent extends SearchState {
       @required type,
       @required tags,
       @required location,
+      @required address,
       @required startPrice,
       @required endPrice,
       @required startDate,
@@ -70,6 +76,7 @@ class SearchCurrent extends SearchState {
         assert(type != null),
         assert(tags != null),
         assert(location != null),
+        assert(address != null),
         assert(startPrice != null),
         assert(endPrice != null),
         assert(startDate != null),
@@ -79,6 +86,7 @@ class SearchCurrent extends SearchState {
             type: type,
             tags: tags,
             location: location,
+            address: address,
             startPrice: startPrice,
             endPrice: endPrice,
             startDate: startDate,

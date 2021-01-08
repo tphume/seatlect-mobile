@@ -55,3 +55,5 @@ class SearchUpdateArgs extends SearchEvent {
     ];
   }
 }
+
+// SearchUpdate

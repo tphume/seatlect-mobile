@@ -24,16 +24,6 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
   ) async* {
     if (event is SearchReset) {
       yield SearchInitial();
-    } else if (event is SearchUpdateArgs) {
-      yield SearchCurrent(
-          name: event.name,
-          type: event.type == "Type" ? "" : event.type,
-          tags: event.tags,
-          location: event.location,
-          startPrice: event.startPrice,
-          endPrice: event.endPrice,
-          startDate: event.startDate,
-          endDate: event.endDate);
     }
   }
 }

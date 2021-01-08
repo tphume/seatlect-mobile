@@ -136,11 +136,7 @@ class SearchPage extends StatelessWidget {
                 ),
                 Container(
                   margin: EdgeInsets.only(left: 3),
-                  child: Text(
-                      state.location ==
-                              Location(latitude: 13.7563, longitude: 100.5018)
-                          ? 'Location'
-                          : 'Selected',
+                  child: Text(state.address,
                       style: TextStyle(color: Colors.black)),
                 ),
               ],
