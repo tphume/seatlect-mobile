@@ -53,7 +53,7 @@ class SearchInitial extends SearchState {
             startPrice: 0,
             endPrice: 1000,
             startDate: DateTime.now(),
-            endDate: DateTime.now().add(Duration(days: 0)));
+            endDate: DateTime.now().add(Duration(days: 1)));
 }
 
 class SearchCurrent extends SearchState {

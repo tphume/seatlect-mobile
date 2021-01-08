@@ -7,6 +7,21 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:seatlect_mobile/components/drawer_content.dart' as comp;
 import 'package:seatlect_mobile/search/bloc/search_bloc.dart';
 
+List<String> months = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December'
+];
+
 class SearchPage extends StatelessWidget {
   static Route route() {
     return MaterialPageRoute(builder: (_) => SearchPage());
@@ -30,7 +45,7 @@ class SearchPage extends StatelessWidget {
           child: comp.DrawerContent(comp.Page.search),
         ),
         body: Padding(
-          padding: EdgeInsets.only(left: 15, top: 10, right: 15, bottom: 10),
+          padding: EdgeInsets.only(left: 20, top: 10, right: 20, bottom: 10),
           child: Column(
             children: [
               Container(
@@ -60,6 +75,10 @@ class SearchPage extends StatelessWidget {
               Container(
                 margin: EdgeInsets.only(top: 20),
                 child: _buildPriceRange(context),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 20),
+                child: _buildDateRange(context),
               )
             ],
           ),
@@ -218,5 +237,70 @@ class SearchPage extends StatelessWidget {
         ],
       );
     });
+  }
+
+  Widget _buildDateRange(BuildContext context) {
+    final theme = Theme.of(context);
+
+    return BlocBuilder<SearchBloc, SearchState>(builder: (context, state) {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+              margin: EdgeInsets.only(bottom: 5),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text('Date',
+                        style: GoogleFonts.dmSans(
+                            color: Colors.black,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400)),
+                    SizedBox(
+                      height: 21,
+                      child: ElevatedButton(
+                          onPressed: () {},
+                          style: ButtonStyle(
+                              elevation: MaterialStateProperty.all<double>(0),
+                              textStyle: MaterialStateProperty.all<TextStyle>(
+                                  GoogleFonts.dmSans(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w400,
+                                      color: Colors.white)),
+                              backgroundColor: MaterialStateProperty.all<Color>(
+                                  theme.primaryColor),
+                              shape: MaterialStateProperty.all<OutlinedBorder>(
+                                  RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(50)))),
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.calendar_today,
+                                color: Colors.white,
+                                size: 14,
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(left: 3),
+                                child: Text('Pick',
+                                    style: TextStyle(color: Colors.white)),
+                              ),
+                            ],
+                          )),
+                    )
+                  ])),
+          Text(
+            '${_formatDateTime(state.startDate)} - ${_formatDateTime(state.endDate)}',
+            style: TextStyle(color: Color(0xff4F4F4F)),
+          ),
+        ],
+      );
+    });
+  }
+
+  // Helper function to format date output
+  String _formatDateTime(DateTime d) {
+    return '${d.hour < 10 ? '0${d.hour}' : d.hour}:${d.minute < 10 ? '0${d.minute}' : d.minute} ${d.day} ${months[d.month - 1]} ${d.year}';
   }
 }
