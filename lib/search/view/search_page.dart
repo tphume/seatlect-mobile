@@ -58,14 +58,20 @@ class SearchPage extends StatelessWidget {
                     Expanded(
                       child: Padding(
                         padding: EdgeInsets.only(right: 5),
-                        child: _buildLocation(context),
+                        child: SizedBox(
+                          height: 45,
+                          child: _buildLocation(context),
+                        ),
                       ),
                       flex: 1,
                     ),
                     Expanded(
                       child: Padding(
                         padding: EdgeInsets.only(left: 5),
-                        child: _buildType(context),
+                        child: SizedBox(
+                          height: 45,
+                          child: _buildType(context),
+                        ),
                       ),
                       flex: 1,
                     )
@@ -149,22 +155,30 @@ class SearchPage extends StatelessWidget {
     final theme = Theme.of(context);
 
     return BlocBuilder<SearchBloc, SearchState>(builder: (context, state) {
-      return DropdownButton<String>(
-        isExpanded: true,
-        value: state.type,
-        onChanged: (value) {},
-        items: <String>['Type', 'Restaurant', 'Bar', 'Theatre']
-            .map<DropdownMenuItem<String>>((String value) {
-          return DropdownMenuItem<String>(
-            value: value,
-            child: Text(value),
-          );
-        }).toList(),
-        icon: Icon(Icons.category, color: theme.primaryColor, size: 16),
-        style: GoogleFonts.dmSans(
-            fontSize: 16,
-            fontWeight: FontWeight.w400,
-            color: theme.primaryColor),
+      return DropdownButtonHideUnderline(
+        child: Container(
+            padding: EdgeInsets.only(left: 8, right: 8),
+            decoration: BoxDecoration(
+                color: Color(0xFFE4E0EF),
+                borderRadius: BorderRadius.circular(10)),
+            child: DropdownButton<String>(
+              isExpanded: true,
+              value: state.type,
+              onChanged: (value) {},
+              items: <String>['Restaurant', 'Bar', 'Theatre']
+                  .map<DropdownMenuItem<String>>((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              }).toList(),
+              icon: Icon(Icons.arrow_drop_down,
+                  color: theme.primaryColor, size: 20),
+              style: GoogleFonts.dmSans(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w400,
+                  color: Colors.black),
+            )),
       );
     });
   }

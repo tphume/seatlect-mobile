@@ -50,8 +50,8 @@ abstract class SearchState extends Equatable {
 class SearchInitial extends SearchState {
   SearchInitial()
       : super(
-            name: "",
-            type: "Type",
+            name: '',
+            type: 'Restaurant',
             tags: [],
             location: Location(latitude: 13.7563, longitude: 100.5018),
             address: 'Bangkok',
