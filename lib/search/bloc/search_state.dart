@@ -10,6 +10,7 @@ abstract class SearchState extends Equatable {
   final int endPrice;
   final DateTime startDate;
   final DateTime endDate;
+  final String sortBy;
 
   SearchState(
       {@required this.name,
@@ -20,7 +21,8 @@ abstract class SearchState extends Equatable {
       @required this.startPrice,
       @required this.endPrice,
       @required this.startDate,
-      @required this.endDate})
+      @required this.endDate,
+      @required this.sortBy})
       : assert(name != null),
         assert(type != null),
         assert(tags != null),
@@ -29,7 +31,8 @@ abstract class SearchState extends Equatable {
         assert(startPrice != null),
         assert(endPrice != null),
         assert(startDate != null),
-        assert(endDate != null);
+        assert(endDate != null),
+        assert(sortBy != null);
 
   @override
   List<Object> get props {
@@ -42,7 +45,8 @@ abstract class SearchState extends Equatable {
       startPrice,
       endPrice,
       startDate,
-      endDate
+      endDate,
+      sortBy
     ];
   }
 }
@@ -58,7 +62,8 @@ class SearchInitial extends SearchState {
             startPrice: 0,
             endPrice: 1000,
             startDate: DateTime.now(),
-            endDate: DateTime.now().add(Duration(days: 1)));
+            endDate: DateTime.now().add(Duration(days: 1)),
+            sortBy: NAME_ASC);
 }
 
 class SearchCurrent extends SearchState {

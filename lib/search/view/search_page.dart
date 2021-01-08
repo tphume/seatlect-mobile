@@ -1,4 +1,3 @@
-import 'package:entity/entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -85,6 +84,10 @@ class SearchPage extends StatelessWidget {
               Container(
                 margin: EdgeInsets.only(top: 20),
                 child: _buildDateRange(context),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 20),
+                child: _buildSortBy(context),
               )
             ],
           ),
@@ -304,6 +307,59 @@ class SearchPage extends StatelessWidget {
             '${_formatDateTime(state.startDate)} - ${_formatDateTime(state.endDate)}',
             style: TextStyle(color: Color(0xff4F4F4F)),
           ),
+        ],
+      );
+    });
+  }
+
+  Widget _buildSortBy(BuildContext context) {
+    final theme = Theme.of(context);
+
+    return BlocBuilder<SearchBloc, SearchState>(builder: (context, state) {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            margin: EdgeInsets.only(bottom: 5),
+            child: Text('Sort',
+                style: GoogleFonts.dmSans(
+                    color: Colors.black,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400)),
+          ),
+          DropdownButtonHideUnderline(
+            child: Container(
+                padding: EdgeInsets.only(left: 8, right: 8),
+                decoration: BoxDecoration(
+                    color: Color(0xFFE4E0EF),
+                    borderRadius: BorderRadius.circular(10)),
+                child: DropdownButton<String>(
+                  isExpanded: true,
+                  value: state.sortBy,
+                  onChanged: (value) {},
+                  items: <String>[
+                    NAME_ASC,
+                    NAME_DESC,
+                    LOCATION_ASC,
+                    LOCATION_DESC,
+                    PRICE_ASC,
+                    PRICE_DESC,
+                    DATE_ASC,
+                    DATE_DESC
+                  ].map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+                  icon: Icon(Icons.arrow_drop_down,
+                      color: theme.primaryColor, size: 20),
+                  style: GoogleFonts.dmSans(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.black),
+                )),
+          )
         ],
       );
     });
