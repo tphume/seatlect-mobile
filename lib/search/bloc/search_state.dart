@@ -76,7 +76,8 @@ class SearchCurrent extends SearchState {
       @required startPrice,
       @required endPrice,
       @required startDate,
-      @required endDate})
+      @required endDate,
+      @required sortBy})
       : assert(name != null),
         assert(type != null),
         assert(tags != null),
@@ -86,6 +87,7 @@ class SearchCurrent extends SearchState {
         assert(endPrice != null),
         assert(startDate != null),
         assert(endDate != null),
+        assert(sortBy != null),
         super(
             name: name,
             type: type,
@@ -95,5 +97,6 @@ class SearchCurrent extends SearchState {
             startPrice: startPrice,
             endPrice: endPrice,
             startDate: startDate,
-            endDate: endDate);
+            endDate: endDate,
+            sortBy: sortBy);
 }
