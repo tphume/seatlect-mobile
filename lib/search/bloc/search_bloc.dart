@@ -33,6 +33,13 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
   ) async* {
     if (event is SearchReset) {
       yield SearchInitial();
-    }
+    } else if (event is SearchUpdateName) {
+    } else if (event is SearchUpdateType) {
+    } else if (event is SearchUpdateLocation) {
+    } else if (event is SearchUpdateStartPrice) {
+    } else if (event is SearchUpdateEndPrice) {
+    } else if (event is SearchUpdateStartDate) {
+    } else if (event is SearchUpdateEndDate) {
+    } else if (event is SearchUpdateSortBy) {}
   }
 }

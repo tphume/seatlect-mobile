@@ -109,48 +109,14 @@ class SearchUpdateEndDate extends SearchEvent {
   }
 }
 
-// Update Filter Arguments
-class SearchUpdateArgs extends SearchEvent {
-  final String name;
-  final String type;
-  final List<String> tags;
-  final Location location;
-  final int startPrice;
-  final int endPrice;
-  final DateTime startDate;
-  final DateTime endDate;
+// Update SortBy
+class SearchUpdateSortBy extends SearchEvent {
+  final String sortBy;
 
-  SearchUpdateArgs(
-      {@required this.name,
-      @required this.type,
-      @required this.tags,
-      @required this.location,
-      @required this.startPrice,
-      @required this.endPrice,
-      @required this.startDate,
-      @required this.endDate})
-      : assert(name != null),
-        assert(type != null),
-        assert(tags != null),
-        assert(location != null),
-        assert(startPrice != null),
-        assert(endPrice != null),
-        assert(startDate != null),
-        assert(endDate != null);
+  SearchUpdateSortBy({@required this.sortBy}) : assert(sortBy != null);
 
   @override
   List<Object> get props {
-    return [
-      name,
-      type,
-      tags,
-      location,
-      startPrice,
-      endPrice,
-      startDate,
-      endDate
-    ];
+    return [sortBy];
   }
 }
-
-// SearchUpdate
