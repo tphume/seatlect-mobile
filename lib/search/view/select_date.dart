@@ -12,6 +12,8 @@ class SelectDate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -32,7 +34,18 @@ class SelectDate extends StatelessWidget {
               children: [
                 Container(
                     margin: EdgeInsets.only(bottom: 10),
+                    padding: EdgeInsets.only(left: 8, right: 8),
+                    decoration: BoxDecoration(
+                        color: Color(0xFFE4E0EF),
+                        borderRadius: BorderRadius.circular(10)),
                     child: DateTimePicker(
+                        decoration: InputDecoration(
+                            border: InputBorder.none,
+                            icon: Icon(
+                              Icons.calendar_today,
+                              color: theme.primaryColor,
+                              size: 14,
+                            )),
                         type: DateTimePickerType.dateTime,
                         initialValue: state.startDate.toString(),
                         firstDate: DateTime.now(),
@@ -45,7 +58,18 @@ class SelectDate extends StatelessWidget {
                         })),
                 Container(
                   margin: EdgeInsets.only(bottom: 10),
+                  padding: EdgeInsets.only(left: 8, right: 8),
+                  decoration: BoxDecoration(
+                      color: Color(0xFFE4E0EF),
+                      borderRadius: BorderRadius.circular(10)),
                   child: DateTimePicker(
+                    decoration: InputDecoration(
+                        border: InputBorder.none,
+                        icon: Icon(
+                          Icons.calendar_today,
+                          color: theme.primaryColor,
+                          size: 14,
+                        )),
                     type: DateTimePickerType.dateTime,
                     initialValue: state.endDate.toString(),
                     firstDate: DateTime.now(),
