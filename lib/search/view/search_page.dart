@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:date_time_picker/date_time_picker.dart';
 
 import 'package:seatlect_mobile/components/drawer_content.dart' as comp;
 import 'package:seatlect_mobile/search/bloc/search_bloc.dart';
-import 'select_date.dart';
 
 List<String> months = [
   'January',
@@ -261,55 +261,61 @@ class SearchPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-              margin: EdgeInsets.only(bottom: 5),
-              child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text('Date',
-                        style: GoogleFonts.dmSans(
-                            color: Colors.black,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400)),
-                    SizedBox(
-                      height: 21,
-                      child: ElevatedButton(
-                          onPressed: () {
-                            Navigator.of(context).push(SelectDate.route());
-                          },
-                          style: ButtonStyle(
-                              elevation: MaterialStateProperty.all<double>(0),
-                              textStyle: MaterialStateProperty.all<TextStyle>(
-                                  GoogleFonts.dmSans(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w400,
-                                      color: Colors.white)),
-                              backgroundColor: MaterialStateProperty.all<Color>(
-                                  theme.primaryColor),
-                              shape: MaterialStateProperty.all<OutlinedBorder>(
-                                  RoundedRectangleBorder(
-                                      borderRadius:
-                                          BorderRadius.circular(50)))),
-                          child: Row(
-                            children: [
-                              Icon(
-                                Icons.calendar_today,
-                                color: Colors.white,
-                                size: 14,
-                              ),
-                              Container(
-                                margin: EdgeInsets.only(left: 3),
-                                child: Text('Pick',
-                                    style: TextStyle(color: Colors.white)),
-                              ),
-                            ],
-                          )),
-                    )
-                  ])),
-          Text(
-            '${_formatDateTime(state.startDate)} - ${_formatDateTime(state.endDate)}',
-            style: TextStyle(color: Color(0xff4F4F4F)),
+            margin: EdgeInsets.only(bottom: 5),
+            child: Text('Date',
+                style: GoogleFonts.dmSans(
+                    color: Colors.black,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400)),
           ),
+          Container(
+              margin: EdgeInsets.only(bottom: 10),
+              padding: EdgeInsets.only(left: 8, right: 8),
+              decoration: BoxDecoration(
+                  color: Color(0xFFE4E0EF),
+                  borderRadius: BorderRadius.circular(10)),
+              child: DateTimePicker(
+                  decoration: InputDecoration(
+                      border: InputBorder.none,
+                      icon: Icon(
+                        Icons.calendar_today,
+                        color: theme.primaryColor,
+                        size: 14,
+                      )),
+                  type: DateTimePickerType.dateTime,
+                  initialValue: state.startDate.toString(),
+                  firstDate: DateTime.now(),
+                  lastDate: DateTime(2100),
+                  dateLabelText: 'Start Date',
+                  onChanged: (val) {
+                    BlocProvider.of<SearchBloc>(context).add(
+                        SearchUpdateStartDate(startDate: DateTime.parse(val)));
+                  })),
+          Container(
+            margin: EdgeInsets.only(bottom: 10),
+            padding: EdgeInsets.only(left: 8, right: 8),
+            decoration: BoxDecoration(
+                color: Color(0xFFE4E0EF),
+                borderRadius: BorderRadius.circular(10)),
+            child: DateTimePicker(
+              decoration: InputDecoration(
+                  border: InputBorder.none,
+                  icon: Icon(
+                    Icons.calendar_today,
+                    color: theme.primaryColor,
+                    size: 14,
+                  )),
+              type: DateTimePickerType.dateTime,
+              initialValue: state.endDate.toString(),
+              firstDate: DateTime.now(),
+              lastDate: DateTime(2100),
+              dateLabelText: 'End Date',
+              onChanged: (val) {
+                BlocProvider.of<SearchBloc>(context)
+                    .add(SearchUpdateEndDate(endDate: DateTime.parse(val)));
+              },
+            ),
+          )
         ],
       );
     });
