@@ -1,16 +1,16 @@
 part of 'search_bloc.dart';
 
 abstract class SearchState extends Equatable {
-  final String name;
-  final String type;
-  final List<String> tags;
-  final Location location;
-  final String address;
-  final int startPrice;
-  final int endPrice;
-  final DateTime startDate;
-  final DateTime endDate;
-  final String sortBy;
+  String name;
+  String type;
+  List<String> tags;
+  Location location;
+  String address;
+  int startPrice;
+  int endPrice;
+  DateTime startDate;
+  DateTime endDate;
+  String sortBy;
 
   SearchState(
       {@required this.name,
@@ -99,4 +99,17 @@ class SearchCurrent extends SearchState {
             startDate: startDate,
             endDate: endDate,
             sortBy: sortBy);
+
+  SearchCurrent.clone(SearchState s)
+      : this(
+            name: s.name,
+            type: s.type,
+            tags: s.tags,
+            location: s.location,
+            address: s.address,
+            startPrice: s.startPrice,
+            endPrice: s.endPrice,
+            startDate: s.startDate,
+            endDate: s.endDate,
+            sortBy: s.sortBy);
 }
