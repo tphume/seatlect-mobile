@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'package:seatlect_mobile/components/drawer_content.dart' as comp;
 import 'package:seatlect_mobile/search/bloc/search_bloc.dart';
+import 'select_date.dart';
 
 List<String> months = [
   'January',
@@ -273,7 +274,9 @@ class SearchPage extends StatelessWidget {
                     SizedBox(
                       height: 21,
                       child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).push(SelectDate.route());
+                          },
                           style: ButtonStyle(
                               elevation: MaterialStateProperty.all<double>(0),
                               textStyle: MaterialStateProperty.all<TextStyle>(
