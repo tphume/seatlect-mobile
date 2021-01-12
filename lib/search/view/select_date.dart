@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:google_fonts/google_fonts.dart';
+import 'package:seatlect_mobile/search/bloc/search_bloc.dart';
+import 'package:date_time_picker/date_time_picker.dart';
 
 class SelectDate extends StatelessWidget {
   static Route route() {
@@ -21,9 +25,41 @@ class SelectDate extends StatelessWidget {
         elevation: 0,
       ),
       body: Padding(
-        padding: EdgeInsets.only(left: 20, top: 10, right: 20, bottom: 10),
-        child: Column(),
-      ),
+          padding: EdgeInsets.only(left: 20, top: 10, right: 20, bottom: 10),
+          child:
+              BlocBuilder<SearchBloc, SearchState>(builder: (context, state) {
+            return Column(
+              children: [
+                Container(
+                    margin: EdgeInsets.only(bottom: 10),
+                    child: DateTimePicker(
+                        type: DateTimePickerType.dateTime,
+                        initialValue: state.startDate.toString(),
+                        firstDate: DateTime.now(),
+                        lastDate: DateTime(2100),
+                        dateLabelText: 'Start Date',
+                        onChanged: (val) {
+                          BlocProvider.of<SearchBloc>(context).add(
+                              SearchUpdateStartDate(
+                                  startDate: DateTime.parse(val)));
+                        })),
+                Container(
+                  margin: EdgeInsets.only(bottom: 10),
+                  child: DateTimePicker(
+                    type: DateTimePickerType.dateTime,
+                    initialValue: state.endDate.toString(),
+                    firstDate: DateTime.now(),
+                    lastDate: DateTime(2100),
+                    dateLabelText: 'End Date',
+                    onChanged: (val) {
+                      BlocProvider.of<SearchBloc>(context).add(
+                          SearchUpdateEndDate(endDate: DateTime.parse(val)));
+                    },
+                  ),
+                )
+              ],
+            );
+          })),
     );
   }
 }

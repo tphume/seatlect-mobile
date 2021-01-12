@@ -66,7 +66,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
       yield s;
     } else if (event is SearchUpdateEndDate) {
       SearchCurrent s = SearchCurrent.clone(state);
-      s.endDate = s.endDate;
+      s.endDate = event.endDate;
       yield s;
     } else if (event is SearchUpdateSortBy) {
       SearchCurrent s = SearchCurrent.clone(state);
