@@ -56,6 +56,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
     } else if (event is SearchUpdateStartPrice) {
       SearchCurrent s = SearchCurrent.clone(state);
       s.startPrice = event.startPrice;
+      yield s;
     } else if (event is SearchUpdateEndPrice) {
       SearchCurrent s = SearchCurrent.clone(state);
       s.endPrice = event.endPrice;

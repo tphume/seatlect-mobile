@@ -99,7 +99,12 @@ class SearchPage extends StatelessWidget {
     final theme = Theme.of(context);
 
     return BlocBuilder<SearchBloc, SearchState>(builder: (context, state) {
-      return TextField(
+      return TextFormField(
+        initialValue: state.name,
+        onChanged: (value) {
+          BlocProvider.of<SearchBloc>(context)
+              .add(SearchUpdateName(name: value));
+        },
         style: TextStyle(fontSize: 16),
         decoration: InputDecoration(
             prefixIcon: Icon(
@@ -168,7 +173,10 @@ class SearchPage extends StatelessWidget {
             child: DropdownButton<String>(
               isExpanded: true,
               value: state.type,
-              onChanged: (value) {},
+              onChanged: (value) {
+                BlocProvider.of<SearchBloc>(context)
+                    .add(SearchUpdateType(type: value));
+              },
               items: <String>['Restaurant', 'Bar', 'Theatre']
                   .map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(
@@ -206,7 +214,13 @@ class SearchPage extends StatelessWidget {
               Expanded(
                   child: Padding(
                     padding: EdgeInsets.only(right: 5),
-                    child: TextField(
+                    child: TextFormField(
+                      initialValue: state.startPrice.toString(),
+                      onChanged: (value) {
+                        BlocProvider.of<SearchBloc>(context).add(
+                            SearchUpdateStartPrice(
+                                startPrice: int.parse(value)));
+                      },
                       textAlign: TextAlign.center,
                       keyboardType: TextInputType.number,
                       inputFormatters: <TextInputFormatter>[
@@ -228,7 +242,12 @@ class SearchPage extends StatelessWidget {
               Expanded(
                   child: Padding(
                     padding: EdgeInsets.only(right: 5),
-                    child: TextField(
+                    child: TextFormField(
+                      initialValue: state.endPrice.toString(),
+                      onChanged: (value) {
+                        BlocProvider.of<SearchBloc>(context).add(
+                            SearchUpdateEndPrice(endPrice: int.parse(value)));
+                      },
                       textAlign: TextAlign.center,
                       keyboardType: TextInputType.number,
                       inputFormatters: <TextInputFormatter>[
@@ -345,7 +364,10 @@ class SearchPage extends StatelessWidget {
                 child: DropdownButton<String>(
                   isExpanded: true,
                   value: state.sortBy,
-                  onChanged: (value) {},
+                  onChanged: (value) {
+                    BlocProvider.of<SearchBloc>(context)
+                        .add(SearchUpdateSortBy(sortBy: value));
+                  },
                   items: <String>[
                     NAME_ASC,
                     NAME_DESC,
