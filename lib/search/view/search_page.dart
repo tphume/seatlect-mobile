@@ -6,6 +6,7 @@ import 'package:date_time_picker/date_time_picker.dart';
 
 import 'package:seatlect_mobile/components/drawer_content.dart' as comp;
 import 'package:seatlect_mobile/search/bloc/search_bloc.dart';
+import 'package:seatlect_mobile/search/view/search_result.dart';
 
 List<String> months = [
   'January',
@@ -405,11 +406,39 @@ class SearchPage extends StatelessWidget {
   }
 
   Widget _buildSearch(BuildContext context) {
-    return ElevatedButton(onPressed: () {}, child: Text('Search'));
+    final theme = Theme.of(context);
+
+    return ElevatedButton(
+      onPressed: () {
+        Navigator.of(context).push(SearchResult.route());
+      },
+      child: Text('Search'),
+      style: ButtonStyle(
+        shape: MaterialStateProperty.all<OutlinedBorder>(
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+        backgroundColor: MaterialStateProperty.all<Color>(theme.primaryColor),
+      ),
+    );
   }
 
   Widget _buildReset(BuildContext context) {
-    return ElevatedButton(onPressed: () {}, child: Text('Reset'));
+    final theme = Theme.of(context);
+
+    return OutlinedButton(
+        onPressed: () {
+          BlocProvider.of<SearchBloc>(context).add(SearchReset());
+          Navigator.of(context)
+              .pushNamedAndRemoveUntil('/search', (route) => false);
+        },
+        child: Text(
+          'Reset',
+          style: TextStyle(color: theme.primaryColor),
+        ),
+        style: ButtonStyle(
+          shape: MaterialStateProperty.all<OutlinedBorder>(
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          ),
+        ));
   }
 
   // Helper function to format date output
