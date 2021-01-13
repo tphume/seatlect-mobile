@@ -89,7 +89,15 @@ class SearchPage extends StatelessWidget {
               Container(
                 margin: EdgeInsets.only(top: 20),
                 child: _buildSortBy(context),
-              )
+              ),
+              Container(
+                  width: double.infinity,
+                  margin: EdgeInsets.only(top: 15),
+                  child: _buildSearch(context)),
+              Container(
+                  width: double.infinity,
+                  margin: EdgeInsets.only(top: 0),
+                  child: _buildReset(context))
             ],
           ),
         ));
@@ -394,6 +402,14 @@ class SearchPage extends StatelessWidget {
         ],
       );
     });
+  }
+
+  Widget _buildSearch(BuildContext context) {
+    return ElevatedButton(onPressed: () {}, child: Text('Search'));
+  }
+
+  Widget _buildReset(BuildContext context) {
+    return ElevatedButton(onPressed: () {}, child: Text('Reset'));
   }
 
   // Helper function to format date output
