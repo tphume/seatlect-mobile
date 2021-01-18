@@ -43,9 +43,6 @@ android {
         targetSdkVersion 29
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
-
-        // API Key from environment variable
-        manifestPlaceholders = [mapsApiKey: "$System.env.MAPS_API_KEY"]
     }
 
     buildTypes {

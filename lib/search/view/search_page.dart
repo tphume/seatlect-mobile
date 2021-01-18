@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:date_time_picker/date_time_picker.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'package:seatlect_mobile/components/drawer_content.dart' as comp;
 import 'package:seatlect_mobile/search/bloc/search_bloc.dart';
@@ -137,7 +138,15 @@ class SearchPage extends StatelessWidget {
 
     return BlocBuilder<SearchBloc, SearchState>(builder: (context, state) {
       return ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) =>
+                  GoogleMap(
+                      initialCameraPosition: CameraPosition(
+                        target: LatLng(37.42796133580664, -122.085749655962),
+                        zoom: 14.4746,
+                      ))));
+        },
         style: ButtonStyle(
             elevation: MaterialStateProperty.all<double>(0),
             textStyle: MaterialStateProperty.all<TextStyle>(GoogleFonts.dmSans(
@@ -145,7 +154,7 @@ class SearchPage extends StatelessWidget {
                 fontWeight: FontWeight.w400,
                 color: Colors.black)),
             backgroundColor:
-                MaterialStateProperty.all<Color>(Color(0xFFE4E0EF)),
+            MaterialStateProperty.all<Color>(Color(0xFFE4E0EF)),
             shape: MaterialStateProperty.all<OutlinedBorder>(
                 RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)))),
@@ -242,7 +251,7 @@ class SearchPage extends StatelessWidget {
                           filled: true,
                           border: OutlineInputBorder(
                               borderSide:
-                                  BorderSide(width: 0, style: BorderStyle.none),
+                              BorderSide(width: 0, style: BorderStyle.none),
                               borderRadius: BorderRadius.circular(10))),
                     ),
                   ),
@@ -269,7 +278,7 @@ class SearchPage extends StatelessWidget {
                           filled: true,
                           border: OutlineInputBorder(
                               borderSide:
-                                  BorderSide(width: 0, style: BorderStyle.none),
+                              BorderSide(width: 0, style: BorderStyle.none),
                               borderRadius: BorderRadius.circular(10))),
                     ),
                   ),
@@ -443,6 +452,7 @@ class SearchPage extends StatelessWidget {
 
   // Helper function to format date output
   String _formatDateTime(DateTime d) {
-    return '${d.hour < 10 ? '0${d.hour}' : d.hour}:${d.minute < 10 ? '0${d.minute}' : d.minute} ${d.day} ${months[d.month - 1]} ${d.year}';
+    return '${d.hour < 10 ? '0${d.hour}' : d.hour}:${d.minute < 10 ? '0${d
+        .minute}' : d.minute} ${d.day} ${months[d.month - 1]} ${d.year}';
   }
 }
