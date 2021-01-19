@@ -15,10 +15,12 @@ class SearchLocation extends StatefulWidget {
 }
 
 class _SearchLocationState extends State<SearchLocation> {
-  Completer<GoogleMapController> _controller = Completer();
+  Completer<GoogleMapController> _mapController = Completer();
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -30,7 +32,30 @@ class _SearchLocationState extends State<SearchLocation> {
         centerTitle: true,
         elevation: 0,
       ),
-      body: GoogleMap(initialCameraPosition: widget.initialPosition),
+      body: Stack(
+        children: [
+          GoogleMap(initialCameraPosition: widget.initialPosition),
+          Container(
+            margin: EdgeInsets.only(left: 20, top: 10, right: 20, bottom: 10),
+            child: TextFormField(
+              style: TextStyle(fontSize: 16),
+              decoration: InputDecoration(
+                  prefixIcon: Icon(
+                    Icons.search,
+                    color: theme.primaryIconTheme.color,
+                  ),
+                  hintText: 'Search by name',
+                  hintStyle: TextStyle(fontSize: 16, color: Color(0xFFCFBEED)),
+                  contentPadding: EdgeInsets.all(8),
+                  fillColor: Color(0xFFE4E0EF),
+                  filled: true,
+                  border: OutlineInputBorder(
+                      borderSide: BorderSide(width: 0, style: BorderStyle.none),
+                      borderRadius: BorderRadius.circular(10))),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
