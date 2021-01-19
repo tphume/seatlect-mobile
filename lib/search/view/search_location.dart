@@ -1,14 +1,17 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:seatlect_mobile/search/bloc/search_bloc.dart';
 
 class SearchLocation extends StatefulWidget {
-  final CameraPosition initialPosition;
+  final LatLng initialPosition;
 
-  const SearchLocation({@required this.initialPosition})
-      : assert(initialPosition != null);
+  const SearchLocation({Key key, @required this.initialPosition})
+      : assert(initialPosition != null),
+        super(key: key);
 
   @override
   _SearchLocationState createState() => _SearchLocationState();
@@ -16,6 +19,14 @@ class SearchLocation extends StatefulWidget {
 
 class _SearchLocationState extends State<SearchLocation> {
   Completer<GoogleMapController> _mapController = Completer();
+  Set<Marker> markers = Set();
+
+  @override
+  void initState() {
+    markers.add(Marker(
+        markerId: MarkerId('current'), position: widget.initialPosition));
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +45,21 @@ class _SearchLocationState extends State<SearchLocation> {
       ),
       body: Stack(
         children: [
-          GoogleMap(initialCameraPosition: widget.initialPosition),
+          GoogleMap(
+            initialCameraPosition:
+                CameraPosition(target: widget.initialPosition, zoom: 15),
+            zoomGesturesEnabled: true,
+            onMapCreated: (GoogleMapController controller) {
+              _mapController.complete(controller);
+            },
+            markers: markers,
+            onTap: (latLng) {
+              setState(() {
+                markers.add(
+                    Marker(markerId: MarkerId('current'), position: latLng));
+              });
+            },
+          ),
           Container(
             margin: EdgeInsets.only(left: 20, top: 10, right: 20, bottom: 10),
             child: TextFormField(
@@ -53,6 +78,17 @@ class _SearchLocationState extends State<SearchLocation> {
                       borderSide: BorderSide(width: 0, style: BorderStyle.none),
                       borderRadius: BorderRadius.circular(10))),
             ),
+          ),
+          BlocListener<SearchBloc, SearchState>(
+            child: Container(),
+            listener: (context, state) {
+              setState(() {
+                markers.add(Marker(
+                    markerId: MarkerId('current'),
+                    position: LatLng(
+                        state.location.latitude, state.location.longitude)));
+              });
+            },
           )
         ],
       ),

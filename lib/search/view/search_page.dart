@@ -142,11 +142,8 @@ class SearchPage extends StatelessWidget {
         onPressed: () {
           Navigator.of(context).push(MaterialPageRoute(
               builder: (context) => SearchLocation(
-                    initialPosition: CameraPosition(
-                        target: LatLng(
-                            state.location.latitude, state.location.longitude),
-                        zoom: 15),
-                  )));
+                  initialPosition: LatLng(
+                      state.location.latitude, state.location.longitude))));
         },
         style: ButtonStyle(
             elevation: MaterialStateProperty.all<double>(0),
