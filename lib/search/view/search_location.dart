@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:entity/entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -108,8 +109,16 @@ class _SearchLocationState extends State<SearchLocation> {
 
   Marker _buildMarker(BuildContext context, LatLng position) {
     return Marker(
-        markerId: MarkerId('current'),
-        position: position,
-        infoWindow: InfoWindow(title: 'Select this location'));
+      markerId: MarkerId('current'),
+      position: position,
+      infoWindow: InfoWindow(
+          title: 'Select this location',
+          onTap: () {
+            BlocProvider.of<SearchBloc>(context).add(SearchUpdateLocation(
+                location: Location(
+                    latitude: position.latitude,
+                    longitude: position.longitude)));
+          }),
+    );
   }
 }
