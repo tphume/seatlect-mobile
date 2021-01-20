@@ -23,14 +23,15 @@ class _SearchLocationState extends State<SearchLocation> {
 
   @override
   void initState() {
-    markers.add(Marker(
-        markerId: MarkerId('current'), position: widget.initialPosition));
+    markers.add(_buildMarker(context, widget.initialPosition));
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+
+    _showInfo();
 
     return Scaffold(
       appBar: AppBar(
@@ -43,11 +44,17 @@ class _SearchLocationState extends State<SearchLocation> {
         centerTitle: true,
         elevation: 0,
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {},
+        label: Text('Current location'),
+        backgroundColor: theme.accentColor,
+      ),
       body: Stack(
         children: [
           GoogleMap(
             initialCameraPosition:
-                CameraPosition(target: widget.initialPosition, zoom: 15),
+                CameraPosition(target: widget.initialPosition, zoom: 17),
             zoomGesturesEnabled: true,
             onMapCreated: (GoogleMapController controller) {
               _mapController.complete(controller);
@@ -55,10 +62,11 @@ class _SearchLocationState extends State<SearchLocation> {
             markers: markers,
             onTap: (latLng) {
               setState(() {
-                markers.add(
-                    Marker(markerId: MarkerId('current'), position: latLng));
+                markers.add(_buildMarker(context, latLng));
               });
             },
+            myLocationEnabled: true,
+            myLocationButtonEnabled: false,
           ),
           Container(
             margin: EdgeInsets.only(left: 20, top: 10, right: 20, bottom: 10),
@@ -83,15 +91,25 @@ class _SearchLocationState extends State<SearchLocation> {
             child: Container(),
             listener: (context, state) {
               setState(() {
-                markers.add(Marker(
-                    markerId: MarkerId('current'),
-                    position: LatLng(
-                        state.location.latitude, state.location.longitude)));
+                markers.add(_buildMarker(context,
+                    LatLng(state.location.latitude, state.location.longitude)));
               });
             },
           )
         ],
       ),
     );
+  }
+
+  Future<void> _showInfo() async {
+    final GoogleMapController controller = await _mapController.future;
+    controller.showMarkerInfoWindow(MarkerId('current'));
+  }
+
+  Marker _buildMarker(BuildContext context, LatLng position) {
+    return Marker(
+        markerId: MarkerId('current'),
+        position: position,
+        infoWindow: InfoWindow(title: 'Select this location'));
   }
 }
