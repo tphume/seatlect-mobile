@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:seatlect_mobile/location/bloc/location_cubit.dart';
 import 'package:seatlect_mobile/search/bloc/search_bloc.dart';
 
 class SearchLocation extends StatefulWidget {
@@ -47,7 +48,9 @@ class _SearchLocationState extends State<SearchLocation> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {},
+        onPressed: () {
+          _currentLocation();
+        },
         label: Text('Current location'),
         backgroundColor: theme.accentColor,
       ),
@@ -120,5 +123,25 @@ class _SearchLocationState extends State<SearchLocation> {
                     longitude: position.longitude)));
           }),
     );
+  }
+
+  void _currentLocation() async {
+    final GoogleMapController controller = await _mapController.future;
+
+    final LocationCubit location = BlocProvider.of<LocationCubit>(context);
+    await location.getCurrentLocation();
+
+    final s = location.state;
+    if (s is LocationSelected) {
+      controller.animateCamera(CameraUpdate.newCameraPosition(
+        CameraPosition(
+          bearing: 0,
+          target: LatLng(s.location.latitude, s.location.longitude),
+          zoom: 17,
+        ),
+      ));
+    } else {
+      return;
+    }
   }
 }
