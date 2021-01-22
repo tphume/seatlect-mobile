@@ -417,7 +417,8 @@ class SearchPage extends StatelessWidget {
 
     return ElevatedButton(
       onPressed: () {
-        Navigator.of(context).push(SearchResult.route());
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (_) => SearchResult()));
       },
       child: Text('Search'),
       style: ButtonStyle(
