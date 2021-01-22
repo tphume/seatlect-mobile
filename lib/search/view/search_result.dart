@@ -100,7 +100,15 @@ class _SearchResultState extends State<SearchResult> {
                   child: CircularProgressIndicator(),
                 ),
               )
-            : _buildResult());
+            : Padding(
+                padding:
+                    EdgeInsets.only(left: 15, top: 10, right: 15, bottom: 10),
+                child: Column(
+                  children: [
+                    Expanded(child: _buildResult()),
+                  ],
+                ),
+              ));
   }
 
   Widget _buildResult() {
