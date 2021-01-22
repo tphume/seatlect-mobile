@@ -48,7 +48,9 @@ class App extends StatelessWidget {
                 create: (_) => FavoriteBloc(
                     userRepo: userRepo, businessRepo: businessRepo)),
             BlocProvider<OrderBloc>(
-                create: (_) => OrderBloc(orderRepo: orderRepo))
+                create: (_) => OrderBloc(orderRepo: orderRepo)),
+            BlocProvider<SearchBloc>(
+                create: (_) => SearchBloc(businessRepo: businessRepo))
           ],
           child: AppView(),
         ));
