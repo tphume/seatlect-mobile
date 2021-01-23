@@ -12,14 +12,14 @@ part 'search_event.dart';
 
 part 'search_state.dart';
 
-const NAME_ASC = 'Name \u{25b2}';
-const NAME_DESC = 'Name \u{25bc}';
-const LOCATION_ASC = 'Location \u{25b2}';
-const LOCATION_DESC = 'Location \u{25bc}';
-const PRICE_ASC = 'Price \u{25b2}';
-const PRICE_DESC = 'Price \u{25bc}';
-const DATE_ASC = 'Date \u{25b2}';
-const DATE_DESC = 'Date \u{25bc}';
+const NAME_ASC = 'a-Z';
+const NAME_DESC = 'Z-a';
+const LOCATION_ASC = 'Nearest';
+const LOCATION_DESC = 'Furthest';
+const PRICE_ASC = 'Highest Price';
+const PRICE_DESC = 'Lowest Price';
+const DATE_ASC = 'Date ascending';
+const DATE_DESC = 'Date descending';
 
 class SearchBloc extends Bloc<SearchEvent, SearchState> {
   final BusinessRepo businessRepo;
