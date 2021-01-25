@@ -41,12 +41,13 @@ class ListBusinessRequest extends $pb.GeneratedMessage {
         valueOf: Sort.valueOf,
         enumValues: Sort.values)
     ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
-    ..pPS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'tags')
-    ..aOM<$1.Latlng>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'location', subBuilder: $1.Latlng.create)
-    ..a<$core.int>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'startPrice', $pb.PbFieldType.O3, protoName: 'startPrice')
-    ..a<$core.int>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'endPrice', $pb.PbFieldType.O3, protoName: 'endPrice')
-    ..aOS(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'startDate', protoName: 'startDate')
-    ..aOS(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'endDate', protoName: 'endDate')
+    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'type')
+    ..pPS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'tags')
+    ..aOM<$1.Latlng>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'location', subBuilder: $1.Latlng.create)
+    ..a<$core.int>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'startPrice', $pb.PbFieldType.O3, protoName: 'startPrice')
+    ..a<$core.int>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'endPrice', $pb.PbFieldType.O3, protoName: 'endPrice')
+    ..aOS(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'startDate', protoName: 'startDate')
+    ..aOS(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'endDate', protoName: 'endDate')
     ..hasRequiredFields = false;
 
   ListBusinessRequest._() : super();
@@ -115,69 +116,81 @@ class ListBusinessRequest extends $pb.GeneratedMessage {
   void clearName() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.List<$core.String> get tags => $_getList(3);
+  $core.String get type => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set type($core.String v) {
+    $_setString(3, v);
+  }
+
+  @$pb.TagNumber(4)
+  $core.bool hasType() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearType() => clearField(4);
 
   @$pb.TagNumber(5)
-  $1.Latlng get location => $_getN(4);
-  @$pb.TagNumber(5)
+  $core.List<$core.String> get tags => $_getList(4);
+
+  @$pb.TagNumber(6)
+  $1.Latlng get location => $_getN(5);
+  @$pb.TagNumber(6)
   set location($1.Latlng v) {
-    setField(5, v);
+    setField(6, v);
   }
 
-  @$pb.TagNumber(5)
-  $core.bool hasLocation() => $_has(4);
-  @$pb.TagNumber(5)
-  void clearLocation() => clearField(5);
-  @$pb.TagNumber(5)
-  $1.Latlng ensureLocation() => $_ensure(4);
+  @$pb.TagNumber(6)
+  $core.bool hasLocation() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearLocation() => clearField(6);
+  @$pb.TagNumber(6)
+  $1.Latlng ensureLocation() => $_ensure(5);
 
-  @$pb.TagNumber(6)
-  $core.int get startPrice => $_getIZ(5);
-  @$pb.TagNumber(6)
+  @$pb.TagNumber(7)
+  $core.int get startPrice => $_getIZ(6);
+  @$pb.TagNumber(7)
   set startPrice($core.int v) {
-    $_setSignedInt32(5, v);
-  }
-
-  @$pb.TagNumber(6)
-  $core.bool hasStartPrice() => $_has(5);
-  @$pb.TagNumber(6)
-  void clearStartPrice() => clearField(6);
-
-  @$pb.TagNumber(7)
-  $core.int get endPrice => $_getIZ(6);
-  @$pb.TagNumber(7)
-  set endPrice($core.int v) {
     $_setSignedInt32(6, v);
   }
 
   @$pb.TagNumber(7)
-  $core.bool hasEndPrice() => $_has(6);
+  $core.bool hasStartPrice() => $_has(6);
   @$pb.TagNumber(7)
-  void clearEndPrice() => clearField(7);
+  void clearStartPrice() => clearField(7);
 
   @$pb.TagNumber(8)
-  $core.String get startDate => $_getSZ(7);
+  $core.int get endPrice => $_getIZ(7);
   @$pb.TagNumber(8)
-  set startDate($core.String v) {
-    $_setString(7, v);
+  set endPrice($core.int v) {
+    $_setSignedInt32(7, v);
   }
 
   @$pb.TagNumber(8)
-  $core.bool hasStartDate() => $_has(7);
+  $core.bool hasEndPrice() => $_has(7);
   @$pb.TagNumber(8)
-  void clearStartDate() => clearField(8);
+  void clearEndPrice() => clearField(8);
 
   @$pb.TagNumber(9)
-  $core.String get endDate => $_getSZ(8);
+  $core.String get startDate => $_getSZ(8);
   @$pb.TagNumber(9)
-  set endDate($core.String v) {
+  set startDate($core.String v) {
     $_setString(8, v);
   }
 
   @$pb.TagNumber(9)
-  $core.bool hasEndDate() => $_has(8);
+  $core.bool hasStartDate() => $_has(8);
   @$pb.TagNumber(9)
-  void clearEndDate() => clearField(9);
+  void clearStartDate() => clearField(9);
+
+  @$pb.TagNumber(10)
+  $core.String get endDate => $_getSZ(9);
+  @$pb.TagNumber(10)
+  set endDate($core.String v) {
+    $_setString(9, v);
+  }
+
+  @$pb.TagNumber(10)
+  $core.bool hasEndDate() => $_has(9);
+  @$pb.TagNumber(10)
+  void clearEndDate() => clearField(10);
 }
 
 class ListBusinessResponse extends $pb.GeneratedMessage {

@@ -13,6 +13,7 @@ class BusinessRepo {
 
   Future<List<Business>> ListBusiness(int limit, api.Sort sort,
       {String name,
+      String type,
       List<String> tags,
       Location location,
       int startPrice,
@@ -27,6 +28,7 @@ class BusinessRepo {
     final request = api.ListBusinessRequest()
       ..limit = limit
       ..sort = sort
+      ..type = type
       ..location = latLng
       ..startPrice = startPrice
       ..endPrice = endPrice
@@ -67,6 +69,7 @@ class BusinessRepo {
     final businesses = raw.map<Business>((b) => Business(
         id: b.id,
         name: b.name,
+        type: b.type,
         tags: b.tags,
         description: b.description,
         location: Location(

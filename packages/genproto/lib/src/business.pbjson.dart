@@ -32,19 +32,20 @@ const ListBusinessRequest$json = const {
       '10': 'sort'
     },
     const {'1': 'name', '3': 3, '4': 1, '5': 9, '10': 'name'},
-    const {'1': 'tags', '3': 4, '4': 3, '5': 9, '10': 'tags'},
+    const {'1': 'type', '3': 4, '4': 1, '5': 9, '10': 'type'},
+    const {'1': 'tags', '3': 5, '4': 3, '5': 9, '10': 'tags'},
     const {
       '1': 'location',
-      '3': 5,
+      '3': 6,
       '4': 1,
       '5': 11,
       '6': '.seatlect.Latlng',
       '10': 'location'
     },
-    const {'1': 'startPrice', '3': 6, '4': 1, '5': 5, '10': 'startPrice'},
-    const {'1': 'endPrice', '3': 7, '4': 1, '5': 5, '10': 'endPrice'},
-    const {'1': 'startDate', '3': 8, '4': 1, '5': 9, '10': 'startDate'},
-    const {'1': 'endDate', '3': 9, '4': 1, '5': 9, '10': 'endDate'},
+    const {'1': 'startPrice', '3': 7, '4': 1, '5': 5, '10': 'startPrice'},
+    const {'1': 'endPrice', '3': 8, '4': 1, '5': 5, '10': 'endPrice'},
+    const {'1': 'startDate', '3': 9, '4': 1, '5': 9, '10': 'startDate'},
+    const {'1': 'endDate', '3': 10, '4': 1, '5': 9, '10': 'endDate'},
   ],
 };
 
