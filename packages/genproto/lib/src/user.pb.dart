@@ -185,12 +185,14 @@ class SignUpRequest extends $pb.GeneratedMessage {
         2,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
-            : 'password')
+            : 'email')
     ..aOS(
         3,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
-            : 'dob')
+            : 'password')
+    ..aOS(
+        4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'dob')
     ..hasRequiredFields = false;
 
   SignUpRequest._() : super();
@@ -235,28 +237,40 @@ class SignUpRequest extends $pb.GeneratedMessage {
   void clearUsername() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.String get password => $_getSZ(1);
+  $core.String get email => $_getSZ(1);
   @$pb.TagNumber(2)
-  set password($core.String v) {
+  set email($core.String v) {
     $_setString(1, v);
   }
 
   @$pb.TagNumber(2)
-  $core.bool hasPassword() => $_has(1);
+  $core.bool hasEmail() => $_has(1);
   @$pb.TagNumber(2)
-  void clearPassword() => clearField(2);
+  void clearEmail() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.String get dob => $_getSZ(2);
+  $core.String get password => $_getSZ(2);
   @$pb.TagNumber(3)
-  set dob($core.String v) {
+  set password($core.String v) {
     $_setString(2, v);
   }
 
   @$pb.TagNumber(3)
-  $core.bool hasDob() => $_has(2);
+  $core.bool hasPassword() => $_has(2);
   @$pb.TagNumber(3)
-  void clearDob() => clearField(3);
+  void clearPassword() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get dob => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set dob($core.String v) {
+    $_setString(3, v);
+  }
+
+  @$pb.TagNumber(4)
+  $core.bool hasDob() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearDob() => clearField(4);
 }
 
 class SignUpResponse extends $pb.GeneratedMessage {

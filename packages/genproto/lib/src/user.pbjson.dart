@@ -32,8 +32,9 @@ const SignUpRequest$json = const {
   '1': 'SignUpRequest',
   '2': const [
     const {'1': 'username', '3': 1, '4': 1, '5': 9, '10': 'username'},
-    const {'1': 'password', '3': 2, '4': 1, '5': 9, '10': 'password'},
-    const {'1': 'dob', '3': 3, '4': 1, '5': 9, '10': 'dob'},
+    const {'1': 'email', '3': 2, '4': 1, '5': 9, '10': 'email'},
+    const {'1': 'password', '3': 3, '4': 1, '5': 9, '10': 'password'},
+    const {'1': 'dob', '3': 4, '4': 1, '5': 9, '10': 'dob'},
   ],
 };
 
