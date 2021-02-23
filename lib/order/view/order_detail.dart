@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:entity/entity.dart';
 import 'package:qr_flutter/qr_flutter.dart';
-import 'package:seatlect_mobile/business/business.dart';
 
 class OrderDetail extends StatelessWidget {
   final Order order;
@@ -80,11 +79,10 @@ class OrderDetail extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(5)),
                               child: GestureDetector(
                                 onTap: () {
-                                  Navigator.of(context).push(BusinessPage.route(
-                                      business: order.business));
+                                  // TODO: Route to business page
                                 },
                                 child: Text(
-                                  order.business.name,
+                                  order.name,
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
@@ -124,10 +122,7 @@ class OrderDetail extends StatelessWidget {
                           firstContent:
                               '${(order.end.difference(order.start).inHours != 0) ? '${order.end.difference(order.start).inHours} hrs' : ''} ${((order.end.difference(order.start).inMinutes % 60) != 0) ? '${order.end.difference(order.start).inMinutes} mins' : ''}',
                           secondTitle: 'Price',
-                          secondContent: '฿${order.totalPrice}'),
-                      (order.preorder.length != 0)
-                          ? _buildPreorder(context)
-                          : Container(),
+                          secondContent: '฿0'),
                       Container(
                         width: 320,
                         margin: EdgeInsets.only(top: 20),
@@ -188,30 +183,5 @@ class OrderDetail extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  Widget _buildPreorder(context) {
-    final theme = Theme.of(context);
-
-    final contentStyle = TextStyle(
-        fontWeight: FontWeight.w700, fontSize: 15, color: theme.primaryColor);
-
-    final titleStyle = TextStyle(
-        fontWeight: FontWeight.w600, fontSize: 15, color: Color(0xFF828282));
-
-    return Container(
-        margin: EdgeInsets.only(top: 20),
-        width: 320,
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text('Preorder', style: titleStyle),
-          ...order.preorder.map<Widget>((p) => Padding(
-              padding: EdgeInsets.only(left: 3),
-              child: Text(
-                'x${p.quantity} ${p.name}',
-                style: contentStyle,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-              )))
-        ]));
   }
 }

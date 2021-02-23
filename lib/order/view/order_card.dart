@@ -34,7 +34,7 @@ class OrderCard extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(10),
                   child: CachedNetworkImage(
-                    imageUrl: order.business.displayImage,
+                    imageUrl: order.image,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -51,7 +51,7 @@ class OrderCard extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            order.business.name,
+                            order.name,
                             overflow: TextOverflow.ellipsis,
                             maxLines: 1,
                             style: TextStyle(
