@@ -638,11 +638,6 @@ class OrderSeat extends $pb.GeneratedMessage {
             ? ''
             : 'space',
         $pb.PbFieldType.O3)
-    ..aOS(
-        5,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'price')
     ..hasRequiredFields = false;
 
   OrderSeat._() : super();
@@ -696,16 +691,4 @@ class OrderSeat extends $pb.GeneratedMessage {
   $core.bool hasSpace() => $_has(1);
   @$pb.TagNumber(4)
   void clearSpace() => clearField(4);
-
-  @$pb.TagNumber(5)
-  $core.String get price => $_getSZ(2);
-  @$pb.TagNumber(5)
-  set price($core.String v) {
-    $_setString(2, v);
-  }
-
-  @$pb.TagNumber(5)
-  $core.bool hasPrice() => $_has(2);
-  @$pb.TagNumber(5)
-  void clearPrice() => clearField(5);
 }

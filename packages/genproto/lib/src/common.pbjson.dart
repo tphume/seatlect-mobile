@@ -91,6 +91,5 @@ const OrderSeat$json = const {
   '2': const [
     const {'1': 'name', '3': 1, '4': 1, '5': 9, '10': 'name'},
     const {'1': 'space', '3': 4, '4': 1, '5': 5, '10': 'space'},
-    const {'1': 'price', '3': 5, '4': 1, '5': 9, '10': 'price'},
   ],
 };

@@ -46,7 +46,6 @@ Order OrderProtoToEntity(api.Order o) {
               name: s.name,
               floor: 0,
               space: s.space,
-              price: s.price,
               x: 0,
               y: 0))
           .toList(),

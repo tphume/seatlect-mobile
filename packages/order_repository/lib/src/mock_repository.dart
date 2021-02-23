@@ -21,8 +21,8 @@ class MockOrderRepo implements OrderRepo {
           start: DateTime.parse('2020-12-27T20:00:00+0700'),
           end: DateTime.parse('2020-12-27T23:00:00+0700'),
           seats: [
-            Seat(name: 'A10', floor: 0, space: 2, price: '30', x: 0, y: 0),
-            Seat(name: 'B10', floor: 0, space: 2, price: '30', x: 0, y: 0)
+            Seat(name: 'A10', floor: 0, space: 2, x: 0, y: 0),
+            Seat(name: 'B10', floor: 0, space: 2, x: 0, y: 0)
           ],
           status: 'AVAILABLE',
           image: "https://i.imgur.com/g17EY2i.jpg",
@@ -34,9 +34,7 @@ class MockOrderRepo implements OrderRepo {
           businessId: "1",
           start: DateTime.parse('2020-12-18T20:00:00+0700'),
           end: DateTime.parse('2020-12-18T23:00:00+0700'),
-          seats: [
-            Seat(name: 'A10', floor: 0, space: 2, price: '30', x: 0, y: 0)
-          ],
+          seats: [Seat(name: 'A10', floor: 0, space: 2, x: 0, y: 0)],
           status: 'USED',
           image: "https://i.imgur.com/g17EY2i.jpg",
           extraSpace: 0,
