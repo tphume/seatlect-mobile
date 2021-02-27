@@ -4,16 +4,22 @@ import 'dart:developer' as developer;
 import 'package:meta/meta.dart';
 import 'package:entity/entity.dart';
 import 'package:genproto/genproto.dart' as api;
+import 'package:token_manager/token_manager.dart';
 
 class OrderRepo {
+  TokenManager tokenManager;
+
   // Client for calling gRPC endpoint
   api.OrderServiceClient client;
 
-  OrderRepo({@required this.client}) : assert(client != null);
+  OrderRepo({@required this.client, @required this.tokenManager})
+      : assert(client != null),
+        assert(tokenManager != null);
 
   Future<List<Order>> ListOrder(int limit, int page) async {
     // Construct request object
     final request = api.ListOrderRequest()
+      ..id = tokenManager.token
       ..limit = limit
       ..page = page;
 
@@ -42,12 +48,8 @@ Order OrderProtoToEntity(api.Order o) {
       start: DateTime.parse(o.start),
       end: DateTime.parse(o.end),
       seats: o.seats
-          .map<Seat>((s) => Seat(
-              name: s.name,
-              floor: 0,
-              space: s.space,
-              x: 0,
-              y: 0))
+          .map<Seat>(
+              (s) => Seat(name: s.name, floor: 0, space: s.space, x: 0, y: 0))
           .toList(),
       status: o.status,
       image: o.image,

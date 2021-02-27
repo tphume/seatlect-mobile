@@ -56,7 +56,8 @@ const SignUpResponse$json = const {
 const AddFavoriteRequest$json = const {
   '1': 'AddFavoriteRequest',
   '2': const [
-    const {'1': 'businessId', '3': 1, '4': 1, '5': 9, '10': 'businessId'},
+    const {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
+    const {'1': 'businessId', '3': 2, '4': 1, '5': 9, '10': 'businessId'},
   ],
 };
 
@@ -67,7 +68,8 @@ const AddFavoriteResponse$json = const {
 const RemoveFavoriteRequest$json = const {
   '1': 'RemoveFavoriteRequest',
   '2': const [
-    const {'1': 'businessId', '3': 1, '4': 1, '5': 9, '10': 'businessId'},
+    const {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
+    const {'1': 'businessId', '3': 2, '4': 1, '5': 9, '10': 'businessId'},
   ],
 };
 

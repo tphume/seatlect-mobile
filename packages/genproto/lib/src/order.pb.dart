@@ -21,14 +21,19 @@ class ListOrderRequest extends $pb.GeneratedMessage {
               ? ''
               : 'seatlect'),
       createEmptyInstance: create)
-    ..a<$core.int>(
+    ..aOS(
         1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'id')
+    ..a<$core.int>(
+        2,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'limit',
         $pb.PbFieldType.O3)
     ..a<$core.int>(
-        2,
+        3,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
             : 'page',
@@ -65,28 +70,40 @@ class ListOrderRequest extends $pb.GeneratedMessage {
   static ListOrderRequest _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get limit => $_getIZ(0);
+  $core.String get id => $_getSZ(0);
   @$pb.TagNumber(1)
-  set limit($core.int v) {
-    $_setSignedInt32(0, v);
+  set id($core.String v) {
+    $_setString(0, v);
   }
 
   @$pb.TagNumber(1)
-  $core.bool hasLimit() => $_has(0);
+  $core.bool hasId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearLimit() => clearField(1);
+  void clearId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.int get page => $_getIZ(1);
+  $core.int get limit => $_getIZ(1);
   @$pb.TagNumber(2)
-  set page($core.int v) {
+  set limit($core.int v) {
     $_setSignedInt32(1, v);
   }
 
   @$pb.TagNumber(2)
-  $core.bool hasPage() => $_has(1);
+  $core.bool hasLimit() => $_has(1);
   @$pb.TagNumber(2)
-  void clearPage() => clearField(2);
+  void clearLimit() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.int get page => $_getIZ(2);
+  @$pb.TagNumber(3)
+  set page($core.int v) {
+    $_setSignedInt32(2, v);
+  }
+
+  @$pb.TagNumber(3)
+  $core.bool hasPage() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearPage() => clearField(3);
 }
 
 class ListOrderResponse extends $pb.GeneratedMessage {

@@ -1,12 +1,13 @@
 import 'dart:async';
 import 'package:entity/entity.dart';
 import 'package:genproto/genproto.dart' as api;
+import 'package:token_manager/token_manager.dart';
 
 import 'user_repository.dart';
 import 'user_exception.dart';
 
 class MockUserRepo implements UserRepo {
-  StreamController<String> tokenController;
+  TokenManager tokenManager;
 
   // Client for calling gRPC endpoint - mock doesn't actually use this
   api.UserServiceClient client;

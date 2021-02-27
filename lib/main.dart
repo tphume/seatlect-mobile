@@ -34,16 +34,16 @@ void main() async {
   // Setup repository and clients
   // TODO: Add interceptor or MetadataProvider
   final userClient = UserServiceClient(channel);
-  final userRepo =
-      UserRepo(client: userClient, tokenController: tokenManager.controller);
+  final userRepo = UserRepo(client: userClient, tokenManager: tokenManager);
 
   // TODO: Add interceptor or MetadataProvider
   final businessClient = BusinessServiceClient(channel);
-  final businessRepo = BusinessRepo(client: businessClient);
+  final businessRepo =
+      BusinessRepo(client: businessClient, tokenManager: tokenManager);
 
   // TODO: Add interceptor or MetadataProvider
   final orderClient = OrderServiceClient(channel);
-  final orderRepo = OrderRepo(client: orderClient);
+  final orderRepo = OrderRepo(client: orderClient, tokenManager: tokenManager);
 
   // Start Flutter app
   runApp(App(

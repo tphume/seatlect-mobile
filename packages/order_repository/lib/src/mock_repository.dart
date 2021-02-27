@@ -1,10 +1,14 @@
 import 'dart:async';
 
+import 'package:token_manager/token_manager.dart';
+
 import 'order_repository.dart';
 import 'package:entity/entity.dart';
 import 'package:genproto/genproto.dart' as api;
 
 class MockOrderRepo implements OrderRepo {
+  TokenManager tokenManager;
+
   // Client for calling gRPC endpoint - mock doesn't actually use this
   api.OrderServiceClient client;
 

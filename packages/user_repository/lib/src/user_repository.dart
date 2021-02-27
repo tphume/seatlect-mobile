@@ -4,6 +4,7 @@ import 'dart:developer' as developer;
 import 'package:grpc/grpc.dart';
 import 'package:grpc/grpc_connection_interface.dart';
 import 'package:meta/meta.dart';
+import 'package:token_manager/token_manager.dart';
 
 import 'user_exception.dart';
 import 'package:entity/entity.dart';
@@ -11,14 +12,14 @@ import 'package:genproto/genproto.dart' as api;
 
 class UserRepo {
   // Token manager stream used to push tokens on login
-  StreamController<String> tokenController;
+  TokenManager tokenManager;
 
   // Client for calling gRPC endpoint
   api.UserServiceClient client;
 
-  UserRepo({@required this.client, @required this.tokenController})
+  UserRepo({@required this.client, @required this.tokenManager})
       : assert(client != null),
-        assert(tokenController != null);
+        assert(tokenManager != null);
 
   Future<User> login(String username, String password) async {
     final request = api.SignInRequest()
@@ -35,7 +36,7 @@ class UserRepo {
           avatar: user.avatar,
           favorite: user.favorite);
 
-      this.tokenController.add(response.token);
+      this.tokenManager.token = response.token;
       return userEntity;
     } on GrpcError catch (e) {
       developer.log('gRPC error at login',
@@ -55,12 +56,14 @@ class UserRepo {
   }
 
   void logout() {
-    this.tokenController.add('');
+    this.tokenManager.token = "";
   }
 
   Future<void> AddFavorite(String id) async {
     // Construct request
-    final request = api.AddFavoriteRequest()..businessId = id;
+    final request = api.AddFavoriteRequest()
+      ..id = this.tokenManager.token
+      ..businessId = id;
 
     // Call api
     try {
@@ -76,7 +79,9 @@ class UserRepo {
 
   Future<void> RemoveFavorite(String id) async {
     // Construct request
-    final request = api.RemoveFavoriteRequest()..businessId = id;
+    final request = api.RemoveFavoriteRequest()
+      ..id = tokenManager.token
+      ..businessId = id;
 
     // Call api
     try {

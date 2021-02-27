@@ -4,12 +4,17 @@ import 'dart:developer' as developer;
 import 'package:meta/meta.dart';
 import 'package:entity/entity.dart';
 import 'package:genproto/genproto.dart' as api;
+import 'package:token_manager/token_manager.dart';
 
 class BusinessRepo {
+  TokenManager tokenManager;
+
   // Client for calling gRPC endpoint
   api.BusinessServiceClient client;
 
-  BusinessRepo({@required this.client}) : assert(client != null);
+  BusinessRepo({@required this.client, @required this.tokenManager})
+      : assert(client != null),
+        assert(tokenManager != null);
 
   Future<List<Business>> ListBusiness(int limit, api.Sort sort,
       {String name,

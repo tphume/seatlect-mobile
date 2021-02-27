@@ -1,10 +1,14 @@
 import 'dart:async';
 
+import 'package:token_manager/token_manager.dart';
+
 import 'business_repository.dart';
 import 'package:entity/entity.dart';
 import 'package:genproto/genproto.dart' as api;
 
 class MockBusinessRepo implements BusinessRepo {
+  TokenManager tokenManager;
+
   // Client for calling gRPC endpoint - mock doesn't actually use this
   api.BusinessServiceClient client;
 

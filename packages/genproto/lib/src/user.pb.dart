@@ -366,6 +366,11 @@ class AddFavoriteRequest extends $pb.GeneratedMessage {
         1,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
+            : 'id')
+    ..aOS(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
             : 'businessId',
         protoName: 'businessId')
     ..hasRequiredFields = false;
@@ -400,16 +405,28 @@ class AddFavoriteRequest extends $pb.GeneratedMessage {
   static AddFavoriteRequest _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.String get businessId => $_getSZ(0);
+  $core.String get id => $_getSZ(0);
   @$pb.TagNumber(1)
-  set businessId($core.String v) {
+  set id($core.String v) {
     $_setString(0, v);
   }
 
   @$pb.TagNumber(1)
-  $core.bool hasBusinessId() => $_has(0);
+  $core.bool hasId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearBusinessId() => clearField(1);
+  void clearId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get businessId => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set businessId($core.String v) {
+    $_setString(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasBusinessId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearBusinessId() => clearField(2);
 }
 
 class AddFavoriteResponse extends $pb.GeneratedMessage {
@@ -468,6 +485,11 @@ class RemoveFavoriteRequest extends $pb.GeneratedMessage {
         1,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
+            : 'id')
+    ..aOS(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
             : 'businessId',
         protoName: 'businessId')
     ..hasRequiredFields = false;
@@ -504,16 +526,28 @@ class RemoveFavoriteRequest extends $pb.GeneratedMessage {
   static RemoveFavoriteRequest _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.String get businessId => $_getSZ(0);
+  $core.String get id => $_getSZ(0);
   @$pb.TagNumber(1)
-  set businessId($core.String v) {
+  set id($core.String v) {
     $_setString(0, v);
   }
 
   @$pb.TagNumber(1)
-  $core.bool hasBusinessId() => $_has(0);
+  $core.bool hasId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearBusinessId() => clearField(1);
+  void clearId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get businessId => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set businessId($core.String v) {
+    $_setString(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasBusinessId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearBusinessId() => clearField(2);
 }
 
 class RemoveFavoriteResponse extends $pb.GeneratedMessage {
