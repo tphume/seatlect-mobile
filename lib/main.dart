@@ -13,7 +13,7 @@ import 'package:user_repository/user_repository.dart';
 // Production version of the application
 void main() async {
   // Get configurations from environment
-  final host = String.fromEnvironment('HOST');
+  const host = String.fromEnvironment('HOST');
   if (host.isEmpty) {
     dev.log('missing gRPC hostname', time: DateTime.now(), name: 'main');
     return;
@@ -21,7 +21,8 @@ void main() async {
 
   int port;
   try {
-    port = int.parse(String.fromEnvironment('PORT'));
+    const tmp = String.fromEnvironment('PORT');
+    port = int.parse(tmp);
   } catch (e) {
     dev.log('invalid gRPC port ', time: DateTime.now(), name: 'main', error: e);
     return;
