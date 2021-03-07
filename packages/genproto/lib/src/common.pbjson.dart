@@ -93,3 +93,48 @@ const OrderSeat$json = const {
     const {'1': 'space', '3': 4, '4': 1, '5': 5, '10': 'space'},
   ],
 };
+
+const ReservationSeat$json = const {
+  '1': 'ReservationSeat',
+  '2': const [
+    const {'1': 'name', '3': 1, '4': 1, '5': 9, '10': 'name'},
+    const {'1': 'floor', '3': 2, '4': 1, '5': 5, '10': 'floor'},
+    const {'1': 'type', '3': 3, '4': 1, '5': 9, '10': 'type'},
+    const {'1': 'space', '3': 4, '4': 1, '5': 5, '10': 'space'},
+    const {'1': 'user', '3': 5, '4': 1, '5': 9, '10': 'user'},
+    const {'1': 'status', '3': 6, '4': 1, '5': 9, '10': 'status'},
+    const {'1': 'x', '3': 7, '4': 1, '5': 1, '10': 'x'},
+    const {'1': 'y', '3': 8, '4': 1, '5': 1, '10': 'y'},
+    const {'1': 'width', '3': 9, '4': 1, '5': 1, '10': 'width'},
+    const {'1': 'height', '3': 10, '4': 1, '5': 1, '10': 'height'},
+    const {'1': 'rotation', '3': 11, '4': 1, '5': 1, '10': 'rotation'},
+  ],
+};
+
+const Reservation$json = const {
+  '1': 'Reservation',
+  '2': const [
+    const {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
+    const {'1': 'businessId', '3': 2, '4': 1, '5': 9, '10': 'businessId'},
+    const {'1': 'name', '3': 3, '4': 1, '5': 9, '10': 'name'},
+    const {'1': 'start', '3': 4, '4': 1, '5': 9, '10': 'start'},
+    const {'1': 'end', '3': 5, '4': 1, '5': 9, '10': 'end'},
+    const {
+      '1': 'placement',
+      '3': 6,
+      '4': 1,
+      '5': 11,
+      '6': '.seatlect.ReservationSeat',
+      '10': 'placement'
+    },
+    const {
+      '1': 'menu',
+      '3': 7,
+      '4': 3,
+      '5': 11,
+      '6': '.seatlect.MenuItem',
+      '10': 'menu'
+    },
+    const {'1': 'image', '3': 8, '4': 1, '5': 9, '10': 'image'},
+  ],
+};

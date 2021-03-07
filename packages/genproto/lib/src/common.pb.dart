@@ -692,3 +692,349 @@ class OrderSeat extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearSpace() => clearField(4);
 }
+
+class ReservationSeat extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'ReservationSeat',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'seatlect'),
+      createEmptyInstance: create)
+    ..aOS(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'name')
+    ..a<$core.int>(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'floor',
+        $pb.PbFieldType.O3)
+    ..aOS(
+        3,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'type')
+    ..a<$core.int>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'space', $pb.PbFieldType.O3)
+    ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'user')
+    ..aOS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'status')
+    ..a<$core.double>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'x', $pb.PbFieldType.OD)
+    ..a<$core.double>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'y', $pb.PbFieldType.OD)
+    ..a<$core.double>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'width', $pb.PbFieldType.OD)
+    ..a<$core.double>(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'height', $pb.PbFieldType.OD)
+    ..a<$core.double>(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'rotation', $pb.PbFieldType.OD)
+    ..hasRequiredFields = false;
+
+  ReservationSeat._() : super();
+  factory ReservationSeat() => create();
+  factory ReservationSeat.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory ReservationSeat.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  ReservationSeat clone() => ReservationSeat()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  ReservationSeat copyWith(void Function(ReservationSeat) updates) =>
+      super.copyWith((message) =>
+          updates(message as ReservationSeat)); // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static ReservationSeat create() => ReservationSeat._();
+  ReservationSeat createEmptyInstance() => create();
+  static $pb.PbList<ReservationSeat> createRepeated() =>
+      $pb.PbList<ReservationSeat>();
+  @$core.pragma('dart2js:noInline')
+  static ReservationSeat getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ReservationSeat>(create);
+  static ReservationSeat _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get name => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set name($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasName() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearName() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.int get floor => $_getIZ(1);
+  @$pb.TagNumber(2)
+  set floor($core.int v) {
+    $_setSignedInt32(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasFloor() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearFloor() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get type => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set type($core.String v) {
+    $_setString(2, v);
+  }
+
+  @$pb.TagNumber(3)
+  $core.bool hasType() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearType() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.int get space => $_getIZ(3);
+  @$pb.TagNumber(4)
+  set space($core.int v) {
+    $_setSignedInt32(3, v);
+  }
+
+  @$pb.TagNumber(4)
+  $core.bool hasSpace() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearSpace() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.String get user => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set user($core.String v) {
+    $_setString(4, v);
+  }
+
+  @$pb.TagNumber(5)
+  $core.bool hasUser() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearUser() => clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.String get status => $_getSZ(5);
+  @$pb.TagNumber(6)
+  set status($core.String v) {
+    $_setString(5, v);
+  }
+
+  @$pb.TagNumber(6)
+  $core.bool hasStatus() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearStatus() => clearField(6);
+
+  @$pb.TagNumber(7)
+  $core.double get x => $_getN(6);
+  @$pb.TagNumber(7)
+  set x($core.double v) {
+    $_setDouble(6, v);
+  }
+
+  @$pb.TagNumber(7)
+  $core.bool hasX() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearX() => clearField(7);
+
+  @$pb.TagNumber(8)
+  $core.double get y => $_getN(7);
+  @$pb.TagNumber(8)
+  set y($core.double v) {
+    $_setDouble(7, v);
+  }
+
+  @$pb.TagNumber(8)
+  $core.bool hasY() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearY() => clearField(8);
+
+  @$pb.TagNumber(9)
+  $core.double get width => $_getN(8);
+  @$pb.TagNumber(9)
+  set width($core.double v) {
+    $_setDouble(8, v);
+  }
+
+  @$pb.TagNumber(9)
+  $core.bool hasWidth() => $_has(8);
+  @$pb.TagNumber(9)
+  void clearWidth() => clearField(9);
+
+  @$pb.TagNumber(10)
+  $core.double get height => $_getN(9);
+  @$pb.TagNumber(10)
+  set height($core.double v) {
+    $_setDouble(9, v);
+  }
+
+  @$pb.TagNumber(10)
+  $core.bool hasHeight() => $_has(9);
+  @$pb.TagNumber(10)
+  void clearHeight() => clearField(10);
+
+  @$pb.TagNumber(11)
+  $core.double get rotation => $_getN(10);
+  @$pb.TagNumber(11)
+  set rotation($core.double v) {
+    $_setDouble(10, v);
+  }
+
+  @$pb.TagNumber(11)
+  $core.bool hasRotation() => $_has(10);
+  @$pb.TagNumber(11)
+  void clearRotation() => clearField(11);
+}
+
+class Reservation extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      const $core.bool.fromEnvironment('protobuf.omit_message_names')
+          ? ''
+          : 'Reservation',
+      package: const $pb.PackageName(
+          const $core.bool.fromEnvironment('protobuf.omit_message_names')
+              ? ''
+              : 'seatlect'),
+      createEmptyInstance: create)
+    ..aOS(
+        1,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'id')
+    ..aOS(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'businessId',
+        protoName: 'businessId')
+    ..aOS(
+        3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
+    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'start')
+    ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'end')
+    ..aOM<ReservationSeat>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'placement', subBuilder: ReservationSeat.create)
+    ..pc<MenuItem>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'menu', $pb.PbFieldType.PM, subBuilder: MenuItem.create)
+    ..aOS(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'image')
+    ..hasRequiredFields = false;
+
+  Reservation._() : super();
+  factory Reservation() => create();
+  factory Reservation.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory Reservation.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  Reservation clone() => Reservation()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  Reservation copyWith(void Function(Reservation) updates) =>
+      super.copyWith((message) =>
+          updates(message as Reservation)); // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static Reservation create() => Reservation._();
+  Reservation createEmptyInstance() => create();
+  static $pb.PbList<Reservation> createRepeated() => $pb.PbList<Reservation>();
+  @$core.pragma('dart2js:noInline')
+  static Reservation getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<Reservation>(create);
+  static Reservation _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get id => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set id($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get businessId => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set businessId($core.String v) {
+    $_setString(1, v);
+  }
+
+  @$pb.TagNumber(2)
+  $core.bool hasBusinessId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearBusinessId() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get name => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set name($core.String v) {
+    $_setString(2, v);
+  }
+
+  @$pb.TagNumber(3)
+  $core.bool hasName() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearName() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get start => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set start($core.String v) {
+    $_setString(3, v);
+  }
+
+  @$pb.TagNumber(4)
+  $core.bool hasStart() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearStart() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.String get end => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set end($core.String v) {
+    $_setString(4, v);
+  }
+
+  @$pb.TagNumber(5)
+  $core.bool hasEnd() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearEnd() => clearField(5);
+
+  @$pb.TagNumber(6)
+  ReservationSeat get placement => $_getN(5);
+  @$pb.TagNumber(6)
+  set placement(ReservationSeat v) {
+    setField(6, v);
+  }
+
+  @$pb.TagNumber(6)
+  $core.bool hasPlacement() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearPlacement() => clearField(6);
+  @$pb.TagNumber(6)
+  ReservationSeat ensurePlacement() => $_ensure(5);
+
+  @$pb.TagNumber(7)
+  $core.List<MenuItem> get menu => $_getList(6);
+
+  @$pb.TagNumber(8)
+  $core.String get image => $_getSZ(7);
+  @$pb.TagNumber(8)
+  set image($core.String v) {
+    $_setString(7, v);
+  }
+
+  @$pb.TagNumber(8)
+  $core.bool hasImage() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearImage() => clearField(8);
+}

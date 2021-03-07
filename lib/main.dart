@@ -1,4 +1,4 @@
-import 'dart:developer' as dev;
+import 'dart:developer' as developer;
 
 import 'package:business_repository/business_repository.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +15,7 @@ void main() async {
   // Get configurations from environment
   const host = String.fromEnvironment('HOST');
   if (host.isEmpty) {
-    dev.log('missing gRPC hostname', time: DateTime.now(), name: 'main');
+    developer.log('missing gRPC hostname', time: DateTime.now(), name: 'main');
     return;
   }
 
@@ -24,26 +24,33 @@ void main() async {
     const tmp = String.fromEnvironment('PORT');
     port = int.parse(tmp);
   } catch (e) {
-    dev.log('invalid gRPC port ', time: DateTime.now(), name: 'main', error: e);
+    developer.log('invalid gRPC port ',
+        time: DateTime.now(), name: 'main', error: e);
     return;
   }
 
   // Configure gRPC client channel
-  final channel = ClientChannel(host, port: port);
+  final channel = ClientChannel(host,
+      port: port,
+      options:
+          const ChannelOptions(credentials: ChannelCredentials.insecure()));
   final tokenManager = TokenManager();
 
   // Setup repository and clients
   // TODO: Add interceptor or MetadataProvider
-  final userClient = UserServiceClient(channel);
+  final userClient = UserServiceClient(channel,
+      options: CallOptions(timeout: Duration(seconds: 15)));
   final userRepo = UserRepo(client: userClient, tokenManager: tokenManager);
 
   // TODO: Add interceptor or MetadataProvider
-  final businessClient = BusinessServiceClient(channel);
+  final businessClient = BusinessServiceClient(channel,
+      options: CallOptions(timeout: Duration(seconds: 15)));
   final businessRepo =
       BusinessRepo(client: businessClient, tokenManager: tokenManager);
 
   // TODO: Add interceptor or MetadataProvider
-  final orderClient = OrderServiceClient(channel);
+  final orderClient = OrderServiceClient(channel,
+      options: CallOptions(timeout: Duration(seconds: 15)));
   final orderRepo = OrderRepo(client: orderClient, tokenManager: tokenManager);
 
   // Start Flutter app
