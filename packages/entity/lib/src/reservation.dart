@@ -14,13 +14,13 @@ class Reservation extends Equatable {
 
   Reservation(
       {@required this.id,
-      this.businessId,
-      this.name,
-      this.start,
-      this.end,
-      this.placement,
-      this.menu,
-      this.image})
+      @required this.businessId,
+      @required this.name,
+      @required this.start,
+      @required this.end,
+      @required this.placement,
+      @required this.menu,
+      @required this.image})
       : assert(id != null),
         assert(businessId != null),
         assert(name != null),
