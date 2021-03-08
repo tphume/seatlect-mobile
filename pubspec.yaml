@@ -34,6 +34,8 @@ dependencies:
     path: packages/business_repository
   order_repository:
     path: packages/order_repository
+  reservation_repository:
+    path: packages/reservation_repository
   genproto:
     path: packages/genproto
   token_manager:
