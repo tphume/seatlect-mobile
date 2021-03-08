@@ -916,7 +916,7 @@ class Reservation extends $pb.GeneratedMessage {
         3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
     ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'start')
     ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'end')
-    ..aOM<ReservationSeat>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'placement', subBuilder: ReservationSeat.create)
+    ..pc<ReservationSeat>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'placement', $pb.PbFieldType.PM, subBuilder: ReservationSeat.create)
     ..pc<MenuItem>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'menu', $pb.PbFieldType.PM, subBuilder: MenuItem.create)
     ..aOS(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'image')
     ..hasRequiredFields = false;
@@ -1010,18 +1010,7 @@ class Reservation extends $pb.GeneratedMessage {
   void clearEnd() => clearField(5);
 
   @$pb.TagNumber(6)
-  ReservationSeat get placement => $_getN(5);
-  @$pb.TagNumber(6)
-  set placement(ReservationSeat v) {
-    setField(6, v);
-  }
-
-  @$pb.TagNumber(6)
-  $core.bool hasPlacement() => $_has(5);
-  @$pb.TagNumber(6)
-  void clearPlacement() => clearField(6);
-  @$pb.TagNumber(6)
-  ReservationSeat ensurePlacement() => $_ensure(5);
+  $core.List<ReservationSeat> get placement => $_getList(5);
 
   @$pb.TagNumber(7)
   $core.List<MenuItem> get menu => $_getList(6);

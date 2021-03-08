@@ -122,7 +122,7 @@ const Reservation$json = const {
     const {
       '1': 'placement',
       '3': 6,
-      '4': 1,
+      '4': 3,
       '5': 11,
       '6': '.seatlect.ReservationSeat',
       '10': 'placement'
