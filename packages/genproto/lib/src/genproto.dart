@@ -12,3 +12,6 @@ export 'business.pbgrpc.dart';
 
 // Order service
 export 'order.pbgrpc.dart';
+
+// Reservation service
+export 'reservation.pbgrpc.dart';
