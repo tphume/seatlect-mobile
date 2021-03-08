@@ -21,16 +21,16 @@ class ListReservationRequest extends $pb.GeneratedMessage {
               ? ''
               : 'seatlect'),
       createEmptyInstance: create)
-    ..pc<$1.Reservation>(
+    ..aOS(
         1,
         const $core.bool.fromEnvironment('protobuf.omit_field_names')
             ? ''
-            : 'reservation',
-        $pb.PbFieldType.PM,
-        subBuilder: $1.Reservation.create)
-    ..aOS(2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'start')
-    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'end')
+            : 'start')
+    ..aOS(
+        2,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names')
+            ? ''
+            : 'end')
     ..hasRequiredFields = false;
 
   ListReservationRequest._() : super();
@@ -65,31 +65,28 @@ class ListReservationRequest extends $pb.GeneratedMessage {
   static ListReservationRequest _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.List<$1.Reservation> get reservation => $_getList(0);
+  $core.String get start => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set start($core.String v) {
+    $_setString(0, v);
+  }
+
+  @$pb.TagNumber(1)
+  $core.bool hasStart() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearStart() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.String get start => $_getSZ(1);
+  $core.String get end => $_getSZ(1);
   @$pb.TagNumber(2)
-  set start($core.String v) {
+  set end($core.String v) {
     $_setString(1, v);
   }
 
   @$pb.TagNumber(2)
-  $core.bool hasStart() => $_has(1);
+  $core.bool hasEnd() => $_has(1);
   @$pb.TagNumber(2)
-  void clearStart() => clearField(2);
-
-  @$pb.TagNumber(3)
-  $core.String get end => $_getSZ(2);
-  @$pb.TagNumber(3)
-  set end($core.String v) {
-    $_setString(2, v);
-  }
-
-  @$pb.TagNumber(3)
-  $core.bool hasEnd() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearEnd() => clearField(3);
+  void clearEnd() => clearField(2);
 }
 
 class ListReservationResponse extends $pb.GeneratedMessage {
