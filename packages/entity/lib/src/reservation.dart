@@ -12,14 +12,15 @@ class Reservation extends Equatable {
   final List<MenuItem> menu;
   final String image;
 
-  Reservation({@required this.id,
-    this.businessId,
-    this.name,
-    this.start,
-    this.end,
-    this.placement,
-    this.menu,
-    this.image})
+  Reservation(
+      {@required this.id,
+      this.businessId,
+      this.name,
+      this.start,
+      this.end,
+      this.placement,
+      this.menu,
+      this.image})
       : assert(id != null),
         assert(businessId != null),
         assert(name != null),
@@ -31,6 +32,6 @@ class Reservation extends Equatable {
 
   @override
   List<Object> get props {
-    return [id, businessId, name, start, end, placement, menu, image]
+    return [id, businessId, name, start, end, placement, menu, image];
   }
 }
