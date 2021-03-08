@@ -5,3 +5,4 @@ export 'location.dart';
 export 'menu_item.dart';
 export 'preorder.dart';
 export 'seat.dart';
+export 'reservation.dart';
