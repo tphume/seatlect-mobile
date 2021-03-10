@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:order_repository/order_repository.dart';
+import 'package:reservation_repository/reservation_repository.dart';
 import 'package:seatlect_mobile/favorites/bloc/favorite_bloc.dart';
 
 import 'package:seatlect_mobile/favorites/favorites.dart';
@@ -20,15 +21,18 @@ class App extends StatelessWidget {
   final UserRepo userRepo;
   final BusinessRepo businessRepo;
   final OrderRepo orderRepo;
+  final ReservationRepo resRepo;
 
   const App(
       {Key key,
       @required this.userRepo,
       @required this.businessRepo,
-      @required this.orderRepo})
+      @required this.orderRepo,
+      @required this.resRepo})
       : assert(userRepo != null),
         assert(businessRepo != null),
         assert(orderRepo != null),
+        assert(resRepo != null),
         super(key: key);
 
   @override
@@ -36,7 +40,8 @@ class App extends StatelessWidget {
     return MultiRepositoryProvider(
         providers: [
           RepositoryProvider<UserRepo>(create: (_) => this.userRepo),
-          RepositoryProvider<BusinessRepo>(create: (_) => this.businessRepo)
+          RepositoryProvider<BusinessRepo>(create: (_) => this.businessRepo),
+          RepositoryProvider<ReservationRepo>(create: (_) => this.resRepo)
         ],
         child: MultiBlocProvider(
           providers: [
