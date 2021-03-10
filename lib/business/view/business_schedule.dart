@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:reservation_repository/reservation_repository.dart';
+import 'package:seatlect_mobile/components/reservation_card.dart';
 
 class BusinessSchedule extends StatefulWidget {
   final DateTime start;
@@ -73,6 +74,14 @@ class _BusinessScheduleState extends State<BusinessSchedule> {
   }
 
   Widget _buildResult() {
-    return ListView(children: []);
+    return ListView(
+      children: reservation
+          .map<Widget>((r) => Container(
+              margin: EdgeInsets.only(bottom: 15),
+              child: ReservationCard(
+                reservation: r,
+              )))
+          .toList(),
+    );
   }
 }
