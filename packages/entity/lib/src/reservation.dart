@@ -9,7 +9,6 @@ class Reservation extends Equatable {
   final DateTime start;
   final DateTime end;
   final List<ReservationSeat> placement;
-  final List<MenuItem> menu;
   final String image;
 
   Reservation(
@@ -19,7 +18,6 @@ class Reservation extends Equatable {
       @required this.start,
       @required this.end,
       @required this.placement,
-      @required this.menu,
       @required this.image})
       : assert(id != null),
         assert(businessId != null),
@@ -27,11 +25,10 @@ class Reservation extends Equatable {
         assert(start != null),
         assert(end != null),
         assert(placement != null),
-        assert(menu != null),
         assert(image != null);
 
   @override
   List<Object> get props {
-    return [id, businessId, name, start, end, placement, menu, image];
+    return [id, businessId, name, start, end, placement, image];
   }
 }

@@ -912,13 +912,12 @@ class Reservation extends $pb.GeneratedMessage {
             ? ''
             : 'businessId',
         protoName: 'businessId')
-    ..aOS(
-        3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
+    ..aOS(3,
+        const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
     ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'start')
     ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'end')
     ..pc<ReservationSeat>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'placement', $pb.PbFieldType.PM, subBuilder: ReservationSeat.create)
-    ..pc<MenuItem>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'menu', $pb.PbFieldType.PM, subBuilder: MenuItem.create)
-    ..aOS(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'image')
+    ..aOS(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'image')
     ..hasRequiredFields = false;
 
   Reservation._() : super();
@@ -1013,17 +1012,14 @@ class Reservation extends $pb.GeneratedMessage {
   $core.List<ReservationSeat> get placement => $_getList(5);
 
   @$pb.TagNumber(7)
-  $core.List<MenuItem> get menu => $_getList(6);
-
-  @$pb.TagNumber(8)
-  $core.String get image => $_getSZ(7);
-  @$pb.TagNumber(8)
+  $core.String get image => $_getSZ(6);
+  @$pb.TagNumber(7)
   set image($core.String v) {
-    $_setString(7, v);
+    $_setString(6, v);
   }
 
-  @$pb.TagNumber(8)
-  $core.bool hasImage() => $_has(7);
-  @$pb.TagNumber(8)
-  void clearImage() => clearField(8);
+  @$pb.TagNumber(7)
+  $core.bool hasImage() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearImage() => clearField(7);
 }

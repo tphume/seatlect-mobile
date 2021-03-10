@@ -27,32 +27,6 @@ class MockReservationRepo implements ReservationRepo {
           start: DateTime.parse('2021-06-01T20:00:00+0700'),
           end: DateTime.parse('2021-06-01T23:00:00+0700'),
           placement: [],
-          menu: [
-            MenuItem(
-                name: 'Fries',
-                description:
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
-                image: 'https://i.imgur.com/rXjqn0y.jpeg',
-                price: '10'),
-            MenuItem(
-                name: 'Fries',
-                description:
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
-                image: 'https://i.imgur.com/rXjqn0y.jpeg',
-                price: '10'),
-            MenuItem(
-                name: 'Fries',
-                description:
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
-                image: 'https://i.imgur.com/rXjqn0y.jpeg',
-                price: '10'),
-            MenuItem(
-                name: 'Fries',
-                description:
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
-                image: 'https://i.imgur.com/rXjqn0y.jpeg',
-                price: '10')
-          ],
           image: 'https://i.imgur.com/rXjqn0y.jpeg'),
       Reservation(
           id: "138",
@@ -61,32 +35,6 @@ class MockReservationRepo implements ReservationRepo {
           start: DateTime.parse('2021-06-02T20:00:00+0700'),
           end: DateTime.parse('2021-06-02T23:00:00+0700'),
           placement: [],
-          menu: [
-            MenuItem(
-                name: 'Fries',
-                description:
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
-                image: 'https://i.imgur.com/rXjqn0y.jpeg',
-                price: '10'),
-            MenuItem(
-                name: 'Fries',
-                description:
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
-                image: 'https://i.imgur.com/rXjqn0y.jpeg',
-                price: '10'),
-            MenuItem(
-                name: 'Fries',
-                description:
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
-                image: 'https://i.imgur.com/rXjqn0y.jpeg',
-                price: '10'),
-            MenuItem(
-                name: 'Fries',
-                description:
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
-                image: 'https://i.imgur.com/rXjqn0y.jpeg',
-                price: '10')
-          ],
           image: 'https://i.imgur.com/rXjqn0y.jpeg'),
       Reservation(
           id: "139",
@@ -95,32 +43,6 @@ class MockReservationRepo implements ReservationRepo {
           start: DateTime.parse('2021-06-03T20:00:00+0700'),
           end: DateTime.parse('2021-06-03T23:00:00+0700'),
           placement: [],
-          menu: [
-            MenuItem(
-                name: 'Fries',
-                description:
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
-                image: 'https://i.imgur.com/rXjqn0y.jpeg',
-                price: '10'),
-            MenuItem(
-                name: 'Fries',
-                description:
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
-                image: 'https://i.imgur.com/rXjqn0y.jpeg',
-                price: '10'),
-            MenuItem(
-                name: 'Fries',
-                description:
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
-                image: 'https://i.imgur.com/rXjqn0y.jpeg',
-                price: '10'),
-            MenuItem(
-                name: 'Fries',
-                description:
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ...',
-                image: 'https://i.imgur.com/rXjqn0y.jpeg',
-                price: '10')
-          ],
           image: 'https://i.imgur.com/rXjqn0y.jpeg')
     ];
   }

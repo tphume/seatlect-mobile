@@ -48,7 +48,6 @@ Reservation ReservationProtoToEntity(api.Reservation r) {
       end: DateTime.parse(r.end),
       placement:
           r.placement.map((rs) => ReservationSeatProtoToEntity(rs)).toList(),
-      menu: r.menu.map((mi) => MenuItemProtoToEntity(mi)).toList(),
       image: r.image);
 }
 
@@ -65,12 +64,4 @@ ReservationSeat ReservationSeatProtoToEntity(api.ReservationSeat rs) {
       width: rs.width,
       height: rs.height,
       rotation: rs.rotation);
-}
-
-MenuItem MenuItemProtoToEntity(api.MenuItem mi) {
-  return MenuItem(
-      name: mi.name,
-      description: mi.description,
-      image: mi.image,
-      price: mi.price);
 }

@@ -127,14 +127,6 @@ const Reservation$json = const {
       '6': '.seatlect.ReservationSeat',
       '10': 'placement'
     },
-    const {
-      '1': 'menu',
-      '3': 7,
-      '4': 3,
-      '5': 11,
-      '6': '.seatlect.MenuItem',
-      '10': 'menu'
-    },
-    const {'1': 'image', '3': 8, '4': 1, '5': 9, '10': 'image'},
+    const {'1': 'image', '3': 7, '4': 1, '5': 9, '10': 'image'},
   ],
 };
