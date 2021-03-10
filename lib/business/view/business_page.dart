@@ -3,6 +3,7 @@ import 'package:entity/entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:seatlect_mobile/business/view/business_schedule.dart';
 
 import 'package:seatlect_mobile/components/menuItemCard.dart';
 import 'package:seatlect_mobile/favorites/bloc/favorite_bloc.dart';
@@ -35,7 +36,10 @@ class BusinessPage extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: null,
+        onPressed: () {
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (_) => BusinessSchedule()));
+        },
         label: Container(
           width: 300,
           child: Text(

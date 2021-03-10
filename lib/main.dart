@@ -56,7 +56,7 @@ void main() async {
 
   final resClient = ReservationServiceClient(channel,
       options: CallOptions(timeout: Duration(seconds: 15)));
-  final resRepo = ReservationRepo(client: resClient, tokenManager: tokenManager)
+  final resRepo = ReservationRepo(client: resClient, tokenManager: tokenManager);
 
   // Start Flutter app
   runApp(App(
