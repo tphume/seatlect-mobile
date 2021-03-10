@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:entity/entity.dart';
 import 'package:flutter/material.dart';
 import 'package:seatlect_mobile/order/view/order_detail.dart';
+import 'package:intl/intl.dart';
 
 final weekdays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
@@ -86,6 +87,6 @@ class OrderCard extends StatelessWidget {
   }
 
   String _buildDate(DateTime d) {
-    return '${weekdays[d.weekday - 1]}. ${d.day}-${d.month}-${d.year}';
+    return DateFormat.yMMMd("en_US").add_Hm().format(d);
   }
 }

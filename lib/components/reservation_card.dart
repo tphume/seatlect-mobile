@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:entity/entity.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 final weekdays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
@@ -93,6 +94,6 @@ class ReservationCard extends StatelessWidget {
   }
 
   String _buildDate(DateTime d) {
-    return '${weekdays[d.weekday - 1]} ${d.day}-${d.month}-${d.year} ${d.hour}:${d.minute}';
+    return DateFormat.yMMMd("en_US").add_Hm().format(d);
   }
 }
