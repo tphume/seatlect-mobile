@@ -8,8 +8,9 @@
 const ListReservationRequest$json = const {
   '1': 'ListReservationRequest',
   '2': const [
-    const {'1': 'start', '3': 1, '4': 1, '5': 9, '10': 'start'},
-    const {'1': 'end', '3': 2, '4': 1, '5': 9, '10': 'end'},
+    const {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
+    const {'1': 'start', '3': 2, '4': 1, '5': 9, '10': 'start'},
+    const {'1': 'end', '3': 3, '4': 1, '5': 9, '10': 'end'},
   ],
 };
 

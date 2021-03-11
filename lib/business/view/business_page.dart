@@ -37,8 +37,8 @@ class BusinessPage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
-          Navigator.of(context)
-              .push(MaterialPageRoute(builder: (_) => BusinessSchedule()));
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (_) => BusinessSchedule(id: business.id)));
         },
         label: Container(
           width: 300,

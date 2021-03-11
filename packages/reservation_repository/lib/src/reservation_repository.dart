@@ -17,8 +17,9 @@ class ReservationRepo {
         assert(tokenManager != null);
 
   Future<List<Reservation>> ListReservation(
-      DateTime start, DateTime end) async {
+      String id, DateTime start, DateTime end) async {
     final request = api.ListReservationRequest()
+      ..id = id
       ..start = start.toIso8601String()
       ..end = end.toIso8601String();
 

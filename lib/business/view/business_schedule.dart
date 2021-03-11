@@ -6,10 +6,12 @@ import 'package:reservation_repository/reservation_repository.dart';
 import 'package:seatlect_mobile/components/reservation_card.dart';
 
 class BusinessSchedule extends StatefulWidget {
+  final String id;
   final DateTime start;
   final DateTime end;
 
-  const BusinessSchedule({Key key, this.start, this.end}) : super(key: key);
+  const BusinessSchedule({Key key, this.id, this.start, this.end})
+      : super(key: key);
 
   @override
   _BusinessScheduleState createState() => _BusinessScheduleState();
@@ -25,7 +27,8 @@ class _BusinessScheduleState extends State<BusinessSchedule> {
 
     () async {
       try {
-        final r = await resRepo.ListReservation(widget.start, widget.end);
+        final r =
+            await resRepo.ListReservation(widget.id, widget.start, widget.end);
 
         setState(() {
           loading = false;

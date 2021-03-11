@@ -34,7 +34,7 @@ void main() async {
   final channel = ClientChannel(host,
       port: port,
       options:
-      const ChannelOptions(credentials: ChannelCredentials.insecure()));
+          const ChannelOptions(credentials: ChannelCredentials.insecure()));
   final tokenManager = TokenManager();
 
   // Setup repository and clients
@@ -47,7 +47,7 @@ void main() async {
   final businessClient = BusinessServiceClient(channel,
       options: CallOptions(timeout: Duration(seconds: 15)));
   final businessRepo =
-  BusinessRepo(client: businessClient, tokenManager: tokenManager);
+      BusinessRepo(client: businessClient, tokenManager: tokenManager);
 
   // TODO: Add interceptor or MetadataProvider
   final orderClient = OrderServiceClient(channel,
@@ -56,7 +56,8 @@ void main() async {
 
   final resClient = ReservationServiceClient(channel,
       options: CallOptions(timeout: Duration(seconds: 15)));
-  final resRepo = ReservationRepo(client: resClient, tokenManager: tokenManager);
+  final resRepo =
+      ReservationRepo(client: resClient, tokenManager: tokenManager);
 
   // Start Flutter app
   runApp(App(
